@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.6.0b3"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='TXT_ADMIN_SETTINGS_GALLERY_FB_SYNC'>
+	<tuv xml:lang="ru"><seg><![CDATA[модуль может синхронизировать альбомы указанных страниц]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[module can sync albums of this pages]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_SETTINGS_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить изменять &laquo;Настройки&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to change &laquo;Settings&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_SETTINGS_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать &laquo;Настройки&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view &laquo;Settings&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Настройки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Settings]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_BD_CHANGE_BTN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Change parameters]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_CACHE_DISABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отключить механизм кэширования]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Disable caching]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_CACHE_LIFETIME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Срок жизни кэша]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Cache lifetime]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_DEFAULT_EMAIL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Email администратора:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Email of the administrator:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_DEFAULT_LNG'>
+	<tuv xml:lang="ru"><seg><![CDATA[Язык по-умолчанию]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Default language]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_FACEBOOK_APIKEY'>
+	<tuv xml:lang="ru"><seg><![CDATA[ID Приложения]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Application ID]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_FACEBOOK_DISABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отключить интеграцию с Facebook]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Disable Facebook Connect]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_FACEBOOK_SECRET'>
+	<tuv xml:lang="ru"><seg><![CDATA[ Secret ключ]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Secret key]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_FACEBOOK_SYNC_DISABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отключить механизм синхронизации с Facebook]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Disable Facebook synchronization]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_GALLERY_FB_SYNC'>
+	<tuv xml:lang="ru"><seg><![CDATA[Страницы Facebook для синхронизации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Facebook pages for a synchronization]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_GA_DISABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отключить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Disable feature]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_GA_ID'>
+	<tuv xml:lang="ru"><seg><![CDATA[Id]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Id]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_PARAMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Parameters]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_TIMEZONE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Часовой пояс:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Timezone:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_TOOLBOX'>
+	<tuv xml:lang="ru"><seg><![CDATA[Инструменты]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Toolbox]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_TYPE_CACHE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Кэш]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Cache]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_TYPE_FACEBOOK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Facebook Интеграция]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Facebook Connect]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_TYPE_GOOGLEANALYTICS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Google Analytics]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Google Analytics]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SETTINGS_TYPE_MAIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Основные]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Main]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_SETTINGS_CONFIG_UPDATED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Настройки системы изменены]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System settings changed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_SETTINGS_UPDATE_SUCCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системные настройки успешно изменены. Некоторым параметрам необходимо время, чтобы вступить в силу.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System settings were successfully changed. Some parameters need time to be activated.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_CACHE_DISABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[система не будет сохранять данные в файловой системе. при отключении, опция понизит производительность]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[data will not being saved in the filesystem. if disabled this option will reduce system performance]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_CACHE_LIFETIME'>
+	<tuv xml:lang="ru"><seg><![CDATA[через заданное время кэш будет обновлен. в минутах]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[in given time cache will be updated. in minutes]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_DEFAULT_EMAIL'>
+	<tuv xml:lang="ru"><seg><![CDATA[на этот адрес будут приходить письма от системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[on this email will come letters from the system]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_DEFAULT_LNG'>
+	<tuv xml:lang="ru"><seg><![CDATA[будет использоваться системой изначально]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[will be used by the system primarily]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел поможет настроить систему]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the section will help you to configure the system]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_FACEBOOK_APIKEY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ключ &laquo;App ID&raquo; находится в настройках приложения после того, как создадите его в facebook]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[This is shown on your Application ID after you have created your Facebook application.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_FACEBOOK_DISABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы *должны* создать приложение. Для этого перейдите <a href="http://www.facebook.com/developers/editapp.php?new" target="_blank">по этой ссылке</a>]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You *must* set up a Facebook Application. You can do that <a href="http://www.facebook.com/developers/editapp.php?new" target="_blank">here</a>]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_FACEBOOK_SECRET'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ключ &laquo;Secret&raquo; находится в настройках приложения после того, как создадите его в facebook]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[This is shown as "Secret" after you have created your Facebook Application.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_FACEBOOK_SYNC_DISABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[отключит у всех модулей, которые поддерживают синхронизацию]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[sync feature of modules will be disabled]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_GA_DISABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[учет посетителей не будет производиться]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[accounting of visitors will not be performed]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_GA_ID'>
+	<tuv xml:lang="ru"><seg><![CDATA[уникальный номер, который вам присвоил google analytics]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[unique number which was assigned to you by google analytics]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список, который вы можете изменять]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list, which you can change]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля управления системными настройками]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the module managing system settings]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SETTINGS_TIMEZONE'>
+	<tuv xml:lang="ru"><seg><![CDATA[местоположение сервера относительно UTC]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[location of the server regarding to UTC]]></seg></tuv>
+</tu>
+
+</body></tmx>

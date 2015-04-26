@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.6.4"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='MSG_ADMIN_UPDATE_UPDATE_ZF_DOWNLOADED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновление успешно загружено и ожидает установки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update successfully downloaded and awaiting installation]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_UPDATE_CHECK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить проверять наличие пакетов обновления]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to check if update packages exist]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_UPDATE_INSTALL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить устанавливать пакеты]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to install packages]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_UPDATE_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить открывать модуль обновлений]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to open the update module]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновление системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System update]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_CHECK_NOW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Выполнить поиск обновлений]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Check for new updates]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_HISTORY'>
+	<tuv xml:lang="ru"><seg><![CDATA[История обновлений]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update history]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_INFORMATION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Информация]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Information]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PACKAGES'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пакеты]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Packages]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PACKAGE_PRIORITY'>
+	<tuv xml:lang="ru"><seg><![CDATA[приоритет: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[priority: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PACKAGE_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[пакет обновлений v%s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[update package v%s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PERIOD'>
+	<tuv xml:lang="ru"><seg><![CDATA[Период автопроверки обновлений: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Period of autochecking updates: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_CHECKSUM'>
+	<tuv xml:lang="ru"><seg><![CDATA[Контрольная сумма пакета]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Package checksum]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_CRTIME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Опубликован: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Published: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Описание пакета]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Package description]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_INFO'>
+	<tuv xml:lang="ru"><seg><![CDATA[Информация о пакете обновлений]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Information about update package]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_INFO_AND_INSTALL'>
+	<tuv xml:lang="ru"><seg><![CDATA[информация и установка]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[info and installation]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_INSTALL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Установить этот пакет]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Install this package]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_INSTALL_CANCEL'>
+	<tuv xml:lang="ru"><seg><![CDATA[можете отменить установку]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[you can cancel installation]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_INSTALL_WAIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[подготавливается к установке]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[preparing this package to apply]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_PRIORITY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Приоритет: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Priority: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_SIZE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Размер: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Size: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_TECH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дополнительная информация]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Advanced info]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_PKG_VERSION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Для версии: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[For the version: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_SERVER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сервер обновлений: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update server address: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_STATUS_OFF'>
+	<tuv xml:lang="ru"><seg><![CDATA[(<span style="color: #600;">выключен</span>)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[(<span style="color: #600;">not active</span>)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_STATUS_ON'>
+	<tuv xml:lang="ru"><seg><![CDATA[(<span style="color: #060;">включён</span>)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[(<span style="color: #060;">active</span>)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_SYS_VERSION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Версия системы: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Version of the system: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тип пакета обновлений: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Type of update packages: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_ZF'>
+	<tuv xml:lang="ru"><seg><![CDATA[Zend Framework]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Zend Framework]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_ZF_STATUS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Текущее состояние]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Current status]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_ZF_UPGRADE_AVAILABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Доступно обновление фреймворка]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[An update for framework is available]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_UPDATE_ZF_VERSION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Версия Zend Framework: %s (%s)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Version of Zend Framework: %s (%s)]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_UPDATE_CANCEL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отменил подготовку пакета обновлений &laquo;%s&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Canceled to prepare update package &laquo;%s&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_UPDATE_CHECK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Проверка новых обновлений]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Check of new updates]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_UPDATE_MARK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Начал подготовку пакета обновлений &laquo;%s&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Started to prepare update package &laquo;%s&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_UPDATE_SUCCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пакет обновлений &laquo;%s&raquo; успешно установлен]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update package &laquo;%s&raquo; was successfully installed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_LANGUAGE_NEW_ENTRY_ID_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Запись с таким ID уже существует]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Record with this ID already exists]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_ARCHIVE_EXTRACT_ERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось извлечь файлы из пакета обновлений "%s". Возможно архив поврежден]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't manage to extract files from update package "%s". Perhaps archieve is damaged]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_NEW_AVAILIABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Для системы доступны новые обновления. Пожалуйста, ознакомьтесь с описанием каждого на главной странице модуля обновлений]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[New updates are available for the system. Please, acquaint with description of each package on the main page of update module]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_NO_NEW_PKG_AVAILIABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Новых пакетов для обновления системы нет]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There are no new update packages for the system]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_PACKAGE_NOT_FOUND'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось найти пакет обновлений под таким номером]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't find a package with such number]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_PKG_DWD_ERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось загрузить пакет обновлений с сервера. Сообщение: &laquo;%s&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't manage to download update package from the server. Response: &laquo;%s&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_PKG_NOT_READABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пакет обновлений "%s" недоступен для чтения<br />Проверьте права на файл]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update package "%s" is not available for reading<br />Check file permissions]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_PKG_WAIT_MARKED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пакет обновлений подготавливается системой. Установка будет произведена в период, установленный администратором.<br />Чтобы отменить установку, воспользуйтесь ссылкой на главной странице обновлений у соответствующего пакета]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System is preparing update package. Installation will be done in the period determined by admin.<br />To cancel installation use link on the main page of update module for this package]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_PKG_WRONG_ARCHIVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось открыть пакет обновлений "%s". Возможно архив поврежден]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't manage to open update package "%s". Perhaps archive is damaged]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_PKG_WRONG_MD5'>
+	<tuv xml:lang="ru"><seg><![CDATA[Контрольная сумма пакета обновлений "%s" не соответствует оригинальной<br />Запустите процесс проверки обновлений заново]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Checksum of update package "%s" don't correspond to the original one<br />Launch checking updates once more ]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_POST_SQL_ERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[При обновлении Базы Данных возникла ошибка "%s". Обновление системы полностью не выполнено]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[While updating database an error "%s" has occured. System updating was not fully completed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_SERVER_RETURNED_EXPIRED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Срок подписки на обновления истек. Пожалуйста, <a href="http://cms.2ka.by/subscribe/" target="_blank">перейдите по данной ссылке</a>, чтобы продлить услугу. Либо отключите обновления в разделе настроек.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Subscription term for updates has expired. Please <a href="http://cms.2ka.by/subscribe/" target="_blank">follow this link</a> to prolong the service. Or deactivate updates in the settings.]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_SERVER_RETURNED_GRANDFATHER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Версия системы обновлений данного продукта устарела и не соответствует версии сервера обновлений.<br />Пожалуйста, обновите систему вручную. За дополнительной информацией обратитесь в соотв. раздел документации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Version of update system became obsolete and doesn't correspond with update server.<br />Please, modernize the system manually. You can get additional information in the coincident documentation section]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_UPDATE_PKG_BAD_PREV'>
+	<tuv xml:lang="ru"><seg><![CDATA[Данный пакет обновлений ставится на версию %s, текущая версия %s<br />Обновите систему до необходимой версии соотв. пакетами и повторите данный шаг либо, если пакет устарел, удалите его.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[This update package should be installed on the version %s, current version is %s<br />Update the system to the required version by appropriate packages and repeat this step, or remove it if the package became obsolete]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_UPDATE_SERVER_ERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Связь с сервером обновлений утеряна, либо сервер обновлений указан неправильно]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Connection to the update server was lost, or update server was appointed incorrectly]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_UPDATE_SUCCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пакет обновлений успешно установлен в систему]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update package was successfully installed on the system]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_UPDATE_ZF_BAD_STATUS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Система не смогла найти архив с обновлением]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The system could not find an archive with the update]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_UPDATE_ZF_ERROR_WRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Система не смогла сохранить данные на носитель]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The system was unable to save data to the disc]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_UPDATE_ZF_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновление уже загружено и ожидает установки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update has already been downloaded and is awaiting installation]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_UPDATE_UPDATE_ZF_NOUPDATES'>
+	<tuv xml:lang="ru"><seg><![CDATA[Zend Framework не нужнается в обновлении]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Zend Framework doesn't need to be updated]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_CHECK_NOW_LINK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Чтобы проверить наличие, <a href='/open/admin-update/?action=checknow'>кликните по этой сылке</a>]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[In order to check existence, <a href='/open/admin-update/?action=checknow'>click this link</a>]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_INFORMATION_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[текущее состояние системы и настройки обновления]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[current status of system and update settings]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_NAV_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[загрузка пакетов с сервера обновлений и их установка]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[downloading and installation of packages from update server]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_PACKAGES_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[доступные пакеты обновлений для системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[available update packages for the system]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_PKG_DESCR_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[краткая информация о данном пакете обновлений]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[brief information about this update package]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_PKG_INFO_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[детальное описание пакета и установка]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[detailed description about this package and installation]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_PKG_TECH_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[техническое описание пакета]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[technical description of the package]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;обновлений системы&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the &laquo;Update module&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_ZF_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел поможет обновить основной компонент системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the section will help to update the main component of the system]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_ZF_STATUS'>
+	<tuv xml:lang="ru"><seg><![CDATA[отображает процесс обновления]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[shows the process of updating]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_ZF_STATUS_COMPLETE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Архив загружен и ожидает установки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Archive loaded and waiting for installation]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_ZF_STATUS_DOWNLOADING'>
+	<tuv xml:lang="ru"><seg><![CDATA[Загружаем&hellip;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Downloading&hellip;]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_UPDATE_ZF_STATUS_INIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Инициализация&hellip;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Initialization&hellip;]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_LBL_ADMIN_UPDATE_HISTORY'>
+	<tuv xml:lang="ru"><seg><![CDATA[список пакетов, которые были установлены в систему]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the list of packages that were installed in the system]]></seg></tuv>
+</tu>
+
+</body></tmx>

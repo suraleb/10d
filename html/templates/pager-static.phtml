@@ -1,0 +1,13 @@
+
+<?if($this->current < 2):?>
+    <a href='<?=$this->href?>2' title="<?=$this->lng->_('TXT_SITE_STATIC_READMORE')?>"
+        class="layer readmore"></a>
+<?elseif($this->count > 2):?>
+    <?for($i=2;$i<=$this->count;$i++):?>
+        <?if ($this->current == $i):?>
+            <?=($i-1)?>
+        <?else:?>
+            <a href='<?=$this->href?><?=$i?>'><?=($i-1)?></a>
+        <?endif?>
+    <?endfor?>
+<?endif?>

@@ -1,0 +1,52 @@
+<?$this->headTitle(
+    empty($this->entry['metadata']['title']) ? $this->entry['title'] : $this->entry['metadata']['title']
+)?>
+
+<?$pager = $this->paginationControl(
+    $this->paginator, null, 'pager-denza.phtml',
+    array('url' => "/gallery.html?page=", 'lng' => $this->lng)
+)?>
+
+<div id='white-area' style="padding: 4px">
+    <div id='white-area-content'>
+
+        <?=$pager?>
+
+        <div id='gallery'>
+            <ul class="cleared">
+                <?$db = new Cms_Db_Gallery()?>
+                <?$i=0?>
+                <?foreach ($this->paginator as $entry):?>
+                    <?php
+                        $name = trim($entry->collection, '][');
+                        $item = $db->fetchLastEntryByTag($name);
+                    ?>
+
+                    <li>
+                        <p>
+                            <a href='#' onclick="jQuery(this).parents('li').find('li a:first').trigger('click');return false;"><img alt=""
+                                src="<?=$this->thumbUrl("tmp/uploads/type-{$item->getType()}/{$item->getPath()}", 200, 200, 100)?>" /></a>
+                        </p>
+                        <div class="hidden">
+                            <?php
+                            try {
+                                echo $this->parseText('{gallery tags:"' . $name . '"}');
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                            ?>
+                        </div>
+                        <strong><?=Utf8::substr($name, 0, 25)?></strong>
+                        <span><?=$this->timeStamp($item->getAdded())?></span>
+                    </li>
+                <?endforeach?>
+            </ul>
+
+            <span class="noise top-left-symbol">&nbsp;</span>
+            <span class="noise top-right-symbol">&nbsp;</span>
+            <span class="noise bottom-left-symbol">&nbsp;</span>
+            <span class="noise bottom-right-symbol">&nbsp;</span>
+
+        </div>
+    </div>
+</div>

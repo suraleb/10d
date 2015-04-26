@@ -1,0 +1,25 @@
+<div id="homepage">
+    <?=$this->renderStatic('index')?>
+    <ul>
+        <?foreach ($this->entries as $key => $set):?>
+            <?natcasesort($set);$last = array_shift($set);?>
+
+            <li class="<?=$key?> fade">
+                <?if (isset($set[1])):?>
+                    <?$first = array_shift($set);?>
+                    <a href='/<?=$key?>.html' class="modalLink"><img src="<?=$this->imgUrl('/tmp/uploads/public/homepage/' . $key . '/' . $first)?>" /></a>
+                    <?foreach ($set as $entry):?>
+                        <div>
+                            <a href='/<?=$key?>.html' class="modalLink"><img src="<?=$this->imgUrl('/tmp/uploads/public/homepage/' . $key . '/' . rawurlencode($entry))?>" /></a>
+                        </div>
+                    <?endforeach?>
+                    <div>
+                        <a href='/<?=$key?>.html' class="modalLink"><img src="<?=$this->imgUrl('/tmp/uploads/public/homepage/' . $key . '/' . $last)?>" /></a>
+                    </div>
+                <?else:?>
+                    <a href='/<?=$key?>.html' class="modalLink"><img src="<?=$this->imgUrl('/tmp/uploads/public/homepage/' . $key . '/' . $last)?>" /></a>
+                <?endif?>
+            </li>
+        <?endforeach?>
+    </ul>
+</div>

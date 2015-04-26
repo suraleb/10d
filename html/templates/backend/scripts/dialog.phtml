@@ -1,0 +1,41 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_DIALOG_RESULT'))?>
+
+<?php
+    if (!empty($this->params['_options']['redirect']) && empty($this->params['_options']['redirectManual'])) {
+        $this->headMeta()->appendHttpEquiv('refresh', '5;URL=' . $this->params['_options']['redirect']);
+    }
+?>
+<?if ($this->user->hasAcl(CMS_ACCESS_ACP_VIEW)):?>
+    <div class="page-title">
+        <h3><?=$this->lng->_('LBL_ADMIN_DIALOG_ACTIONS')?></h3>
+        <p><?=$this->lng->_('TXT_ADMIN_DIALOG_ACTIONS_DESCR')?></p>
+    </div>
+
+    <div class="page-content">
+        <div class="admin-nav cleared">
+            <a href='/open/admin-index/' style='background-image: url("<?=$this->imgUrl('admin/admin.png')?>");'
+                class="cornered"><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+            <?if(empty($this->params['_options']['redirect'])):?>
+                <a href='#' class="cornered" style='background-image: url("<?=$this->imgUrl('admin/arrow-prev.png')?>");'
+                    onclick="window.history.go(-1);return false;"><?=$this->lng->_('LBL_ADMIN_GO_BACK')?></a>
+            <?endif?>
+
+            <?if(!empty($this->params['_options']['redirect'])):?>
+                <a href='#' class="cornered" style='background-image: url("<?=$this->imgUrl('admin/arrow-next.png')?>");'
+                    onclick="kkcms.redirect('<?=$this->params['_options']['redirect']?>');return false;"><?=$this->lng->_('LBL_ADMIN_CONTINUE')?></a>
+            <?endif?>
+        </div>
+    </div>
+<?endif?>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_DIALOG_MSG')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_DIALOG_MSG_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <p class="<?=$this->params['type']?> cornered"><?=$this->params['body']?></p>
+</div>
+
+

@@ -1,0 +1,15 @@
+
+<div class='static-links'>
+    <?if(count($this->entries)):?>
+        <ul>
+            <?$i=0?>
+            <?foreach($this->entries as $v):?>
+                <li<?if($i++ % 2 == 0):?> class="odd"<?endif?>><span><a href='/<?=$v['rewrite']?>.html'><?=Cms_Functions::cut_string($v['title'], 38)?></a></span></li>
+            <?endforeach?>
+        </ul>
+    <?endif?>
+
+    <?if ($this->entries instanceof Zend_Paginator):?>
+        <?=$this->paginator($this->entries, $this->pagerHash)?>
+    <?endif?>
+</div>

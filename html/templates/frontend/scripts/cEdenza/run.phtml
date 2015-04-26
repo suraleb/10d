@@ -1,0 +1,41 @@
+<?$this->headTitle(
+    empty($this->entry['metadata']['title']) ? $this->entry['title'] : $this->entry['metadata']['title']
+)?>
+
+<?$pager = $this->paginationControl(
+    $this->paginator, null, 'pager-denza.phtml',
+    array('url' => "/next10.html?item=", 'lng' => $this->lng)
+)?>
+
+<div id='white-area' style="padding: 20px">
+    <div id='white-area-content'>
+        <div id='ecommerce'>
+            <?foreach ($this->paginator as $entry):?>
+                <?$this->headTitle($entry['title'])?>
+
+                <ul class="cleared">
+                    <li class="preview">
+                        <img src="/thumb/?src=<?=$entry['cover']?>&amp;w=400&zc=1&amp;a=tl" alt="" />
+                        <span class="noise top-right-symbol">&nbsp;</span>
+                        <span class="noise top-left-symbol">&nbsp;</span>
+                        <span class="noise bottom-right-symbol">&nbsp;</span>
+                        <span class="noise bottom-left-symbol">&nbsp;</span>
+                    </li>
+                    <li class='content'>
+                        <?=$pager?>
+                        <table cellpadding="0" cellspacing="0" id='edescr'>
+                            <tr>
+                                <td>
+                                    <?=$entry['description']?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><?=$this->social(CMS_HOST . '/next10.html?item=' . $this->paginator->getCurrentPageNumber())?></td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            <?endforeach?>
+        </div>
+    </div>
+</div>

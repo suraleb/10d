@@ -1,0 +1,71 @@
+<?$this->headLink()
+        ->appendStylesheet(
+            $this->cssUrl('jquery.ui-dialog,jquery.ui-resizable,jquery.ui-tabs'))
+        ->appendStylesheet('/htdocs/3dparty/elfinder/css/elfinder.css')?>
+
+<?$this->headScript()->appendFile(
+    $this->jsUrl('jquery.ui-dialog,jquery.ui-mouse,jquery.ui-position,
+                    jquery.ui-resizable,jquery.ui-tabs,jquery.ui-selectable,
+                    jquery.ui-draggable,jquery.ui-droppable'))?>
+
+<?$this->headScript()->appendFile('/htdocs/3dparty/elfinder/js/elfinder.min.js')?>
+
+<?if($this->input->lng != 'en'):?>
+    <?$this->headScript()
+            ->appendFile('/htdocs/3dparty/elfinder/js/i18n/elfinder.' . $this->input->lng . '.js')?>
+<?endif?>
+
+<?$this->headStyle()->captureStart()?>
+    html, body{ overflow: hidden; }
+<?$this->headStyle()->captureEnd()?>
+
+<div id='elfinder-placeholder'>Loading...</div>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function(){
+        try {
+            elFinder.prototype.options.toolbar.pop();
+        } catch(v) {}
+
+        jQuery('#elfinder-placeholder').elfinder({
+            url: '/open/admin-index/?action=elfinder&mode=connector',
+            lang: kkcms.getTranslation('languageId').substr(0, 2),
+            closeOnEditorCallback: false,
+            editorCallback: function(url) {
+                url = url.replace(kkcms.getParam('host'), '');
+
+                <?php
+                    $extList = null;
+                    if (!empty($this->input->extensions)) {
+                        $extList = str_replace(',', '|', $this->input->extensions);
+                        $extList = strtolower($extList);
+                    }
+                ?>
+
+                <?if ($extList):?>
+                    var extRegexp = new RegExp("\.(<?=$extList?>)$");
+                    if (!extRegexp.test(url)) {
+                        kkcms.boxy.alert(
+                            '<?=$this->lng->_js('MSG_CORE_VALIDATE_FILE_FALSE_EXTENSION')?>'.replace('%value%', url)
+                        );
+                        return false;
+                    }
+                <?endif?>
+
+                var inputObject = null;
+                <?if (isset($this->input->frameid)):?>
+                    inputObject = jQuery('#<?=$this->input->frameid?>', window.opener.document)
+                        .contents().find('#<?=$this->input->inputid?>');
+                <?else:?>
+                    inputObject = jQuery('#<?=$this->input->inputid?>', window.opener.document);
+                <?endif?>
+
+                if (inputObject) {
+                    inputObject.val(url).change().focus();
+                }
+
+                window.close();
+            }
+        });
+    });
+<?$this->headScript()->captureEnd()?>

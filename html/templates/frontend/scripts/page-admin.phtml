@@ -1,0 +1,49 @@
+<?$isNews = (strpos($this->entry['rewrite'], 'news/') === 0)?>
+
+<?if($this->user->hasAcl(CMS_ACCESS_ACP_VIEW)):?>
+    <div id='cms-admin-area' class='cms-reset cms-cornered'>
+        <?if ($isNews):?>
+            <?if($this->user->hasAcl(CMS_ACCESS_NEWS_NEW)):?>
+                <span>
+                    <a href='/open/admin-news/?action=new'><?=$this->lng->_('LBL_ADMIN_NEWS_NEW')?></a>
+                </span>
+            <?endif?>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_NEWS_VIEW)):?>
+                <span>
+                    <a href='/open/admin-news/'><?=$this->lng->_('LBL_ADMIN_NEWS')?></a>
+                </span>
+            <?endif?>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_NEWS_EDIT)):?>
+                <span>
+                    <a href='/open/admin-news/?action=edit&amp;id=<?=$this->entry['id']?>'><?=$this->lng->_('LBL_ADMIN_NEWS_EDIT')?></a>
+                </span>
+            <?endif?>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_STATIC_EDIT)):?>
+                <span>
+                    <a href='/open/admin-static/?action=edit&amp;id=<?=$this->entry['id']?>'><?=$this->lng->_('LBL_ADMIN_NEWS_EDIT_FULL')?></a>
+                </span>
+            <?endif?>
+        <?else:?>
+            <?if($this->user->hasAcl(CMS_ACCESS_STATIC_NEW)):?>
+                <span>
+                    <a href='/open/admin-static/?action=new'><?=$this->lng->_('LBL_ADMIN_STATIC_NEW')?></a>
+                </span>
+            <?endif?>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_STATIC_VIEW)):?>
+                <span>
+                    <a href='/open/admin-static/'><?=$this->lng->_('LBL_ADMIN_STATIC')?></a>
+                </span>
+            <?endif?>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_STATIC_EDIT)):?>
+                <span>
+                    <a href='/open/admin-static/?action=edit&amp;id=<?=$this->entry['id']?>'><?=$this->lng->_('LBL_ADMIN_STATIC_EDIT')?></a>
+                </span>
+            <?endif?>
+        <?endif?>
+    </div>
+<?endif?>

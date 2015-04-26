@@ -1,0 +1,8 @@
+/**
+ * @Author: Kanstantsin A Kamkou
+ * @Version: $Id$
+ **/
+
+#tinymce{ font: 0.9em Tahoma, Arial; }
+    #tinymce a{ color: #500; text-decoration: underline; }
+    #tinymce a:hover{ text-decoration: none; }

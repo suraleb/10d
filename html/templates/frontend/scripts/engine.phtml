@@ -1,0 +1,35 @@
+<?$this->headLink()->prependStylesheet(
+    $this->cssUrl(
+        'common.reset,jui.core,j.gritter,j.boxy,j.colorbox,engine,frontend'
+    ),
+    'screen, projection'
+)?>
+
+<?$this->headScript()->prependScript(
+    'kkcms.setParam("host", "' . CMS_HOST . '")
+        .setParam("cookiePrefix", "' . Cms_Core::COOKIE_PREFIX . '")
+        .setTranslation({
+            languageId: "' . $this->lng->_js('LOCALE') . '",
+            ajaxLoading: "' . $this->lng->_js('TXT_CORE_AJAX_LOADING') . '",
+            ajaxLoadingTitle: "' . $this->lng->_js('TXT_CORE_AJAX_LOADING_TITLE') . '",
+            ajaxMessage: "' . $this->lng->_js('TXT_CORE_AJAX_MESSAGE') . '",
+            dialogMessage: "' . $this->lng->_js('LBL_SITE_DIALOG_MSG') . '",
+            dialogConfirm: "' . $this->lng->_js('LBL_SITE_DIALOG_CONFIRM') . '",
+            dialogAsk: "' . $this->lng->_js('LBL_SITE_DIALOG_ASK') . '",
+            dialogClose: "' . $this->lng->_js('LBL_SITE_DIALOG_CLOSE') . '"
+     });'
+)?>
+
+<?$this->headScript()->prependFile(
+    $this->jsUrl(
+        'jquery,swfobject,j.boxy,j.gritter,j.colorbox,j.cookie,j.ihint,
+         jui.core,engine,frontend'
+    )
+)?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function() {
+        jQuery(".cms-gallery-image a").colorbox({current:"{current} / {total}"});
+        jQuery("input:text,input:password,textarea").inputHint({using:"kbd"});
+    });
+<?$this->headScript()->captureEnd()?>

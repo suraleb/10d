@@ -1,0 +1,27 @@
+<div class='cms-search'>
+
+    <form method="get" action="/search.html">
+        <input type="text" id='search_field' name="q" value="<?=$this->input->q?>"
+            maxlength="255" class='text' />
+        <kbd><?=$this->lng->_('TXT_SITE_SEARCH_FIELD_TIP')?></kbd>
+        <input type="submit" value="<?=$this->lng->_('LBL_SITE_SEARCH_START_SEARCH')?>" />
+    </form>
+
+    <?if($this->message):?>
+        <p><?=$this->lng->_($this->message)?></p>
+    <?endif?>
+
+    <?if($this->entries):?>
+        <ul>
+            <?$i=0?>
+            <?foreach ($this->entries as $entry):?>
+                <li<?if($i++ % 2 == 0):?> class='odd'<?endif?>>
+                    <?=sprintf('%02d', $i)?>.
+                    <a href='/<?=$entry->rewrite?>.html'><?=$entry->title?></a>
+                    <sup><?=sprintf('%01.2f', $entry->score * 100)?>%</sup>
+                </li>
+            <?endforeach?>
+        </ul>
+    <?endif?>
+
+</div>

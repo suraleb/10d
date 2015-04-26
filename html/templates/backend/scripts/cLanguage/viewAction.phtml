@@ -1,0 +1,191 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_LANGUAGE_VIEW_ENTRIES'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_LANGUAGE')?> &rarr; <?=$this->lng->_('LBL_ADMIN_LANGUAGE_VIEW_ENTRIES')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_LANGUAGE_NAV_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <a href='/open/admin-language/'>&larr; <?=$this->lng->_('LBL_ADMIN_LANGUAGE')?></a>
+    </div>
+</div>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_LANGUAGE')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_LANGUAGE_NAV_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <?foreach($this->entries as $n=>$l):?>
+            <input type="hidden" name='lngID[]' value="<?=$n?>" />
+            <a href='#' class='btn-open' onclick='$("#lng_<?=$n?>").slideToggle("def");'><?=$this->input->file?> (<?=$n?>)</a>
+        <?endforeach?>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_LANGUAGE_NEW)):?>
+            <a href='#' class='btn-new' onclick='kkcms.boxy.setOptions({title: jQuery(this).html(), modal: true}).dialog(jQuery("#new_entry"));return false;'><?=$this->lng->_('TXT_ADMIN_LANGUAGE_ADD_NEW')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div id='new_entry' style="display: none;">
+
+    <div class="page-title">
+        <h2><?=$this->lng->_('TXT_ADMIN_LANGUAGE_NEW_ENTRY_PARAMS')?></h2>
+        <p><?=$this->lng->_('TXT_ADMIN_LANGUAGE_NEW_ENTRY_DESCR')?></p>
+    </div>
+
+    <div class="page-content">
+
+        <fieldset style="width: 600px;">
+            <div class="f-row">
+                <label for="eID"><?=$this->lng->_('LBL_ADMIN_LANGUAGE_NEW_ENTRY_ID')?><span><?=$this->lng->_('TXT_ADMIN_LANGUAGE_NEW_ENTRY_ID')?></span></label>
+                <div class="f-inputs"><input name='eID' id='eID' type="text" maxlength="255" class="i-text" style='width: 70%;' /></div>
+            </div>
+            <div class="f-row">
+                <label for="eData"><?=$this->lng->_('LBL_ADMIN_LANGUAGE_NEW_ENTRY_CONTENT')?><span><?=$this->lng->_('TXT_ADMIN_LANGUAGE_NEW_ENTRY_CONTENT')?></span></label>
+                <div class="f-inputs">
+                    <textarea name="eData" id='eData' cols="60" rows="4" style="width: 95%;" class="i-text"></textarea>
+                </div>
+            </div>
+            <div class="f-row f-submit">
+                <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>" class="button" onclick="new_language_entry();return false;" />
+            </div>
+        </fieldset>
+
+    </div>
+
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_LANGUAGE_CONTENT')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_LANGUAGE_CONTENT_DESCR')?></p>
+</div>
+
+
+<form method="post" action="/open/admin-language/">
+
+    <div class="page-content" id='lng-rec-box'>
+
+        <input type='hidden' name='action' value='update' />
+        <input type='hidden' name='file' value='<?=$this->input->file?>' />
+
+        <?foreach($this->entries as $n=>$l):?>
+            <div id='lng_<?=$n?>' class="lng-records">
+
+                <p><?=$n?> (<?=count($l)?>)</p>
+
+                <dl style='margin-left: 5px;'>
+                    <?ksort($l)?>
+                    <?foreach($l as $k=>$i):?>
+                        <?$i=htmlspecialchars($i)?>
+                        <dt>
+                            <a href="#" onclick="toggleDisbaledState('<?=$k?>');return false;"><img src="<?=$this->imgUrl('admin/icons/remove.png')?>" alt="" /></a>
+                            <?=$k?>
+                        </dt>
+                        <dd>
+                            <textarea cols="52" style="width: 98%;"
+                                class="i-text"
+                                <?if(!$this->user->hasAcl(CMS_ACCESS_LANGUAGE_EDIT)):?> readonly="readonly"<?endif?>
+                                name='lngEntry[<?=$k?>][<?=$n?>]'
+                                rows="<?=Cms_Functions::textarea_rows($i, 59, 2)?>"><?=$i?></textarea>
+                        </dd>
+                    <?endforeach?>
+                </dl>
+
+            </div>
+        <?endforeach?>
+
+        <div class='clear'></div>
+
+    </div>
+
+    <div class="f-submit">
+        <a href='#' onclick="kkcms.redirect('/open/admin-language/');return false;">&larr; <?=$this->lng->_('LBL_ADMIN_GO_TO_LIST')?></a>
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>" class="button" />
+    </div>
+
+</form>
+
+<?$this->headScript()->captureStart()?>
+    function new_language_entry()
+    {
+        id = jQuery('#eID');
+        data = jQuery('#eData');
+        skip = false;
+
+        if (!/^[A-Z0-9_]+$/.test(id.val())) {
+            kkcms.effect.blink('eID', "<?=$this->lng->_('MSG_ADMIN_LANGUAGE_NEW_ENTRY_BAD_ID')?>");
+            return false;
+        }
+
+        if (!data.val()) {
+            kkcms.effect.blink('eData');
+            return false;
+        }
+
+        lng = new Array();
+
+        jQuery('input[name^="lngID"]').each(
+            function()
+            {
+                o = jQuery('#lng_' + jQuery(this).val() + ' dl');
+
+                if (!o) {
+                    return false;
+                }
+
+                o.find('dt').each(
+                    function()
+                    {
+                        if (skip) {
+                            return false;
+                        }
+
+                        if (jQuery(this).text() == id.val()) {
+                            skip = true;
+                            kkcms.effect.blink('eID', "<?=$this->lng->_('MSG_ADMIN_LANGUAGE_NEW_ENTRY_ID_EXISTS')?>");
+                            return false;
+                        }
+                    });
+
+                if (skip) {
+                    return false;
+                }
+
+                html  = '<dt>' + id.val() + '</dt>';
+                html += '<dd><textarea name="lngEntry[' + id.val() + '][' + jQuery(this).val() + ']" cols="52" rows="2" class="i-text">' + data.val() + '</textarea></dd>';
+
+                o.prepend(html);
+
+                o.parent().slideDown('def');
+
+                Boxy.get(jQuery('#new_entry')).hide();
+            });
+    }
+
+    function toggleDisbaledState(id)
+    {
+        obj = jQuery('textarea[name^="lngEntry[' + id + ']"]');
+        if (obj.attr('disabled')) {
+            obj.attr('disabled', '');
+            obj.slideDown();
+        } else {
+            obj.attr('disabled', 'disabled');
+            obj.slideUp();
+        }
+    }
+<?$this->headScript()->captureEnd()?>
+
+<?$this->headStyle()->captureStart()?>
+    .lng-records{ float: left; width: 446px; display: none; overflow: hidden; }
+        .lng-records p{ padding: 5px; font-weight: bold; }
+        .lng-records dt{ background-color: #EEE; padding: 3px; margin-bottom: 1px; font-size: 0.9em; border: 1px solid #CCC; border-top: 0; border-left: 0; }
+            .lng-records dt img{ vertical-align: middle; float: right; }
+        .lng-records dd{ margin-bottom: 10px; }
+
+    #lng-rec-box{ margin: 0 auto; width: 904px; }
+<?$this->headStyle()->captureEnd()?>

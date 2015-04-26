@@ -1,0 +1,371 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_STATIC'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_STATIC')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_STATIC_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+	    <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+	    <?if($this->user->hasAcl(CMS_ACCESS_STATIC_NEW)):?>
+	        <a class='btn-new' href="/open/admin-static/?action=new" style='background-image: url("<?=$this->imgUrl('admin/static/item-new.png')?>");'><?=$this->lng->_('LBL_ADMIN_STATIC_NEW')?></a>
+	    <?endif?>
+    </div>
+</div>
+
+<div class="page-title" style='border: 1px solid #EEE;'>
+    <h2>
+        <a href='#' id='btn_filter_area' style='text-decoration: none;'><img
+            src='<?=$this->imgUrl('admin/toggle-plus.png')?>'
+                style='width: 16px; height: 16px;' class='vam' alt='' />
+        <?=$this->lng->_('LBL_ADMIN_STATIC_FILTER')?></a>
+    </h2>
+    <p><?=$this->lng->_('TXT_ADMIN_STATIC_FILTER_DESCR')?></p>
+</div>
+
+<div class="page-content cleared<?if(Cms_Core::getCookie('admin_static_filter') !== 'true'):?> hidden<?endif?>" id='filter_area' style='padding-top: 2px;'>
+    <form method="get" action="/open/admin-static/">
+
+        <input type='hidden' name='sofar' value='<?=intval($this->input->sofar)?>' />
+        <input type='hidden' name='sortby' value='<?=$this->input->sortby?>' />
+        <input type='hidden' name='sorttype' value='<?=$this->input->sorttype?>' />
+        <input type='hidden' name='sortway' value='<?=$this->input->sortway?>' />
+
+        <div style='border-bottom: 1px dashed #EEE;padding: 5px;' class='cleared'>
+
+            <div style="margin-right: 25px;float: left;line-height: 22px;">
+                <?if($this->user->hasAcl(CMS_ACCESS_STATIC_PUBLISH)):?>
+                    <input type="checkbox" name='display[]' id='display_inactive' value="inactive"<?if(@in_array('inactive', $this->input->display)):?> checked='checked'<?endif?>/> <label for='display_inactive'><?=$this->lng->_('LBL_ADMIN_STATIC_FILTER_NOTPUBLISHED')?></label>
+                    <br />
+                <?endif?>
+
+                <?if($this->user->hasAcl(CMS_ACCESS_STATIC_HIDE)):?>
+                    <input type="checkbox" name='display[]' id='display_hidden' value="hidden"<?if(@in_array('hidden', $this->input->display)):?> checked='checked'<?endif?>/> <label for='display_hidden'><?=$this->lng->_('LBL_ADMIN_STATIC_FILTER_HIDDEN')?></label>
+                    <br />
+                <?endif?>
+
+                <?if($this->user->hasAcl(CMS_ACCESS_STATIC_SYSTEM)):?>
+                    <input type="checkbox" name='display[]' id='display_system' value="system"<?if(@in_array('system', $this->input->display)):?> checked='checked'<?endif?>/> <label for='display_system'><?=$this->lng->_('LBL_ADMIN_STATIC_FILTER_SYSTEM')?></label>
+                    <br />
+                <?endif?>
+
+                <select name='perpage' class='i-select'>
+                    <option value='-1'<?if($this->input->perpage == '-1'):?> selected='selected'<?endif?>><?=$this->lng->_('LBL_ADMIN_STATIC_FILTER_ALL')?></option>
+                    <option value='5'<?if($this->input->perpage == 5):?> selected='selected'<?endif?>>5</option>
+                    <option value='10'<?if($this->input->perpage == 10 || empty($this->input->perpage)):?> selected='selected'<?endif?>>10</option>
+                    <option value='15'<?if($this->input->perpage == 15):?> selected='selected'<?endif?>>15</option>
+                    <option value='20'<?if($this->input->perpage == 20):?> selected='selected'<?endif?>>20</option>
+                    <option value='25'<?if($this->input->perpage == 25):?> selected='selected'<?endif?>>25</option>
+                </select> <?=$this->lng->_('LBL_ADMIN_STATIC_FILTER_PERPAGE')?>
+            </div>
+
+            <div style="float: left;margin-right: 25px;">
+                <label for="filter_title"><?=$this->lng->_('LBL_ADMIN_STATIC_FILTER_TITLE')?></label><br />
+                <input type="text" name='title' id='filter_title' class='i-text'
+                    value="<?=$this->input->title?>" style="width: 200px; margin-top: 1px;"/>
+
+                <br />
+
+                <label><?=$this->lng->_('LBL_ADMIN_STATIC_FILTER_TAG')?></label>
+                <select name='tags' id='filter_tag'>
+                    <?foreach(Cms_Tags::decode($this->input->tags, true) as $tag):?>
+                        <option value='<?=$tag?>' class='selected'><?=$tag?></option>
+                    <?endforeach?>
+                </select>
+            </div>
+        </div>
+
+	    <div style='padding: 5px;'>
+            <input type="submit" class='button button-with-icon icon-refresh'
+                value='<?=$this->lng->_js('LBL_ADMIN_STATIC_UPDATE_LIST')?>' />
+            <input type="button" class='button button-with-icon icon-reset'
+                value='<?=$this->lng->_js('LBL_ADMIN_STATIC_RESET')?>'
+                onclick='kkcms.redirect("/open/admin-static/?sofar=<?=$this->input->sofar?>&amp;sortby=<?=$this->input->sortby?>&amp;sortway=<?=$this->input->sortway?>&amp;sorttype=<?=$this->input->sorttype?>");return false;' />
+	    </div>
+
+    </form>
+</div>
+
+<div class="page-title">
+    <h3><?=$this->lng->_('LBL_ADMIN_STATIC_CONTENT')?></h3>
+    <p><?=$this->lng->_('TXT_ADMIN_STATIC_CONTENT_DESCR')?></p>
+</div>
+
+<?php
+    $advPathHash = array();
+    $advPathHash['display'] = $this->input->display;
+    $advPathHash['tags'] = Cms_Tags::decode($this->input->tags);
+
+    if (empty($advPathHash['tags'])) {
+        unset($advPathHash['tags']);
+    }
+
+    $advString = '&amp;perpage=' . intval($this->input->perpage) .
+                 '&amp;sofar=' . intval($this->input->sofar);
+    foreach ($advPathHash as $k => $v) {
+        $advString .= "&amp;{$k}[]=";
+        $advString .= is_array($v) ? implode("&amp;{$k}[]=", $v) : $v;
+    }
+
+    unset($advPathHash);
+?>
+
+<?if (count($this->paginator)):?>
+    <div class="page-content" id='page-entries'>
+
+        <?if(!$this->orderMode):?>
+            <input type='button'
+                value='<?=sprintf($this->lng->_js('LBL_ADMIN_STATIC_REORDER'), $this->lng->_('LBL_ADMIN_NO'))?>'
+                class='button button-with-icon icon-order'
+                onclick='orderTagsProcess(this, false, false);return false;' />
+
+            <div id='order_tags_div' class='hidden'>
+                <div style='width: 380px;background-color: #EEE;padding: 10px;margin: 10px;margin-top: 2px;' class='cornered'>
+                    <p style='margin-bottom: 10px;'>
+                        <?=$this->lng->_('MSG_ADMIN_STATIC_REORDER_TIP')?>
+                    </p>
+
+                    <input type='button' class='button button-with-icon icon-cancel' style='float: right; margin-top: 3px;'
+                        value='<?=$this->lng->_js('LBL_ADMIN_CANCEL')?>'
+                        onclick='orderTagsProcess(this, false, true);return false;' />
+
+                    <input type='button' class='button button-with-icon icon-ok' style='float: right; margin-top: 3px;'
+                        value='<?=$this->lng->_js('LBL_ADMIN_OK')?>'
+                        onclick='orderTagsProcess(this, true, false);return false;' />
+
+                    <select name='tags' id='order_tags'></select>
+                </div>
+            </div>
+        <?else:?>
+            <input type='button'
+                value='<?=sprintf($this->lng->_js('LBL_ADMIN_STATIC_REORDER'), $this->lng->_('LBL_ADMIN_YES'))?>'
+                class='button' onclick='kkcms.redirect("/open/admin-static/");return false;' />
+        <?endif?>
+
+        <?if(count($this->paginator)):?>
+
+	        <table class='cnt-table'>
+		        <thead>
+                    <tr>
+                        <?if($this->orderMode):?>
+                            <th style="width: 1%;">&nbsp;</th>
+                        <?else:?>
+                            <th style="width: 5%;">
+                                <?=$this->lng->_('LBL_ADMIN_STATIC_CONTENT_STATUS')?>
+                            </th>
+                        <?endif?>
+
+                        <th style="width: 60%;">
+                            <?=$this->htmlSort(
+                                $this->lng->_('LBL_ADMIN_STATIC_CONTENT_TITLE'),
+                                "/open/admin-static/?{$advString}",
+                                'title', null, $this->orderMode)?>
+                            /
+                            <?=$this->htmlSort(
+                                $this->lng->_('LBL_ADMIN_STATIC_CONTENT_ADDRESS'),
+                                "/open/admin-static/?{$advString}",
+                                'address', null, $this->orderMode)?>
+                        </th>
+
+                        <th style="width: 20%;">
+                            <?=$this->htmlSort(
+                                    $this->lng->_('LBL_ADMIN_STATIC_CONTENT_DATE'),
+                                    "/open/admin-static/?sorttype=number{$advString}",
+                                    'time', null, $this->orderMode)?>
+                            /
+                            <?=$this->htmlSort(
+                                $this->lng->_('LBL_ADMIN_STATIC_CONTENT_AUTHOR'),
+                                "/open/admin-static/?{$advString}",
+                                'author', null, $this->orderMode)?>
+                        </th>
+                        <th style="width: 15%;"><?=$this->lng->_('LBL_ADMIN_STATIC_CONTENT_MANAGE')?></th>
+                    </tr>
+		        </thead>
+
+                <tbody>
+                    <?foreach($this->paginator as $item):?>
+                        <tr id='entry_<?=$item['id']?>'>
+                            <?if($this->orderMode):?>
+                                <td class="center" style="cursor: move;"><span class="ui-icon ui-icon-arrowthick-2-n-s" style="float: none;"></span></td>
+                            <?else:?>
+                                <td class='middle center' style='white-space: nowrap;'>
+                                    <?if($item['system'] || $item['hidden'] || !$item['active']):?>
+                                        <?if($item['system']):?>
+                                            <img src='<?=$this->imgUrl('admin/static/status-system.png')?>' alt='' style="width: 16px; height: 16px;" />
+                                        <?endif?>
+
+                                        <?if($item['hidden']):?>
+                                            <img src='<?=$this->imgUrl('admin/static/status-hidden.png')?>' alt='' style="width: 16px; height: 16px;" />
+                                        <?endif?>
+
+                                        <?if(!$item['active']):?>
+                                            <img src='<?=$this->imgUrl('admin/static/status-inactive.png')?>' alt='' style="width: 16px; height: 16px;" />
+                                        <?endif?>
+                                    <?else:?>
+                                        <img src='<?=$this->imgUrl('admin/static/item.png')?>' alt='' style="width: 16px; height: 16px;" />
+                                    <?endif?>
+
+                                    <?if($item['featured']):?>
+                                        <img src='<?=$this->imgUrl('admin/static/status-featured.png')?>' alt='' style="width: 16px; height: 16px;" />
+                                    <?endif?>
+                                </td>
+                            <?endif?>
+
+                            <td style="line-height: 12px;">
+                                <span style="font-size: 14px;display: block;"><?=$item['title']?></span>
+                                <span style="margin-top: 3px;display: block;margin-left: 10px;color: #CCC;font-size: 10px;">/<b style='color: #555;text-shadow: 1px 1px 1px #FFF;'><?=$item['rewrite']?></b>.html</span>
+                                <span style="margin-left: 10px;color: #999;display: block;font-size: 10px;"><?=Cms_Tags::decode($item['tags'])?></span>
+                            </td>
+
+                            <td class='middle center'>
+                                <?=$item['user_name']?><br />
+                                <?=$this->timeStamp($item['updated'] ? $item['updated'] : $item['added'], Cms_Date::DATE_LONG)?>
+                            </td>
+
+                            <td class="middle center">
+                                <?if(!$item['hidden']):?>
+                                    <a class="btn-cube" href="<?=CMS_HOST?>/<?=$item['rewrite']?>.html"><img src="<?=$this->imgUrl('admin/static/item-view.png')?>" alt="" title="<?=$this->lng->_js('LBL_ADMIN_STATIC_PREVIEW')?>" /></a>
+                                <?endif?>
+
+                                <?if($this->user->hasAcl(CMS_ACCESS_STATIC_EDIT)):?>
+                                    <a class="btn-cube" href="/open/admin-static/?action=edit&amp;id=<?=$item['id']?>"><img src="<?=$this->imgUrl('admin/static/item-edit.png')?>" alt="" title="<?=$this->lng->_js('LBL_ADMIN_STATIC_EDIT')?>" /></a>
+                                <?endif?>
+
+                                <?if(!$item['system']):?>
+                                    <?if($this->user->hasAcl(CMS_ACCESS_STATIC_REMOVE)):?>
+                                        <a class='btn-cube-red' rel='<?=$item['id']?>' href="#" onclick='return false;'><img src="<?=$this->imgUrl('admin/static/item-remove.png')?>" alt="" title="<?=$this->lng->_js('LBL_ADMIN_STATIC_REMOVE')?>" /></a>
+                                    <?endif?>
+                                <?endif?>
+                            </td>
+                        </tr>
+                    <?endforeach?>
+                </tbody>
+
+	        </table>
+        <?endif?>
+
+    </div>
+
+<?else:?>
+    <div class="page-content">
+        <p class='info'>
+            <?=$this->lng->_('TXT_ADMIN_STATIC_LIST_EMPTY')?>
+        </p>
+    </div>
+<?endif?>
+
+<?=$this->paginationControl(
+    $this->paginator, null, null,
+        array(
+            'url' => "/open/admin-static/?{$advString}" .
+                "&amp;sortway={$this->input->sortway}" .
+                "&amp;sortby={$this->input->sortby}" .
+                "&amp;sorttype={$this->input->sorttype}" .
+                "&amp;sofar=",
+            'lng' => $this->lng
+        )
+)?>
+
+<?$this->headLink()->appendStylesheet($this->cssUrl('j.fcbkcomplete'))?>
+
+<?$this->headScript()->appendFile($this->jsUrl('j.fcbkcomplete,jui.mouse,jui.sortable'))?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function() {
+
+        <?if($this->orderMode):?>
+            jQuery("#page-entries tbody").sortable({
+                axis: 'y',
+                handle: 'td:first',
+                helper: 'clone',
+                revert: 80,
+                update: function(event, ui)
+                {
+                    kkcms.ajaxCall(
+                        '/open/admin-static/?action=order', jQuery(this).sortable('serialize'),
+                        function(json) {
+                            if (json.success) {
+                                kkcms.effect.message(json.data.msg);
+                            } else {
+                                kkcms.effect.message(json.msg);
+                            }
+                        }
+                    );
+                }
+            }).disableSelection();
+        <?endif?>
+
+        jQuery("#filter_tag, #order_tags").fcbkcomplete({
+            json_url: "/open/admin-static/?action=autocomplete&type=tags",
+            cache: true,
+            filter_hide: true,
+            filter_selected: true,
+            maxitems: 10,
+            newel: false,
+            onCorrectValue: function(value) {
+                return kkcms.normalizeTag(value);
+            },
+            onCorrectTitle: function(title) {
+                return kkcms.normalizeTag(title);
+            }
+        });
+
+        jQuery('a.btn-cube-red').bind('click', function() {
+            id = parseInt(jQuery(this).attr('rel'));
+            kkcms.boxy.confirm(
+                '<?=$this->lng->_js('MSG_ADMIN_STATIC_REMOVE')?>',
+                function() {
+                    kkcms.ajaxCall(
+                        '/open/admin-static/', {action: 'remove', id: id},
+                        function(json) {
+                            if (json.success) {
+                                kkcms.effect.message(json.data.msg);
+                                jQuery('#entry_' + id + ' td').fadeOut('slow');
+                            } else {
+                                kkcms.effect.message(json.msg);
+                            }
+                        }
+                    );
+                }
+            );
+        });
+
+        jQuery("#btn_filter_area").bind("click", function() {
+            if (!kkcms.cookie.get('admin_static_filter') ||
+                kkcms.cookie.get('admin_static_filter') == "false") {
+                jQuery("#filter_area").slideDown();
+                kkcms.cookie.set('admin_static_filter', 'true');
+                return false;
+            }
+
+            jQuery("#filter_area").slideUp();
+            kkcms.cookie.set('admin_static_filter', 'false');
+            return false;
+        });
+    });
+
+    function orderTagsProcess(self, isOk, isCancel)
+    {
+        if (isCancel) {
+            jQuery('#order_tags_div').fadeOut('fast', function() {
+                jQuery(this).prev().fadeIn();
+            });
+            return false;
+        }
+
+        if (isOk) {
+            var elem = jQuery('#order_tags');
+            if (!elem.val()) {
+                kkcms.boxy.alert('<?=$this->lng->_js('MSG_ADMIN_STATIC_REORDER_EMPTY_TAGS')?>');
+                return false;
+            }
+            kkcms.redirect('/open/admin-static/?order=true&' + elem.serialize());
+            return false;
+        }
+
+        jQuery(self).fadeOut('fast', function() {
+            jQuery('#order_tags_div').fadeIn('def');
+        });
+    }
+<?$this->headScript()->captureEnd()?>

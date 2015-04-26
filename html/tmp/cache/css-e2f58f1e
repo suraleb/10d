@@ -1,0 +1,55 @@
+ul.holder{margin:0;border:1px
+solid #999;overflow:hidden;height:auto !important;height:1%;padding:4px
+5px 0}*:first-child+html
+ul.holder{padding-bottom:2px}* html
+ul.holder{padding-bottom:2px}ul.holder
+li{float:left;list-style-type:none;margin:0
+5px 4px 0;white-space:nowrap}ul.holder li.bit-box, ul.holder li.bit-input
+input{font:11px "Lucida Grande", "Verdana"}ul.holder li.bit-box{-moz-border-radius:6px;-webkit-border-radius:6px;border-radius:6px;border:1px
+solid #CAD8F3;background:#DEE7F8;padding:1px
+5px 2px}ul.holder li.bit-box-focus{border-color:#598BEC;background:#598BEC;color:#fff}ul.holder li.bit-input
+input{width:auto;overflow:visible;margin:0;border:0px;outline:0;padding:3px
+0px 2px}ul.holder li.bit-input
+input.smallinput{width:20px}ul.holder{margin:0
+!important}ul.holder li.bit-box, #apple-list ul.holder li.bit-box{padding-right:15px;position:relative;z-index:1000}#apple-list ul.holder li.bit-input{margin:0}#apple-list ul.holder li.bit-input
+input.smallinput{width:5px}ul.holder li.bit-hover{background:#BBCEF1;border:1px
+solid #6D95E0}ul.holder li.bit-box-focus{border-color:#598BEC;background:#598BEC;color:#fff}ul.holder li.bit-box
+a.closebutton{position:absolute;right:4px;top:5px;display:block;width:7px;height:7px;font-size:1px;background:url("http://i.10denza.com/htdocs/images/3dparty/jquery.fcbkcomplete-close.gif")}ul.holder li.bit-box a.closebutton:hover{background-position:7px}ul.holder li.bit-box-focus a.closebutton, ul.holder li.bit-box-focus a.closebutton:hover{background-position:bottom}.facebook-auto{display:none;position:absolute;background:#eee;z-index:1001}.facebook-auto
+.select_all_items{display:block;float:right}.facebook-auto
+.default{padding:5px
+7px;border:1px
+solid #ccc;border-width:0 1px 1px;font-family:"Lucida Grande","Verdana";font-size:11px}.facebook-auto
+ul{display:none;margin:0;padding:0;overflow:auto;position:absolute;z-index:9999}.facebook-auto ul
+li{padding:5px
+12px;z-index:1000;cursor:pointer;margin:0;list-style-type:none;border:1px
+solid #ccc;border-width:0 1px 1px;font:11px "Lucida Grande", "Verdana";background-color:#eee}.facebook-auto ul li
+em{font-weight:bold;font-style:normal;background:#ccc}.facebook-auto ul li.auto-focus{background:#4173CC;color:#fff}.facebook-auto ul li.auto-focus
+em{background:none}ul.holder
+li.deleted{background-color:#B73636 !important;color:#FFF !important;border:1px
+solid #500!important}.hidden{display:none}
+
+.ui-tabs{position:relative;padding: .2em;zoom:1}.ui-tabs .ui-tabs-nav{margin:0;padding: .2em .2em 0}.ui-tabs .ui-tabs-nav
+li{list-style:none;float:left;position:relative;top:1px;margin:0
+.2em 1px 0;border-bottom:0 !important;padding:0;white-space:nowrap}.ui-tabs .ui-tabs-nav li
+a{float:left;padding: .5em 1em;text-decoration:none}.ui-tabs .ui-tabs-nav li.ui-tabs-selected{margin-bottom:0;padding-bottom:1px}.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing
+a{cursor:text}.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected
+a{cursor:pointer}.ui-tabs .ui-tabs-panel{display:block;border-width:0;padding:1em
+1.4em;background:none}.ui-tabs .ui-tabs-hide{display:none !important}
+
+.ui-datepicker{width:17em;padding: .2em .2em 0;display:none}.ui-datepicker .ui-datepicker-header{position:relative;padding:.2em 0}.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{position:absolute;top:2px;width:1.8em;height:1.8em}.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover{top:1px}.ui-datepicker .ui-datepicker-prev{left:2px}.ui-datepicker .ui-datepicker-next{right:2px}.ui-datepicker .ui-datepicker-prev-hover{left:1px}.ui-datepicker .ui-datepicker-next-hover{right:1px}.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next
+span{display:block;position:absolute;left:50%;margin-left: -8px;top:50%;margin-top: -8px}.ui-datepicker .ui-datepicker-title{margin:0
+2.3em;line-height:1.8em;text-align:center}.ui-datepicker .ui-datepicker-title
+select{font-size:1em;margin:1px
+0}.ui-datepicker select.ui-datepicker-month-year{width:100%}.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year{width:49%}.ui-datepicker
+table{width:100%;font-size: .9em;border-collapse:collapse;margin:0
+0 .4em}.ui-datepicker
+th{padding: .7em .3em;text-align:center;font-weight:bold;border:0}.ui-datepicker
+td{border:0;padding:1px}.ui-datepicker td span, .ui-datepicker td
+a{display:block;padding: .2em;text-align:right;text-decoration:none}.ui-datepicker .ui-datepicker-buttonpane{background-image:none;margin: .7em 0 0 0;padding:0
+.2em;border-left:0;border-right:0;border-bottom:0}.ui-datepicker .ui-datepicker-buttonpane
+button{float:right;margin: .5em .2em .4em;cursor:pointer;padding: .2em .6em .3em .6em;width:auto;overflow:visible}.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current{float:left}.ui-datepicker.ui-datepicker-multi{width:auto}.ui-datepicker-multi .ui-datepicker-group{float:left}.ui-datepicker-multi .ui-datepicker-group
+table{width:95%;margin:0
+auto .4em}.ui-datepicker-multi-2 .ui-datepicker-group{width:50%}.ui-datepicker-multi-3 .ui-datepicker-group{width:33.3%}.ui-datepicker-multi-4 .ui-datepicker-group{width:25%}.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header{border-left-width:0}.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header{border-left-width:0}.ui-datepicker-multi .ui-datepicker-buttonpane{clear:left}.ui-datepicker-row-break{clear:both;width:100%;font-size:0em}.ui-datepicker-rtl{direction:rtl}.ui-datepicker-rtl .ui-datepicker-prev{right:2px;left:auto}.ui-datepicker-rtl .ui-datepicker-next{left:2px;right:auto}.ui-datepicker-rtl .ui-datepicker-prev:hover{right:1px;left:auto}.ui-datepicker-rtl .ui-datepicker-next:hover{left:1px;right:auto}.ui-datepicker-rtl .ui-datepicker-buttonpane{clear:right}.ui-datepicker-rtl .ui-datepicker-buttonpane
+button{float:left}.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current{float:right}.ui-datepicker-rtl .ui-datepicker-group{float:right}.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header{border-right-width:0;border-left-width:1px}.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header{border-right-width:0;border-left-width:1px}.ui-datepicker-cover{display:none;display/**/: block;position:absolute;z-index: -1;filter:mask();top: -4px;left: -4px;width:200px;height:200px}
+

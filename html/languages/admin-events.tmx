@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.8.1"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='MSG_ADMIN_EVENTS_WRONG_TIMESTAMP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Время начала события должно быть меньше времени окончания]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Start time of the event must be less than end time]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_EVENTS_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить изменять записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to edit entries]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_EVENTS_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить создавать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to create records]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_EVENTS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить удалять записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to remove entries]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_EVENTS_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view entries]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[События/Акции]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Events/Promos]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Содержимое]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Content]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Edit]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Добавить запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Add an entry]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Parameters]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_ACTIVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Активно?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Active?]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Описание:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Description:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_MEDIA_DOC'>
+	<tuv xml:lang="ru"><seg><![CDATA[Документ:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Document:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_MEDIA_PIC'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изображение:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Picture:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_MEDIA_THUMB'>
+	<tuv xml:lang="ru"><seg><![CDATA[Миниатюра:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Thumbnail:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_POPUP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Показывать всплывающим окном?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Display pop-up?]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_TIMESTAMP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Время события:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entry time-stamp:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_TIMESTAMP_TO'>
+	<tuv xml:lang="ru"><seg><![CDATA[до]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[to]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Название:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тип записи:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entry type:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PARAMS_WHERE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Местонахождение:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Where:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_PREVIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Просмотр]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Preview]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_REORDER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Нажмите здесь чтобы изменить порядок]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Click here to change order]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_REORDER_CANCEL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Выйти из режима сортировки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Exit from the sorting mode]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TAB_ADVANCED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дополнительные настройки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Advanced settings]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TAB_MAIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Основная информация]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Main information]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TAB_MEDIA'>
+	<tuv xml:lang="ru"><seg><![CDATA[Медиа контент]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Media content]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TBL_AUTHOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Автор]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Author]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TBL_DATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дата]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Date]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TBL_LOCATION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Местонахождение]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Where]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TBL_MANAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Управление]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Manage]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TBL_NOTIME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отрезок не указан]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the length is not set]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TBL_TIME_END'>
+	<tuv xml:lang="ru"><seg><![CDATA[Конец]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[End]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TBL_TIME_START'>
+	<tuv xml:lang="ru"><seg><![CDATA[Начало]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Begin]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TBL_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Название]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TYPE_EVENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Событие]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Event]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_EVENTS_TYPE_PROMO'>
+	<tuv xml:lang="ru"><seg><![CDATA[Акция]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Promotion]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_EVENTS_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Создана запись &laquo;<a href="/open/admin-events/?action=edit&id=%d">%s</a>&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entry &laquo;<a href="/open/admin-events/?action=edit&id=%d">%s</a>&raquo; was created {ID:%d}]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_EVENTS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалена запись &laquo;%s&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entry &laquo;%s&raquo; {ID:%d} was deleted ]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_EVENTS_UPDATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновлена запись &laquo;<a href="/open/admin-events/?action=edit&id=%d">%s</a>&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entry &laquo;<a href="/open/admin-events/?action=edit&id=%d">%s</a>&raquo; was updated {ID:%d}]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_EVENTS_DOESNT_EXIST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Запись не найдена. Возможно она была удалена.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The entry was not found. Perhaps it was removed.]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_EVENTS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить выбранную запись?<br /><b>Внимание:</b> восстановить запись после удаления невозможно!]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove selected entry?<br /><b>Note:</b> you will not be able to restore the entry after deleting!]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_EVENTS_REMOVED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Запись успешно удалена из нашей Базы Данных]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entry was successfully removed from our database]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_CONTENT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[существующие записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[existing records]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет управлять записями]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section allows to manage entries]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_LIST_EMPTY'>
+	<tuv xml:lang="ru"><seg><![CDATA[По вашему запросу записей не найдено]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There are no entries matching your request]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_NEW_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел поможет создать новое записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section will help you create a new entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[полный текст записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[body of the entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_PARAMS_MEDIA_DOC'>
+	<tuv xml:lang="ru"><seg><![CDATA[можете выбрать информацию, которую пользователь может скачивать при просмотре записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[you can choose information which user will be able to download while viewing the entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_PARAMS_MEDIA_PIC'>
+	<tuv xml:lang="ru"><seg><![CDATA[данное изображение может быть буклетом, меню, либо иной информацией. миниатюра создаётся автоматически, если не выбрана ниже]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[given picture can be a booklet, menu or other information. thumbnail is created automatically, if not chosen below.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_PARAMS_MEDIA_THUMB'>
+	<tuv xml:lang="ru"><seg><![CDATA[будет отображена вместо миниатюры для изображения]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[will be displayed instead of image thumbnails]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_PARAMS_POPUP'>
+	<tuv xml:lang="ru"><seg><![CDATA[отображать окно текущей записи, либо нет]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[show popup at home page or not]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_PARAMS_TIMESTAMP'>
+	<tuv xml:lang="ru"><seg><![CDATA[выберите дату и время для записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[select date and time for the entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_PARAMS_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[в какой раздел на сайте будет добавлена данная запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[in what section of the site will be added this entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_PARAMS_WHERE'>
+	<tuv xml:lang="ru"><seg><![CDATA[укажите местонахождение для записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[specify the location for the entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_EVENTS_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;События/Акции&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the &laquo;Events/Promotions&raquo; module]]></seg></tuv>
+</tu>
+
+</body></tmx>

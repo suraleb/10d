@@ -1,0 +1,21 @@
+<div id='header' class="cleared">
+    <span>
+        <a href='/open/auth/?logout=true'><img src='<?=$this->imgUrl('admin/logout.png')?>'
+            alt='<?=$this->lng->_('LBL_ADMIN_LOGOUT')?>'
+            title='<?=$this->lng->_('LBL_ADMIN_LOGOUT')?>' /></a>
+        <a href="/open/admin-admins/?action=editself"><?=$this->user->name?></a>
+    </span>
+
+    <div id="top-site-links" class="cornered">
+        <img src="<?=$this->imgUrl('admin/site.png');?>" alt='s' />
+        <a href='/' style="margin-right: 15px;"><?=$this->lng->_('TXT_ADMIN_GO_SITE')?></a>
+        <?if($this->input->lng != 'en'):?>
+            <img src="<?=$this->imgUrl('languages/en.png');?>" alt='en' />
+            <a href='/open/admin-index/?action=newlng&amp;id=en'>English</a>
+        <?endif?>
+        <?if($this->input->lng != 'ru'):?>
+            <img src="<?=$this->imgUrl('languages/ru.png');?>" alt='ru' />
+            <a href='/open/admin-index/?action=newlng&amp;id=ru'>Русский</a>
+        <?endif?>
+    </div>
+</div>

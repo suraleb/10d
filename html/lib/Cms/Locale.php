@@ -1,0 +1,34 @@
+<?php
+/**
+ * Content Management System
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are PROHIBITED without prior written permission from
+ * the author. If you received this code occasionally and without
+ * intent to use it, please report this incident to the author.
+ *
+ * @category Data
+ * @package  Library
+ * @author   Kanstantsin A Kamkou (2ka.by)
+ * @license  http://creativecommons.org/licenses/by-nc-nd/3.0/legalcode
+ */
+
+/**
+ * @see Zend_Locale
+ */
+class Cms_Locale extends Zend_Locale
+{
+    /**
+     * Constructor
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        if (!Cms_Config::getInstance()->cms->cache->disabled) {
+            $this->setCache(new Cms_Cache_File());
+        }
+    }
+}

@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.6.0b4"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='MSG_ADMIN_ECOMMERCE_PRODUCT_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Remove?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove?]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ECOMMERCE_COLLECTIONS_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать коллекции]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view collections]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ECOMMERCE_PRODUCTS_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать товары]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view products]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ECOMMERCE_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать магазин]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view eCommerce]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Магазин]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[next10]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_COLLECTIONS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Коллекции]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Collections]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_LOGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Активность]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Logs]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_MODIFY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Modify]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_PRODUCTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Товары]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Products]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_PRODUCTS_LIST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Список товаров магазина]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[List of existing products]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_PRODUCT_MEDIA_MAINPIC'>
+	<tuv xml:lang="ru"><seg><![CDATA[Основная фотография]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Main picture]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_PRODUCT_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Добавить товар]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Add a new product]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_PRODUCT_PARAM'>
+	<tuv xml:lang="ru"><seg><![CDATA[Параметры товара]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Attributes of the product]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_PRODUCT_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Product description]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Product description]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_PRODUCT_PARAMS_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Title]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_TBL_ADDED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Создан]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Added]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_TBL_INSTOCK'>
+	<tuv xml:lang="ru"><seg><![CDATA[В продаже]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[In stock]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_TBL_MANAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Управление]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Manage]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ECOMMERCE_TBL_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Название]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PRODUCT_TAB_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Описание товара]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Product Description]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PRODUCT_TAB_MAIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Основная информация]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Main Information]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PRODUCT_TAB_MEDIA'>
+	<tuv xml:lang="ru"><seg><![CDATA[Next10 image]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Next10 image]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ECOMMERCE_PRODUCT_NOT_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Товар отсутствует в нашей базе данных]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Product was not found in our database]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ECOMMERCE_PRODUCT_REMOVED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Товар успешно удален из нашей Базы Данных]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Product was successfully removed from our database]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[позволяет управлять товарами и коллекциями Вашего магазина]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Click Products to add / edit your next10 products]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_LOGS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[отображает информацию о последней активности с товарами]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[shows the latest activities about your products]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_PRODUCTS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_PRODUCTS_LIST_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[_This shows your current list or Next10 products]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[This shows your current list or Next10 products]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_PRODUCT_NEW_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_PRODUCT_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[This is where you type what it is and why you love this product]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[This is where you type what it is and why you love this product]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_PRODUCT_PARAMS_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[This is what your Next10 product will be named]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[This is what your Next10 product will be named]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_PRODUCT_PARAM_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ECOMMERCE_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля «Магазин»]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the «eCommerce» module]]></seg></tuv>
+</tu>
+
+</body></tmx>

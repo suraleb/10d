@@ -1,0 +1,47 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_UPDATE_ZF'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_UPDATE')?> &rarr; <?=$this->lng->_('LBL_ADMIN_UPDATE_ZF')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_UPDATE_ZF_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_UPDATE_VIEW)):?>
+            <a href="/open/admin-update/">&larr; <?=$this->lng->_('LBL_ADMIN_UPDATE')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div>
+    <div class="page-title">
+        <h2><?=$this->lng->_('LBL_ADMIN_UPDATE_ZF_STATUS')?></h2>
+        <p><?=$this->lng->_('TXT_ADMIN_UPDATE_ZF_STATUS')?></p>
+    </div>
+
+    <div class="page-content">
+        <span id="status-element" class="cornered">&nbsp;</span>
+    </div>
+</div>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function() {
+        var elem = jQuery('#status-element');
+        elem.addClass('tinymceLoading').html('<?=$this->lng->_js('TXT_ADMIN_UPDATE_ZF_STATUS_INIT')?>');
+
+        kkcms.ajaxCall('/open/admin-update/', {action: 'zfget', version: '<?=$this->zfNewVersion?>'}, function(data) {
+            elem.removeClass('tinymceLoading');
+            if (data.success) {
+                elem.html('<?=$this->lng->_js('TXT_ADMIN_UPDATE_ZF_STATUS_COMPLETE')?>');
+            } else {
+                elem.html(data.msg);
+            }
+        }, {
+            beforeSend: function(XMLHttpRequest, settings) {
+                elem.html('<?=$this->lng->_js('TXT_ADMIN_UPDATE_ZF_STATUS_DOWNLOADING')?>');
+            }
+        });
+    });
+<?$this->headScript()->captureEnd()?>

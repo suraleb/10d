@@ -1,0 +1,602 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_STATIC_MODIFY'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_STATIC')?> &rarr; <?=$this->lng->_('LBL_ADMIN_STATIC_MODIFY')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_STATIC_MODIFY_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+        <a href="/open/admin-static/">&larr; <?=$this->lng->_('LBL_ADMIN_STATIC')?></a>
+    </div>
+</div>
+
+<?if($this->entry['updated']):?>
+    <div class="page-title">
+        <h2><a href='#' id='btn_info_area' style='text-decoration: none;'><img
+                src='<?=$this->imgUrl('admin/toggle-plus.png')?>'
+                    style='width: 16px; height: 16px;' class='vam' alt='' />
+            <?=$this->lng->_('LBL_ADMIN_STATIC_INFORMATION')?></a></h2>
+        <p><?=$this->lng->_('TXT_ADMIN_STATIC_INFORMATION_DESCR')?></p>
+    </div>
+
+    <div class="page-content<?if(Cms_Core::getCookie('admin_static_info') !== 'true'):?> hidden<?endif?>" id='info_area'>
+        <div>
+            - <?=sprintf($this->lng->_('TXT_ADMIN_STATIC_INFORMATION_AUTHOR'), $this->entry['user_name'])?><br />
+            - <?=sprintf($this->lng->_('TXT_ADMIN_STATIC_INFORMATION_ADDED'), $this->timeStamp($this->entry['added'], Cms_Date::DATETIME_MEDIUM))?><br />
+            - <?=sprintf($this->lng->_('TXT_ADMIN_STATIC_INFORMATION_EDITED'), $this->timeStamp($this->entry['updated'], Cms_Date::DATETIME_MEDIUM))?>
+        </div>
+    </div>
+<?endif?>
+
+<div class="page-title">
+    <?if($this->user->hasAcl(CMS_ACCESS_STATIC_REMOVE) && !$this->entry['system']):?>
+        <input type="button" value="<?=$this->lng->_('LBL_ADMIN_STATIC_REMOVE')?>"
+            class="button button-with-icon icon-remove" id='button-remove'
+            style="float: right;" />
+    <?endif?>
+    <h3><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS')?></h3>
+    <p><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_DESCR_NAV')?></p>
+</div>
+
+<form method="post" id="static_form" action="/open/admin-static/">
+
+    <div class="page-content" id='work-area'>
+
+        <input type='hidden' name='action' value='update' />
+        <input type='hidden' name='id' value='<?=$this->entry['id']?>' />
+        <input type='hidden' name='referer' value='<?=Cms_Core::getReferer()?>' />
+
+        <ul>
+            <li><a href="#tab-main"><?=$this->lng->_('LBL_ADMIN_STATIC_TAB_MAIN')?></a></li>
+            <li><a href="#tab-content"><?=$this->lng->_('LBL_ADMIN_STATIC_TAB_CONTENT')?></a></li>
+            <li><a href="#tab-seo"><?=$this->lng->_('LBL_ADMIN_STATIC_TAB_SEO')?></a></li>
+            <li><a href="#tab-access"><?=$this->lng->_('LBL_ADMIN_STATIC_TAB_ACCESS')?></a></li>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_STATIC_OPTIONS)):?>
+                <li><a href="#tab-adv"><?=$this->lng->_('LBL_ADMIN_STATIC_TAB_ADV')?></a></li>
+            <?endif?>
+        </ul>
+
+        <fieldset>
+
+        <div id='tab-main'>
+
+            <div class="f-row">
+                <label for="i-title" class="req">
+                    <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_TITLE')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_TITLE')?></span>
+                </label>
+                <div class="f-inputs">
+                    <input name='static_title' id='i-title' type="text" maxlength="255"
+                        class="i-text" style='width: 80%;' value="<?=$this->entry['title']?>"
+                        onchange="addressChange($(this).val())" />
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label for="i-rewrite" class="req">
+                    <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_REWRITE')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_REWRITE')?></span>
+                </label>
+                    <div class="f-inputs">
+                        <input name='static_rewrite' id='i-rewrite' type="text"
+                            maxlength="255" class="i-text" style='width: 75%;'
+                            onchange="addressChange($(this).val(), true)"
+                            value="<?=$this->entry['rewrite']?>" /><br />
+                        <span style="font-size: 0.8em;">
+                            <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_REWRITE_PREV')?>
+                            <?=CMS_HOST?>/<b id='rewrite_preview'><?=$this->entry['rewrite']?></b>.html
+                        </span>
+                    </div>
+            </div>
+
+            <div class="f-row">
+                <label>
+                    <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_PARENTS')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_PARENTS')?></span>
+                </label>
+                <div class="f-inputs">
+                    <select name='static_parents' id='static_parents'>
+                        <?if ($this->entry['parents']):?>
+                            <?foreach(explode(',', $this->entry['parents']) as $parent):?>
+                                <?$parent = trim($parent, '][')?>
+                                <option value='<?=$parent?>' class='selected'><?=$parent?></option>
+                            <?endforeach?>
+                        <?endif?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label>
+                    <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_TAGS')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_TAGS')?></span>
+                </label>
+                <div class="f-inputs input-tag">
+                    <select name='static_tags' id='static_tags'>
+                        <?foreach(Cms_Tags::decode($this->entry['tags'], true) as $tag):?>
+                            <option value='<?=$tag?>' class='selected'><?=$tag?></option>
+                        <?endforeach?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label for="static_featured">
+                    <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_FEATURED')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_FEATURED')?></span>
+                </label>
+                <div class="f-inputs">
+        			<div class="f-inputs yes-no cleared">
+                        <p class="no">
+                            <input type="radio" id="static_featured_no"
+                                name='static_featured' value='0'<?if(!$this->entry['featured']):?> checked='checked'<?endif?> />
+                            <label for="static_featured_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                        <p class="yes">
+                            <label for="static_featured_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='static_featured_yes'
+                                name='static_featured' value='1'<?if($this->entry['featured']):?> checked='checked'<?endif?> />
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label for="i-timestamp">
+                    <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_TIMESTAMP')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_TIMESTAMP')?></span>
+                </label>
+                <div class="f-inputs">
+                    <input name='static_timestamp' id='i-timestamp' type="text"
+                        maxlength="10" class="i-text" style='width: 90px;' readonly="readonly"
+                        value="<?if($this->entry['timestamp']):?><?=$this->timeStamp($this->entry['timestamp'], Cms_Date::DATE_SHORT, true)?><?endif?>" />
+
+                    <input type="button" value="<?=$this->lng->_('LBL_ADMIN_STATIC_RESET')?>"
+                        class="button button-with-icon icon-reset"
+                        onclick="jQuery('#i-timestamp').val('');return false;" />
+                </div>
+            </div>
+        </div>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_STATIC_OPTIONS)):?>
+            <div id='tab-adv'>
+
+                <div class="f-row">
+                    <label><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_OPTIONS')?></label>
+                    <div class="f-inputs">
+                        <input type="checkbox" name='options[sendheader]'
+                            value="1"<?if(isset($this->entry['options']['header'])):?> checked='checked'<?endif?> />
+
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_HDR')?>
+
+                        <select name='sendheader_code' class="i-select">
+                            <option value="200"<?if(@$this->entry['options']['header']['code'] == '200'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_HDR_200')?></option>
+                            <option value="404"<?if(@$this->entry['options']['header']['code'] == '404'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_HDR_404')?></option>
+                            <option value="403"<?if(@$this->entry['options']['header']['code'] == '403'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_HDR_403')?></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="i-layout"><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_LAYOUT')?></label>
+                    <div class="f-inputs">
+                        <select name='static_layout' id='i-layout' class="i-select">
+                            <option value="none"<?if($this->entry['layout'] == 'none'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_LAYOUT_NONE')?></option>
+                            <?foreach($this->layouts as $l):?>
+                                <option value="<?=$l?>"<?if($l == $this->entry['layout']):?> selected="selected"<?endif?>><?=$l?></option>
+                            <?endforeach?>
+                        </select>
+
+                        <input type="checkbox" name="optionsUseAjaxLayout" onclick="jQuery('#layout_ajax').slideToggle();"
+                            value="1"<?if(isset($this->entry['options']['ajax']['layout'])):?> checked='checked'<?endif?> />
+
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_LAYOUT_AJAX_ON')?>
+                    </div>
+                </div>
+
+                <div id='layout_ajax' class="f-row<?=!isset($this->entry['options']['ajax']['layout']) ? ' hidden' : ''?>">
+                    <label for="i-layout"><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_LAYOUT_AJAX')?></label>
+                    <div class="f-inputs">
+                        <select name="options[ajax][layout]" id='i-layout' class="i-select">
+                            <option value="none"<?if(@$this->entry['options']['ajax']['layout'] == 'none'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_LAYOUT_NONE')?></option>
+                            <?foreach($this->layouts as $l):?>
+                                <option value="<?=$l?>"<?if($l == @$this->entry['options']['ajax']['layout']):?> selected="selected"<?endif?>><?=$l?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="i-tpl"><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_TPL')?></label>
+                    <div class="f-inputs">
+                        <select name='static_tpl' id='i-tpl' class="i-select">
+                            <option value="none"<?if($this->entry['tpl'] == 'none'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_TPL_NONE')?></option>
+                            <?foreach($this->templates as $l):?>
+                                <option value="<?=$l?>"<?if($l == $this->entry['tpl']):?> selected="selected"<?endif?>><?=$l?></option>
+                            <?endforeach?>
+                        </select>
+
+                        <input type="checkbox" name="optionsUseAjaxTpl" onclick="jQuery('#tpl_ajax').slideToggle();"
+                            value="1"<?if(isset($this->entry['options']['ajax']['tpl'])):?> checked='checked'<?endif?> />
+
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_TPL_AJAX_ON')?>
+                    </div>
+                </div>
+
+                <div id="tpl_ajax" class="f-row<?=!isset($this->entry['options']['ajax']['tpl']) ? ' hidden' : ''?>">
+                    <label for="i-tpl"><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_TPL_AJAX')?></label>
+                    <div class="f-inputs">
+                        <select name="options[ajax][tpl]" id='i-tpl' class="i-select">
+                            <option value="none"<?if(@$this->entry['options']['ajax']['tpl'] == 'none'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_TPL_NONE')?></option>
+                            <?foreach($this->templates as $l):?>
+                                <option value="<?=$l?>"<?if($l == @$this->entry['options']['ajax']['tpl']):?> selected="selected"<?endif?>><?=$l?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        <?endif?>
+
+        <div id='tab-content'>
+            <div class="f-row">
+                <label for="i-lang"><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_LNG')?></label>
+                <div class="f-inputs">
+                    <select id="i-lang" name='static_lng' class="i-select">
+                        <option value='ru'<?if($this->entry['lng'] == 'ru'):?> selected="selected"<?endif?>>Русский</option>
+                        <option value='en'<?if($this->entry['lng'] == 'en'):?> selected="selected"<?endif?>>English</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label for="i-content">
+                    <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_CONTENT')?>
+                </label>
+                <div class="f-inputs">
+                    <div style='margin-top: 1px;'>
+                        <textarea name="static_content" id='i-content'
+                            rows="<?=Cms_Functions::textarea_rows($this->entry['content'], 117)?>"
+                            cols="117" class="hidden"><?=Cms_Functions::htmlspecialchars($this->entry['content'])?></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- access tab -->
+        <div id='tab-access'>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_STATIC_PUBLISH)):?>
+                <div class="f-row">
+                    <label><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_PUBLISH')?></label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="no">
+                            <input type="radio" id="static_active_no"
+                                name='static_active' value='0'<?if($this->entry['active'] == '0'):?> checked="checked"<?endif?> />
+                            <label for="static_active_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                        <p class="yes">
+                            <label for="static_active_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='static_active_yes'
+                                name='static_active' value='1'<?if($this->entry['active'] == '1'):?> checked="checked"<?endif?> />
+                        </p>
+                    </div>
+                </div>
+            <?endif?>
+
+            <div class="f-row">
+                <label>
+                    <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_GROUP')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_GROUP')?></span>
+                </label>
+
+                <div class="f-inputs" id='access_group'>
+                    <input type="checkbox" id="static_group_all" name="static_group[]" value=''<?if(empty($this->entry['group'])):?> checked='checked'<?endif?> />
+                        <label for="static_group_all"><?=$this->lng->_('LBL_ADMIN_STATIC_GROUP_ALL')?></label>
+
+                    <br />
+                    <?if(in_array($this->user->role, array(CMS_USER_ADMIN, CMS_USER_MEMBER))):?>
+                        <input type="checkbox" id="static_group_guest" name="static_group[]" value='<?=CMS_USER_GUEST?>'<?if(strpos($this->entry['group'], CMS_USER_GUEST) !== false):?> checked='checked'<?endif?> />
+                            <label for="static_group_guest"><?=$this->lng->_('LBL_ADMIN_STATIC_GROUP_GUEST')?></label>
+                    <?endif?>
+
+                    <?if($this->user->role === CMS_USER_ADMIN):?>
+                        <input type="checkbox" id="static_group_member" name="static_group[]" value='<?=CMS_USER_MEMBER?>'<?if(strpos($this->entry['group'], CMS_USER_MEMBER) !== false):?> checked='checked'<?endif?> />
+                            <label for="static_group_member"><?=$this->lng->_('LBL_ADMIN_STATIC_GROUP_MEMBERS')?></label>
+
+                        <input type="checkbox" id="static_group_admin" name="static_group[]" value='<?=CMS_USER_ADMIN?>'<?if(strpos($this->entry['group'], CMS_USER_ADMIN) !== false):?> checked='checked'<?endif?> />
+                            <label for="static_group_admin"><?=$this->lng->_('LBL_ADMIN_STATIC_GROUP_ADMINS')?></label>
+                    <?endif?>
+                </div>
+            </div>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_STATIC_HIDE)):?>
+                <div class="f-row">
+                    <label><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_HIDDEN')?></label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="no">
+                            <input type="radio" id="static_hidden_no"
+                                name='static_hidden' value='0'<?if($this->entry['hidden'] == '0'):?> checked="checked"<?endif?> />
+                            <label for="static_hidden_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                        <p class="yes">
+                            <label for="static_hidden_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='static_hidden_yes'
+                                name='static_hidden' value='1'<?if($this->entry['hidden'] == '1'):?> checked="checked"<?endif?> />
+                        </p>
+                    </div>
+                </div>
+            <?endif?>
+
+            <?if($this->user->hasAcl(CMS_ACCESS_STATIC_SYSTEM)):?>
+                <div class="f-row">
+                    <label><?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SYSTEM')?></label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="no">
+                            <input type="radio" id="static_system_no"
+                                name='static_system' value='0'<?if($this->entry['system'] == '0'):?> checked="checked"<?endif?> />
+                            <label for="static_system_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                        <p class="yes">
+                            <label for="static_system_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='static_system_yes'
+                                name='static_system' value='1'<?if($this->entry['system'] == '1'):?> checked="checked"<?endif?> />
+                        </p>
+                    </div>
+                </div>
+            <?endif?>
+
+        </div>
+
+            <div id='tab-seo'>
+
+                <div class="f-row">
+                    <label for="seo_title">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_TITLE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_SEO_TITLE')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <div style='margin-top: 1px;'>
+                            <input name='static_seo_title' id='seo_title' type="text"
+                                maxlength="255" class="i-text" style='width: 95%;'
+                                value="<?=$this->entry['metadata']['title']?>" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="seo_robots">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_ROBOTS')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_SEO_ROBOTS')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <select class="i-select" name="static_seo_robots" id="seo_robots">
+                            <option value=""<?if (empty($this->entry['metadata']['robots'])):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_SELECT')?></option>
+                            <option value="index, follow"<?if ($this->entry['metadata']['robots'] == 'index, follow'):?> selected="selected"<?endif?>>Index &mdash; Follow</option>
+                            <option value="noindex, follow"<?if ($this->entry['metadata']['robots'] == 'noindex, follow'):?> selected="selected"<?endif?>>No index &mdash; Follow</option>
+                            <option value="index, nofollow"<?if ($this->entry['metadata']['robots'] == 'index, nofollow'):?> selected="selected"<?endif?>>Index &mdash; No follow</option>
+                            <option value="noindex, nofollow"<?if ($this->entry['metadata']['robots'] == 'noindex, nofollow'):?> selected="selected"<?endif?>>No index &mdash; No follow</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="seo_keywords">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_KEYWORDS')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_SEO_KEYWORDS')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <div style='margin-top: 1px;'>
+                            <input name='static_seo_keywords' id='seo_keywords' type="text"
+                                maxlength="255" class="i-text" style='width: 95%;'
+                                value="<?=$this->entry['metadata']['keywords']?>" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="seo_descr">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_DESCR')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_SEO_DESCR')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <textarea id='seo_descr' name='static_seo_descr'
+                            class="i-text" cols="4" rows="4"
+                            style="width:95%;height:50px;"><?=$this->entry['metadata']['description']?></textarea>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="seo_author">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_AUTHOR')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_SEO_AUTHOR')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input name='static_seo_author' id='seo_author' type="text"
+                            maxlength="255" class="i-text" style='width: 95%;'
+                            value="<?=$this->entry['metadata']['author']?>" />
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="f-submit" style='margin-top: 10px;'>
+        <input type="button" value="<?=$this->lng->_('LBL_ADMIN_BTN_CANCEL')?>"
+            class="button button-with-icon icon-cancel" id="button-cancel"
+                style="float: right;" />
+
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>"
+            class="button button-with-icon icon-save" name="saveAndEdit" />
+
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE_GOLIST')?>"
+            class="button button-with-icon icon-folder" name="saveAndGoList" />
+
+		<?if (!$this->entry['hidden']):?>
+            <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE_PREVIEW')?>"
+                class="button button-with-icon icon-preview" name="saveAndPreview" />
+		<?endif?>
+    </div>
+
+</form>
+
+<?$this->headLink()->appendStylesheet(
+    $this->cssUrl('j.fcbkcomplete,jui.tabs,jui.datepicker'))?>
+
+<?$this->headScript()->appendFile(
+    $this->jsUrl(
+        'j.fcbkcomplete,jui.tabs,jui.datepicker'
+        . ($this->input->lng != 'en' ? ",jquery.ui-datepicker-{$this->input->lng}" : '')
+    )
+)?>
+
+<?$this->headScript()->appendFile('/htdocs/3dparty/tiny_mce/jquery.tinymce.js')?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(
+        function()
+        {
+            jQuery("#work-area").tabs().tabs('select', 1);
+
+            kkcms.attachEditor('i-content');
+
+            jQuery("#static_tags").fcbkcomplete({
+                json_url: "/open/admin-static/?action=autocomplete&myid=<?=$this->entry['id']?>&type=tags",
+                cache: true,
+                filter_hide: true,
+                filter_selected: true,
+                maxitems: 10,
+                newel: true,
+                onCorrectValue: function(value) {
+                    return kkcms.normalizeTag(value);
+                },
+                onCorrectTitle: function(title) {
+                    return kkcms.normalizeTag(title);
+                }
+            });
+
+            jQuery("#static_parents").fcbkcomplete({
+                json_url: "/open/admin-static/?action=autocomplete&myid=<?=$this->entry['id']?>&type=rewrite",
+                cache: true,
+                filter_hide: true,
+                filter_selected: true,
+                maxitems: 10,
+                onCorrectValue: function(value) {
+                    return kkcms.normalizeAddress(value);
+                },
+                onCorrectTitle: function(title) {
+                    return kkcms.normalizeAddress(title);
+                }
+            });
+
+            jQuery('#i-timestamp').datepicker({
+                showAnim: 'fadeIn',
+                numberOfMonths: 3,
+                defaultDate: '-1m',
+                showOn: 'both',
+                changeYear: true,
+                showButtonPanel: true,
+                showOtherMonths: true,
+                buttonImage: '<?=$this->imgUrl('calendar.png')?>',
+                buttonImageOnly: true
+            });
+
+            jQuery('#static_form').bind('submit', function() {
+                if (!jQuery('#i-title').val()) {
+                    kkcms.effect.blink('i-title');
+                    return false;
+                }
+                if (!jQuery('#i-rewrite').val()) {
+                    kkcms.effect.blink('i-rewrite');
+                    return false;
+                }
+                return true;
+            });
+
+            jQuery('#access_group input').bind("change", function() {
+                if (!jQuery(this).val() && jQuery(this).is(":checked")) {
+                    jQuery(this).nextAll(":checked").removeAttr("checked");
+                    return true;
+                }
+
+                var parentObj = jQuery(this).parent();
+                var parentObjFirst = parentObj.find("input:first");
+                parentObjFirst.removeAttr("checked");
+
+                if (!parentObj.find(":checked").length) {
+                    parentObjFirst.attr("checked", "checked");
+                    return true;
+                }
+
+                if (parentObj.find(":checked").length > 2) {
+                    parentObjFirst.attr("checked", "checked");
+                    parentObjFirst.nextAll(":checked").removeAttr("checked");
+                }
+                return true;
+            });
+
+            jQuery("#btn_info_area").bind("click", function() {
+                if (!kkcms.cookie.get('admin_static_info') ||
+                    kkcms.cookie.get('admin_static_info') == "false") {
+                    jQuery("#info_area").slideDown();
+                    kkcms.cookie.set('admin_static_info', 'true');
+                    return false;
+                }
+
+                jQuery("#info_area").slideUp();
+                kkcms.cookie.set('admin_static_info', 'false');
+                return false;
+            });
+
+            jQuery('#button-remove').live('click', function () {
+                kkcms.boxy.confirm('<?=$this->lng->_js('MSG_ADMIN_STATIC_REMOVE')?>', function() {
+                    kkcms.redirect(
+                        '/open/admin-static/?action=remove&id=<?=$this->entry['id']?>&referer=<?=Cms_Core::getReferer()?>'
+                    );
+                });
+            });
+
+            jQuery('#button-cancel').live('click', function() {
+                kkcms.redirect('<?=Cms_Core::getReferer()?>');
+            });
+
+            <?if (isset($this->input->message_id)):?>
+                kkcms.effect.message("<?php
+                    switch ($this->input->message_id) {
+                        case 'updated':
+                            echo $this->lng->_js('MSG_ADMIN_STATIC_UPDATED');
+                        break;
+                        case 'added':
+                            echo $this->lng->_js('MSG_ADMIN_STATIC_ADDED');
+                        break;
+                }?>");
+            <?endif?>
+        });
+
+    function addressChange(str, ignoreContent)
+    {
+        var str = kkcms.normalizeAddress(str);
+        var rwr = jQuery('#i-rewrite');
+        var prev = jQuery('#rewrite_preview');
+
+        if (ignoreContent) {
+            rwr.val(str);
+            prev.text(str);
+            return false;
+        }
+
+        if (!rwr.val()) {
+            rwr.val(str);
+            prev.text(str);
+        }
+
+        return false;
+    }
+<?$this->headScript()->captureEnd()?>

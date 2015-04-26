@@ -1,0 +1,28 @@
+
+<?if($this->user->hasAcl(CMS_ACCESS_ACP_VIEW)):?>
+    <div id='cms-admin-bar' class='cms-reset'>
+        <p>
+            <b><?=$this->user->name?></b>
+            <span>
+                <a class='cms-cornered' href='/open/admin-index/'><?=$this->lng->_('TXT_ADMIN_TITLE')?></a>
+                <a class='cms-cornered' href='/open/auth/?logout=true'><?=$this->lng->_('LBL_ADMIN_LOGOUT')?></a>
+            </span>
+        </p>
+    </div>
+<?else:?>
+    <?if(Cms_Core::getCookie('access_acp')):?>
+        <?php
+            $referer = '';
+            if (isset($this->input->referer)) {
+                $referer .= "?referer={$this->input->referer}";
+            } else {
+                if (isset($_SERVER['REQUEST_URI'])) {
+                    $referer .= '?referer=' . urlencode(trim($_SERVER['REQUEST_URI'], '/'));
+                }
+            }
+        ?>
+        <div id='cms-admin-bar-small' class='cms-reset cms-cornered'>
+            <span><a class='cms-cornered' href='/system/admin.html<?=$referer?>'><?=$this->lng->_('TXT_ADMIN_TITLE')?></a></span>
+        </div>
+    <?endif?>
+<?endif?>

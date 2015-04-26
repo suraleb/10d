@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.4.6"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='LBL_SITE_AUTH_GO_ADMIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[перейти в раздел администратора]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[go to administrator's section]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_AUTH_LOGIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[войти]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[login]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_SITE_AUTH_BANNED'>
+	<tuv xml:lang="ru"><seg><![CDATA[В целях безопасности ваш IP-адрес заблокирован.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[For security purposes your IP-address is blocked.]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_SITE_AUTH_BLOCKED'>
+	<tuv xml:lang="ru"><seg><![CDATA[В целях безопасности ваш IP-адрес временно заблокирован.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[For security purposes your IP-address is temporarily blocked.]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_SITE_AUTH_NOTICE'>
+	<tuv xml:lang="ru"><seg><![CDATA[У вас несколько попыток авторизации. После чего ваш IP-адрес будет заблокирован на несколько часов. Текущая попытка авторизации: %d.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You have multiple authorization attempts. After that your IP-address will be blocked for several hours. Current Logging attempt is: %d.]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_SITE_AUTH_WRONG'>
+	<tuv xml:lang="ru"><seg><![CDATA[Неправильный логин либо пароль. Попробуйте еще раз.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Login or password is incorrect. Try once again.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_AUTH_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;Авторизации&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the &laquo;Authentication&raquo; module]]></seg></tuv>
+</tu>
+
+</body></tmx>

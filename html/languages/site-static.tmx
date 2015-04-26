@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.5"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='LBL_ADMIN_STATIC_TAB_ACCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Доступ]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Access]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_STATIC_READMORE'>
+	<tuv xml:lang="ru"><seg><![CDATA[прочесть полностью&hellip;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[click here for full article&hellip;]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_STATIC_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;Публикации&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with frontend records for the &laquo;Static&raquo; module]]></seg></tuv>
+</tu>
+
+</body></tmx>

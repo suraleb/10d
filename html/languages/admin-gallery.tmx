@@ -1,0 +1,596 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.6.0b3"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='ACCESS_ACP_GALLERY_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить редактировать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to modify entries]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_GALLERY_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить создавать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to create entries]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_GALLERY_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить удалять записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to remove entries]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_GALLERY_REMOVE_MULTI'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить мульти-удаление файлов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow multi-removing of files]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_GALLERY_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view entries]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Галерея]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Gallery]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_CANCELLED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отменен]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Cancelled]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_COLLECTIONS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Коллекции]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Collections]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_COLLECTION_ITEMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[%d файлов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[%d items]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_COMPLETE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Готов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Complete]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Содержимое]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Content]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Modify entry]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_ERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ошибка]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Error]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FB_SYNC'>
+	<tuv xml:lang="ru"><seg><![CDATA[Синхронизировать с Facebook]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Synchronize with Facebook]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILECANCELLED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Загрузка отменена]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Upload cancelled]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILEEXCEEDSSIZELIMIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Размер файла превышает необходимый]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File is too big]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILES_UPLOADED'>
+	<tuv xml:lang="ru"><seg><![CDATA[файлов загружено]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[files uploaded]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILEVALIDATIONFAILED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл не подходит. Пропущен.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Failed validation. Upload skipped.]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILTER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Фильтр]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Filter]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILTER_ALL'>
+	<tuv xml:lang="ru"><seg><![CDATA[все]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[all]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILTER_PERPAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Записей на страницу]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entries per-page:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILTER_TAG'>
+	<tuv xml:lang="ru"><seg><![CDATA[Содержит тег:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Has a tag:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_FILTER_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[В названии есть:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File-name has:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_HTTPERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ошибка загрузки: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Upload error: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_INPROGRESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обрабатывается]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[In progress]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_INVALIDFILETYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Плохой формат файла]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Invalid file type]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_IOERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ошибка сервера (IO)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Server (IO) error]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_MODIFY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Редактировать]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Editing]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_MULTICANCEL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отменить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Cancel]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_MULTISTART'>
+	<tuv xml:lang="ru"><seg><![CDATA[Загрузить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Start upload]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Загрузить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Upload]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPTIONS_MOVIE_ALLOWFULLSCREEN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить полноэкранный режим]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow full-screen]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPTIONS_MOVIE_HEIGHT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Высота:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Height:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPTIONS_MOVIE_PIC'>
+	<tuv xml:lang="ru"><seg><![CDATA[Превью-изображение:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Preview image:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPTIONS_MOVIE_STRETCH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Растягивание:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Stretching:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPTIONS_MOVIE_SUBTITLES'>
+	<tuv xml:lang="ru"><seg><![CDATA[Субтитры:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Subtitles:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPTIONS_MOVIE_WIDTH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ширина:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Width:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPT_STRETCH_EXACTFIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Точное совпадение]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Exact fit]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPT_STRETCH_FILL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Замостить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Fill]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPT_STRETCH_NONE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Не растягивать]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Don't stretch]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_OPT_STRETCH_UNIFORM'>
+	<tuv xml:lang="ru"><seg><![CDATA[Равномерно]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Uniform]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Parameters]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Описание:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Description:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_FILE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_MULTIFILE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файлы:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Files:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_MULTINAME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Префикс для названия файлов:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Prefix for file-names:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_NAME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Новое имя файла:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[New name of a file:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_OPTIONS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дополнительные параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Advanced settings]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_TAGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тэги:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Tags:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тип файла:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File type:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_TYPE_ARC'>
+	<tuv xml:lang="ru"><seg><![CDATA[Архив (%s)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Archive (%s)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_TYPE_FILE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Загружаемый контент (все остальные)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File for download (all others)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_TYPE_IMAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изображение (%s)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Image (%s)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PARAMS_TYPE_MOVIE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Фильм (%s)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Movie (%s)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PIXLR_EDITOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Редактировать изображение]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Edit image]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_PIXLR_EXPRESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Добавить эффект]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Apply effect]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_QUEUED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ожидает]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Queued]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_QUEUELIMITEXCEEDED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Достигнут лимит файлов очереди]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You have attempted to queue too many files]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_REMOVE_MULTI'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить выделенные записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Delete selected entries]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_RESET'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сбросить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Reset]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_SECURITYERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ошибка безопасности]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Security error]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_SELECTFILE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Выбрать]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Select]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TABMULTI'>
+	<tuv xml:lang="ru"><seg><![CDATA[Несколько файлов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Multiple files]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TABOPT_MOVIE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Проигрыватель фильмов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Movie player]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TABSINGLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[По одному]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[One by one]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TAB_MAIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Основная информация]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Main information]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TBL_AUTHOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Автор]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Author]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TBL_MANAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Управление]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Manage]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TBL_NAME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Уникальное имя файла]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Unique filename]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TBL_SIZE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Размер]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Size]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TBL_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тип]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Type]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_TBL_UPDATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновлён]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update time]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_UPDATE_LIST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновить список]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update the list]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_UPLOADFAILED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Не удалось загрузить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Upload failed]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_UPLOADLIMITEXCEEDED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Достигнут лимит загрузок]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Upload limit exceeded]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_UPLOADSTOPPED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Загрузка прервана]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Upload stopped]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GALLERY_ZEROBYTEFILE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Нельзя загружать пустые файлы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Cannot upload zero byte files]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_GALLERY_FILE_UPDATED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновлён файл &laquo;%s&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File &laquo;%s&raquo; {ID:%d} was updated]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_GALLERY_FILE_UPLOADED'>
+	<tuv xml:lang="ru"><seg><![CDATA[В систему загружен файл &laquo;%s&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[New file &laquo;%s&raquo; was uploaded]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_GALLERY_REMOVED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалён файл &laquo;%s&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File &laquo;%s&raquo; was removed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_BAD_FILE_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тип файла не указан. Забыли выбрать?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The type of file was not appointed. Did you forget to choose it?]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_BAD_REWRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы указали некорректное новое имя для файла.<br />Оно может содержать цифры, латинские буквы и знаки: "_", ".", "-"]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You provided incorrect new name of the file.<br />It can consist of digits, letters and symbols: "_", ".", "-"]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_BAD_TAGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Чтобы загрузить файл, нужно указать для него тэги]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You should define tags to upload the file]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_CANT_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Система не смогла произвести удаление. Проверьте права на файл]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't remove the file. Please check file privileges]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_ERROR_FILEMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось переместить файл после сохранения на носителе. Проверьте права на временные папки, либо обратитесь в службу поддержки.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the system didn't manage to move the file after the saving to disk. Check please privileges for temp folders or contact with the system administrator.]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_ERROR_FILEWRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось записать данные на носитель сервера. Проверьте права на временные папки, либо обратитесь в службу поддержки.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the system didn't manage to write data on the server. Check please privileges for temp folders or contact with the system administrator.]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_FB_IMG_ERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Синхронизация файла %d (%s) не удалась]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The %d (%s) file synchronization wasn't performed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_FB_IMG_SUCCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл %d (%s) успешно синхронизирован]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The %d (%s) file synchronization was successfully completed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_FB_SYNC_COMPLETE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Синхронизация завершена]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Synchronization is completed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_FILE_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[В нашей Базе Данных уже есть файл с таким именем]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There is already a file with such name in our database]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_HASH_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[В нашей Базе Данных уже есть файл с такой контрольной суммой]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There is already a file with such checksum in our database]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_NOT_FOUND'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось найти файл. Возможно он был удалён]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't find the file. May be it was removed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_NO_FILE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл не загружен в файловую систему. Вы забыли его выбрать с носителя?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File was not uploaded to the filesystem. Did you forget to choose it from the source location?]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы действительно хотите удалить этот файл?<br/><b>Внимание:</b> восстановить файл после удаления невозможно!]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Do you really want to delete this file?<br/><b>Note:</b> you will not be able to recover it after deleting!]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_REMOVED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл успешно удалён из системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File was successfully removed from the system]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_REMOVE_MULTI'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы действительно хотите удалить выбранные файлы?<br/><b>Внимание:</b> восстановить файлы после удаления невозможно!]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Do you really want to delete selected files?<br/><b>Note:</b> you will not be able to recover them after deleting!]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_UPDATE_SUCCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл успешно обновлён]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File was successfully updated]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_GALLERY_UPLOAD_SUCCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл успешно загружен в файловую систему]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File was successfully uploaded to the filesystem]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_COLLECTIONS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список коллекций вашего сайта]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the list of collections of your site]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_CONTENT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список доступных файлов в системе]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list of available files]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел поможет загрузить различные файлы в систему]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section helps to upload files]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_FILEPATH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Путь на носителе]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Path on the disk]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_FILTER_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[позволяет ограничить список файлов для отображения]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[allows to sort list of files for view]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_LIST_EMPTY'>
+	<tuv xml:lang="ru"><seg><![CDATA[По вашему запросу записей не найдено]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There are no entries matching your request]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_MODIFY_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет менять параметры файла]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section allows to change file parameters]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_NEW_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет загрузить файл в систему]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section allows to upload files to the system]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_OPTIONS_MOVIE_ALLOWFULLSCREEN'>
+	<tuv xml:lang="ru"><seg><![CDATA[фильм можно развернуть на весь экран]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[movie can be maximized]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_OPTIONS_MOVIE_STRETCH'>
+	<tuv xml:lang="ru"><seg><![CDATA[фильм будет растянут по заданному шаблону]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the film will be stretched according to the specified pattern]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_OPT_STRETCH_EXAMPLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Показать пример]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Show example]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[описание файла и его параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[file description and params]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_PARAMS_FILE'>
+	<tuv xml:lang="ru"><seg><![CDATA[выберите с носителя. максимальный размер файла: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[choose from the disk. max filesize: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_PARAMS_MULTINAME'>
+	<tuv xml:lang="ru"><seg><![CDATA[префикс может содержать цифры, латинские буквы и знаки &laquo;.&raquo;, &laquo;-&raquo;. например: my-set]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[prefix may contain digits, letters and symbols &laquo;.&raquo;, &laquo;-&raquo;. example: my-set]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_PARAMS_NAME'>
+	<tuv xml:lang="ru"><seg><![CDATA[имя файла может содержать цифры, латинские буквы и знаки &laquo;.&raquo;, &laquo;-&raquo;. например: my-first-file]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[file name may contain digits, letters and symbols &laquo;.&raquo;, &laquo;-&raquo;. example: my-first-file]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_PARAMS_TAGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[тэги, по которым легко найти файл. напишите, затем выберите]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[tags by which the file can be found. type then click]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_PARAMS_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[какой формат должен иметь файл]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[what format should the file have]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GALLERY_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;Галерея&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the &laquo;Gallery&raquo; module ]]></seg></tuv>
+</tu>
+
+</body></tmx>

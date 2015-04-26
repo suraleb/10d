@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.5.3"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='ACCESS_ACP_ADMINS_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить изменять учетные записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to edit accounts]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ADMINS_EDIT_SELF'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить изменять свою учетную запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to edit self account]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ADMINS_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить создавать учетные записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to create accounts]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ADMINS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить удалять учетные записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to remove accounts]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ADMINS_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать свою учетную запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view self account]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ADMINS_VIEW_OTHERS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать все учетные записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view all accounts]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Администраторы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Administrators]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ACCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Доступ учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Privileges]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ACCOUNT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Учетная запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ACCOUNT_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Редактирование учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Editing account]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ACCOUNT_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Новая учетная запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[New account]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ACCOUNT_PARAMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Параметры учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account params]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ACCOUNT_PWD'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пароль]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Password]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Учетные записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Accounts]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Edit]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_EDIT_SELF'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить свою учетную запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Edit my account]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_MAIL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Адрес электронной почты]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Email address]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_MANAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Управление]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Manage]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Добавить новую учетную запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Add a new account]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_PWD_CHANGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить пароль]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Change password]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_RESET'>
+	<tuv xml:lang="ru"><seg><![CDATA[сбросить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[reset]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ROLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Уровень прав]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Access level]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ROLE_ADMIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Администратор]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Administrator]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ROLE_GUEST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Гость]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Guest]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_ROLE_MEMBER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пользователь]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Member]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ADMINS_SELECT_ALL'>
+	<tuv xml:lang="ru"><seg><![CDATA[выбрать все опции]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[select all options]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_ADMINS_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Создана учетная запись администратора &laquo;%s&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account of the &laquo;%s&raquo; administrator was created]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_ADMINS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалена учетная запись администратора "%s" {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account of the "%s" {ID:%d} administrator was removed]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_ADMINS_UPDATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновлена учетная запись администратора &laquo;%s&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account of the &laquo;%s&raquo; {ID:%d} administrator was updated]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_ADDED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Учетная запись администратора успешно добавлена]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Administrator was successfully created]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_EMPTY_PWD'>
+	<tuv xml:lang="ru"><seg><![CDATA[Введите пароль, после чего повторите его]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Enter password, then repeat it]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_ERROR_EMAIL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Некорректный формат адреса электронной почты]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Incorrect format of the email address]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_ERROR_EMPTY_ACCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы должны указать права для этой учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You must provide access entries for this account]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_ERROR_EMPTY_NAME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы должны указать имя для этой учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You must provide name for this account]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_ERROR_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Учетной записи под таким номером не существует в нашей базе данных]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account with such id does not exist in our database]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_ERROR_PWDLEN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Длина пароля должна быть более 5 символов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Password length must be more than 5 symbols]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_ERROR_PWDMATCH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пароли не совпадают]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Passwords mismatch each other]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Учетная запись с таким логином уже существует]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account with such login already exists]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы действительно хотите удалить эту учетную запись из системы?<br /><b>Внимание:</b> восстановить администратора после удаления невозможно]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Are you sure you want to delete this account?<br /><b>Note:</b> it is impossible to restore administrator after deleting]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_REMOVED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Учетная запись администратора успешно удалена]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Administrator was successfully removed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_REMOVE_GOD'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы не можете удалить учетную запись с полным доступом]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[It's not possible to remove a user with the god priviledges]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_REMOVE_GUEST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы не можете удалить учетную запись гостя]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[It's not possible to remove the guest account]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_REMOVE_YOURSELF'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы не можете удалить собственную учетную запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You can't delete your account]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_ADMINS_UPDATED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Учетная запись успешно обновлена]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account was successfully updated]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_ACCESS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[опции для ограничения доступа]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Options for strict access]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_ACCOUNT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[будет отображаться в профиле]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[will be reflected in the profile]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_ACCOUNT_EDIT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[изменение параметров учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[changing account params]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_ACCOUNT_NEW_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[настройка параметров новой учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[customizing account settings]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_ACCOUNT_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[основные настройки учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[main account settings]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_ACCOUNT_PWD_CHANGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[новый пароль авторизации. и повторите его]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[new password. and repeat it]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_CONTENT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список существующих учетных записей]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list of accounts]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_MAIL_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[используется как логин при авторизации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[is used as login for authorization]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_NAV_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[управление учетными записями администраторов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[admin office]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;Администраторы&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the &laquo;Administrators&raquo; module]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_ADMINS_STATS_SHORT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Администратор добавил %d публикаций.<br />Загружено %d файлов в галерею.<br />Последний визит: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The administrator has added %d publications.<br />%d files were uploaded into the gallery.<br />Last activity: %s]]></seg></tuv>
+</tu>
+
+</body></tmx>

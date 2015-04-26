@@ -1,0 +1,154 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_UPDATE'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_UPDATE')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_UPDATE_NAV_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/' class="cornered"
+            style="background-image: url('<?=$this->imgUrl('admin/admin.png')?>');"><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_UPDATE_CHECK)):?>
+            <a style="background-image: url('<?=$this->imgUrl('admin/update/update-check.png')?>');" class="cornered"
+                href="/open/admin-update/?action=checknow"><?=$this->lng->_('LBL_ADMIN_UPDATE_CHECK_NOW')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_UPDATE_INFORMATION')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_UPDATE_INFORMATION_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div>
+	    <?=sprintf($this->lng->_('LBL_ADMIN_UPDATE_SYS_VERSION'), Cms_Version::VERSION)?>
+    </div>
+
+    <div style="margin-top: 5px;">
+        <?$zfInfo = sprintf(
+            $this->lng->_('LBL_ADMIN_UPDATE_ZF_VERSION'),
+            Zend_Version::VERSION,
+            $this->timeStamp($this->zfTime, Cms_Date::DATE_LONG))?>
+
+        <?if ($this->zfUpgradeAvailable):?>
+            <p class='notice'>
+                <?=$zfInfo?><br />
+                <a href='/open/admin-update/?action=zf'><?=$this->lng->_('LBL_ADMIN_UPDATE_ZF_UPGRADE_AVAILABLE')?></a>
+            </p>
+        <?else:?>
+            <?=$zfInfo?>
+        <?endif?>
+    </div>
+
+    <div style="margin-top: 5px;">
+        <?=sprintf($this->lng->_('LBL_ADMIN_UPDATE_PERIOD'), (intval($this->config->modules->update->period) / 24 / 60 / 60) . 'd')?>
+
+        <?if(!$this->config->modules->update->disabled):?>
+            <?=$this->lng->_('LBL_ADMIN_UPDATE_STATUS_ON')?>
+        <?else:?>
+            <?=$this->lng->_('LBL_ADMIN_UPDATE_STATUS_OFF')?>
+        <?endif?>
+    </div>
+
+    <div style="margin-top: 5px;">
+        <?=sprintf($this->lng->_('LBL_ADMIN_UPDATE_SERVER'), $this->config->modules->update->address)?>
+    </div>
+
+    <div style="margin-top: 5px;">
+        <?=sprintf($this->lng->_('LBL_ADMIN_UPDATE_TYPE'), $this->config->modules->update->type)?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_UPDATE_PACKAGES')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_UPDATE_PACKAGES_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <?if(!$this->packages):?>
+	    <div>
+            <?=$this->lng->_('MSG_ADMIN_UPDATE_NO_NEW_PKG_AVAILIABLE')?>
+	        <?if($this->user->hasAcl(CMS_ACCESS_UPDATE_CHECK)):?>
+                <br /><?=$this->lng->_('TXT_ADMIN_UPDATE_CHECK_NOW_LINK')?>
+	        <?endif?>
+	    </div>
+    <?else:?>
+	    <?$i=0?>
+	    <?foreach($this->packages as $v):?>
+	        <div class="pkg-entry upd-<?=$v->type?> cornered">
+                <?=sprintf($this->lng->_('LBL_ADMIN_UPDATE_PACKAGE_TITLE'), "<i>{$v->version}</i>")?>
+		        <br />
+                <?=sprintf($this->lng->_('LBL_ADMIN_UPDATE_PACKAGE_PRIORITY'), "<i>{$v->type}</i>")?>
+
+                <?if($this->user->hasAcl(CMS_ACCESS_UPDATE_INSTALL)):?>
+                    <?if(isset($this->marked[(string)$v->version])):?>
+                        <p class="marked">
+                            <?=$this->lng->_('LBL_ADMIN_UPDATE_PKG_INSTALL_WAIT')?> &mdash;
+                            <a href='/open/admin-update/?action=cancel&amp;id=<?=$v->version?>'><?=$this->lng->_('LBL_ADMIN_UPDATE_PKG_INSTALL_CANCEL')?></a>
+                        </p>
+                    <?else:?>
+                        <p>
+                            <a href='/open/admin-update/?action=info&amp;id=<?=$v->version?>'
+                                style="background-image: url('<?=$this->imgUrl('admin/update/info.png')?>');"><?=$this->lng->_('LBL_ADMIN_UPDATE_PKG_INFO_AND_INSTALL')?></a>
+                        </p>
+                    <?endif?>
+                <?endif?>
+	        </div>
+	        <?if(++$i % 3 == 0):?>
+		        <div class="clear"></div>
+	        <?endif?>
+	    <?endforeach?>
+	    <div class="clear"></div>
+    <?endif?>
+</div>
+
+<?if (count($this->logEntries)):?>
+    <div class="page-title">
+        <h3><?=$this->lng->_('LBL_ADMIN_UPDATE_HISTORY')?></h3>
+        <p><?=$this->lng->_('TXT_LBL_ADMIN_UPDATE_HISTORY')?></p>
+    </div>
+
+    <div class="page-content">
+        <table class='cnt-table'>
+            <thead>
+                <tr>
+                    <th>
+                        <?=$this->lng->_('LBL_ADMIN_LOGS_ACCOUNT')?>
+                        /
+                        <?=$this->lng->_('LBL_ADMIN_LOGS_TIME')?>
+                        /
+                        <?=$this->lng->_('LBL_ADMIN_LOGS_IP')?>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?$i=0?>
+                <?foreach($this->logEntries as $log):?>
+                    <tr>
+                        <td>
+                            <?$arr = explode('|', $log['text'])?>
+                            v<i><?=$arr[1]?></i>, <?=$log['name']?>, <?=$log['ip']?>
+                            <br />
+                            (<?=$this->timeStamp($log['time'], Cms_Date::DATETIME_FULL)?>)
+                        </td>
+                    </tr>
+                <?endforeach?>
+            </tbody>
+        </table>
+    </div>
+<?endif?>
+
+<?$this->headStyle()->captureStart()?>
+    .pkg-entry{ float: left; border: 1px solid #EEE; border-bottom-width: 2px; padding: 10px; padding-left: 40px; font-size: 14px; width: 210px; margin-left: 10px; margin-bottom: 10px; background: url('<?=$this->imgUrl('admin/update/entry.png')?>') 7px 18px no-repeat; }
+        .pkg-entry p{ text-align: right; margin-top: 10px; position: relative; bottom: -5px; right: -9px; }
+            .pkg-entry p a{ background-repeat: no-repeat; background-position: 0 2px; padding-left: 20px; }
+            .pkg-entry p.marked{ margin-top: 5px; border-top: 2px solid #EEE; background: url('<?=$this->imgUrl('admin/update/entry-marked.png')?>') 0 16px no-repeat; padding-right: 15px; text-align: left; padding-left: 24px; }
+
+    .upd-low{ border-color: #EEE; }
+    .upd-normal{ background-color: #FFF; border-color: #CCC; }
+    .upd-critical{ border-bottom-color: #500; background-image: url('<?=$this->imgUrl('admin/update/entry-high.png')?>'); }
+<?$this->headStyle()->captureEnd()?>

@@ -1,0 +1,20 @@
+
+<?if($this->pageCount):?>
+    <div class="e-pagination cleared">
+        <div>
+            <p>
+                <a href="<?=$this->url?><?=$this->previous?>"
+                    class="arrow-left<?if (isset($this->previous)):?> layer<?endif?>">&nbsp;</a>
+
+                <?foreach ($this->pagesInRange as $page): ?>
+                    <?if($page == $this->current): ?>
+                        <b><?=$page?> of <?=$this->pageCount?></b>
+                    <?endif?>
+                <?endforeach?>
+
+                <a href="<?=$this->url?><?=$this->next?>"
+                    class="arrow-right<?if (isset($this->next)):?> layer<?endif?>">&nbsp;</a>
+            </p>
+        </div>
+    </div>
+<?endif?>

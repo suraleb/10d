@@ -1,0 +1,28 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_ECOMMERCE'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_ECOMMERCE')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/' class="cornered home"
+            style='background-image: url("<?=$this->imgUrl('admin/admin.png')?>");'><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_ECOMMERCE_PRODUCTS_VIEW)):?>
+            <a href="/open/admin-ecommerce/?action=products" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/ecommerce/products.png')?>");'><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCTS')?></a>
+        <?endif?>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_ECOMMERCE_COLLECTIONS_VIEW)):?>
+            <a href="/open/admin-ecommerce/?action=collections" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/ecommerce/collections.png')?>");'><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_COLLECTIONS')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_LOGS')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_LOGS_DESCR')?></p>
+</div>

@@ -1,0 +1,20 @@
+html,body{ background: #4B2844 url('/i/bg.png') 0 0 repeat-y; height: 100%; }
+
+#box{ border: 5px solid #000; width: 1026px; margin: 0 auto; position: relative; background-color: #F7E198; }
+#box{ box-shadow: 0 0 16px #000; -moz-box-shadow: 0 0 16px #000; webkit-box-shadow: 0 0 16px #000; -webkit-box-shadow: 0 0 16px #000; }
+#splash{ width: 1024px; height: 600px; background: url('/i/splash.jpg') no-repeat; border: 1px solid #FFF; }
+#logo{ width: 305px; height: 129px; background: url('/i/logo.png') no-repeat; position: absolute; left: 95px; top: 24px; }
+#summer{ width: 271px; height: 27px; background: url('/i/opening-summer.png') no-repeat; position: absolute; left: 113px; top: 189px; }
+#form{ position: absolute; left: 130px; top: 295px; }
+    #form strong{ color: #000; width: 226px; display: block; padding-top: 10px; background: url("/i/signup.png") 0 0 no-repeat; font-size: 8px; }
+    #form form{  }
+    #form form p{ float: left; padding: 2px; border: 1px solid #646464; }
+        #form form p.submit{ margin-left: -1px; padding-left: 1px; }
+        #form form p.text{  }
+    #form input.submit{ width: 58px; height: 32px; background: url("/i/send.png") 0 0 no-repeat; border: 0; cursor: pointer; }
+    #form input.submit:hover{ background-position: 0 -32px; }
+    #form input.text{ border: 0; height: 32px; background-color: #3F3F3F; color: #FFF; font-size: 1em; padding: 0 4px; }
+#social{ text-align: center; margin-top: 14px; }
+#social a{ margin-right: 5px; width: 32px; height: 32px; }
+
+.clear{ clear: both; }

@@ -1,0 +1,150 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCT_NEW'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCT_NEW')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_PRODUCT_NEW_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/' class="cornered home"
+            style='background-image: url("<?=$this->imgUrl('admin/admin.png')?>");'><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_ECOMMERCE_VIEW)):?>
+            <a href="/open/admin-ecommerce/" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/main/mdl-ecommerce.png')?>");'><?=$this->lng->_('LBL_ADMIN_ECOMMERCE')?></a>
+        <?endif?>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_ECOMMERCE_PRODUCTS_VIEW)):?>
+            <a href="/open/admin-ecommerce/?action=products" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/ecommerce/products.png')?>");'><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCTS')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCT_PARAM')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_PRODUCT_PARAM_DESCR')?></p>
+</div>
+
+<form method="post" action="/open/admin-ecommerce/">
+
+    <div class="page-content" id='work-area'>
+
+        <input type='hidden' name='action' value='prodsave' />
+        <input type='hidden' name='referer' value='<?=Cms_Core::getReferer()?>' />
+
+        <?if (isset($this->data['id'])):?>
+            <input type='hidden' name='id' value='<?=$this->data['id']?>' />
+        <?endif?>
+
+        <ul>
+            <li><a href="#tab-main"><?=$this->lng->_('LBL_ADMIN_PRODUCT_TAB_MAIN')?></a></li>
+            <li><a href="#tab-descr"><?=$this->lng->_('LBL_ADMIN_PRODUCT_TAB_DESCR')?></a></li>
+            <li><a href="#tab-media"><?=$this->lng->_('LBL_ADMIN_PRODUCT_TAB_MEDIA')?></a></li>
+        </ul>
+
+        <fieldset>
+
+            <div id='tab-main'>
+
+                <div class="f-row">
+                    <label for="productTitle" class="req">
+                        <?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCT_PARAMS_TITLE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_PRODUCT_PARAMS_TITLE')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input name="productTitle" id='productTitle' type="text"
+                            maxlength="100" class="i-text" style='width: 80%;'
+                            value="<?=isset($this->data['title']) ? $this->data['title'] : ''?>" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div id='tab-descr'>
+
+                <div class="f-row">
+                    <label for="productDescr" class="req">
+                        <?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCT_PARAMS_DESCR')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_PRODUCT_PARAMS_DESCR')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <div style='margin-top: 1px;'>
+                            <textarea name="productDescr" id='productDescr'
+                                rows="4" cols="50" style='width:95%;height:100px;'><?=isset($this->data['description']) ? $this->data['description'] : ''?></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id='tab-media'>
+                <div class="f-row odd">
+                    <label for="media_mainpic">
+                        <?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCT_MEDIA_MAINPIC')?>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' name='productCover' title="jpg,png,jpeg"
+                            id="media_mainpic_input" class='i-text' value="<?=isset($this->data['cover']) ? $this->data['cover'] : ''?>"
+                            style='width: 350px;' readonly="readonly" />
+
+                        <input type="button" id="media_mainpic_select"
+                            class="button button-with-icon icon-folder"
+                            value="<?=$this->lng->_('LBL_ADMIN_SELECT')?>" />
+
+                        <input type="button" id="media_mainpic_reset"
+                            class="button button-with-icon icon-reset"
+                            value="<?=$this->lng->_('LBL_ADMIN_GALLERY_RESET')?>" />
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <div class="f-submit">
+            <input type="button" value="<?=$this->lng->_('LBL_ADMIN_BTN_CANCEL')?>"
+                class="button button-with-icon icon-cancel" id="button-cancel"
+                    style="float: right;" />
+
+            <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>"
+                class="button button-with-icon icon-save" name="saveAndEdit" />
+
+            <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE_GOLIST')?>"
+                class="button button-with-icon icon-folder" name="saveAndGoList" />
+
+            <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE_PREVIEW')?>"
+                class="button button-with-icon icon-preview" name="saveAndPreview" />
+        </div>
+
+    </div>
+
+</form>
+
+<?$this->headLink()->appendStylesheet($this->cssUrl('jui.tabs'))?>
+
+<?$this->headScript()
+    ->appendFile($this->jsUrl('jui.tabs'))
+    ->appendFile('/htdocs/3dparty/tiny_mce/jquery.tinymce.js')?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function() {
+        jQuery("#work-area").tabs();
+
+        kkcms.attachEditor('productDescr');
+
+        jQuery('#media_mainpic_select').live('click', function() {
+            var prevObj = jQuery(this).prev();
+            window.open(
+                '/open/admin-index/?action=elfinder&inputid=' +
+                prevObj.attr('id') + '&extensions=' + prevObj.attr('title'),
+                'fileDialog', 'width=900,height=440'
+            );
+        });
+
+        jQuery('#media_mainpic_reset').live('click', function() {
+            jQuery(this).parent().find('input:text').val('');
+        });
+    });
+<?$this->headScript()->captureEnd()?>

@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.6.2"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='ACCESS_ACP_POLL_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить изменять записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to edit entries]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_POLL_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить создавать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to create entries]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_POLL_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить удалять записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to delete entries]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_POLL_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view entries]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Опросы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Polls]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_ADD_VARIANT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Добавить вариант ответа]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Add a choice]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Содержимое]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Content]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Редактирование]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Editing]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_GROUP_ADMIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Администраторам]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Administrators]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_GROUP_ALL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Всем]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Anybody]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_GROUP_GUEST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Гостям]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Guests]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_GROUP_MEMBER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пользователям]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Members]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_MODIFY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Modify]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Создать опрос]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Create poll]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_PARAMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Parameters]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_PARAMS_ACTIVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Включить?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Active?]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_PARAMS_ANSWERS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Варианты ответов:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Choices:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_PARAMS_GROUP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Кто может голосовать:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Who can vote:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_PARAMS_QUESTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вопрос:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Question:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_PARAMS_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тип опроса:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Poll type:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_REMOVE_VARIANT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить последний вариант]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Delete the last choice]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TBL_ACTIVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Активен]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Active]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TBL_MANAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Управление]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Manage]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TBL_OPTIONS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Варианты]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Options]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TBL_QUESTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вопрос]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Question]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TBL_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тип]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Type]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TBL_VISIBLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Доступен]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allowed to]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TBL_VOTES'>
+	<tuv xml:lang="ru"><seg><![CDATA[Голосов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Votes]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TYPE_MULTY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Несколько]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Multyoption]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_TYPE_SINGLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Один]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Single]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_POLL_VARIANTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[варианты]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[choices]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_POLL_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Создан опрос &laquo;%s&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Added poll with question &laquo;%s&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_POLL_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалён опрос &laquo;%s&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Removed poll with question &laquo;%s&raquo; {ID:%d}]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_POLL_UPDATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновлён опрос &laquo;%s&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Updated poll with question &laquo;%s&raquo; {ID:%d}]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_ALREADY_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Такой вопрос уже есть в нашей базе данных]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[This question already exists in the database]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_ERROR_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Система не смогла найти опрос с таким номером]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't manage to find a poll with this number]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_ERROR_NO_QUESTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Укажите текст вопроса]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You must povide a question to the poll]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_ERROR_NO_VARIANTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Не указаны варианты ответов на вопрос]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[No varians were defined]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_MAX_ANSWERS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Опрос может содержать не более %d вариантов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[A poll can have no more than %d choices]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_MIN_ANSWERS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Опрос должен содержать минимум два варианта]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[A poll must have minimum 2 choices]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы действительно хотите удалить этот опрос?<br /><b>Внимание:</b> восстановить опрос после удаления невозможно!]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Are you sure you want to delete this poll?<br /><b>Note:</b> you will not be able to restore the poll after deleting!]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_REMOVED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Опрос успешно удалён из системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Poll was successfully removed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_SAVED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Опрос успешно добавлен]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Poll was successfully added]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_UPDATED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Опрос успешно обновлён]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Poll was successfully updated]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_POLL_VARIANT_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить последний вариант?<br /><b>Внимание:</b> после сохранения изменений восстановить вариант невозможно!]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Delete the last choice?<br /><b>Note:</b> After saving your changes you will not be able to restore the choice!]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_CONTENT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список доступных опросов системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list of available polls]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет управлять опросами системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section allows to manage polls]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_EDIT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет изменить параметры опроса и варианты ответов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section allows to change poll parameters and choices]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_NEW_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет создавать опросы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section for creating polls]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_PARAMS_ACTIVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[сделать опрос активным]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[to make the poll active]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_PARAMS_ANSWERS'>
+	<tuv xml:lang="ru"><seg><![CDATA[варианты ответов и первоначальное количество голосов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[choices and default count of voices]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_PARAMS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[варианты ответов и настройки опроса]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[choices and poll settings]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_PARAMS_GROUP'>
+	<tuv xml:lang="ru"><seg><![CDATA[какой группе позволить голосовать]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[what group can vote]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_PARAMS_QUESTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[текст вопроса. без html]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[text of the question. without html]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_PARAMS_TYPE'>
+	<tuv xml:lang="ru"><seg><![CDATA[сколько вариантов ответа может выбрать пользователь]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[how many choices can be chosen]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_POLL_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;Опросы&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the &laquo;Polls&raquo; module]]></seg></tuv>
+</tu>
+
+</body></tmx>

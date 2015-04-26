@@ -1,0 +1,15 @@
+
+<div class='cms-reset cms-gallery-file cms-cleared'>
+    <ul>
+    <?foreach ($this->entries as $e):?>
+        <li>
+            <span class='cms-mime cms-mime-<?=$e['ext']?>'>&nbsp;</span>
+            <a href='/tmp/uploads/type-file/<?=$e['path']?>'><?=$e['rewrite']?></a>
+            <small>(<?=Cms_Filemanager::sizeToString($e['size'])?>)</small>
+            <?if ($e['descr']):?>
+                <p><?=Cms_Functions::hyphen_words($e['descr'])?></p>
+            <?endif?>
+        </li>
+    <?endforeach?>
+    </ul>
+</div>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>10denza / opening SUMMER 2011</title>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="/css/jquery.boxy.css" />
+    </head>
+
+    <body>
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/jquery.boxy.js"></script>
+        <script type="text/javascript" src="/js/jquery.ihint.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                centerize();
+
+                var uri = location.href;
+                if (uri.match(/#success$/)) {
+                    new Boxy(
+                        '<div style="padding: 0!important"><img src="/i/thanks.jpg" alt="" style="width:360px;height:217px;" /></div>',
+                        {title: "Thank you!", modal: true}
+                    );
+                } else if (uri.match(/#failed$/)) {
+                    Boxy.alert('Something wrong, please, try again after the next 10 min');
+                } else if (uri.match(/#wrong$/)) {
+                    Boxy.alert('Please, provide correct email address');
+                }
+
+                jQuery("input:text").inputHint({using:"kbd"});
+            });
+
+            jQuery(window).bind('resize', centerize);
+
+            function centerize()
+            {
+                var $box = jQuery('#box');
+                var topPos = parseInt($(window).height() - $box.height(), 10);
+
+                if (topPos < 0) {
+                    topPos = 0;
+                }
+
+                $box.css({'position': 'absolute'});
+                $box.css("top", (topPos) / 2 + $(window).scrollTop() + "px");
+                $box.css("left", ($(window).width() - $box.width()) / 2 + $(window).scrollLeft() + "px");
+            }
+        </script>
+
+        <div id='site'>
+            <div id='box'>
+                <div id='splash'>
+                    <div id='social'>
+                        <a href='http://www.facebook.com/10denza?sk=wall' target='_blank'><img src="/i/fb.png" alt="Facebook" /></a>
+                        <a href='http://twitter.com/#!/10denza' target='_blank'><img src="/i/tw.png" alt="Twitter" /></a>
+                    </div>
+                    <div id='open'>&nbsp;</div>
+                    <div id='signup-text'>
+                        <strong>sign up to be notified about</strong>
+                        <ul>
+                            <li>/ / events</li>
+                            <li>/ / new products</li>
+                            <li>/ / special offers</li>
+                            <li>/ / the new 10denza site</li>
+                        </ul>
+                    </div>
+                    <div id='form' class="clear">
+                        <form method="post" action="/mail.php">
+                            <p class="text">
+                                <input type="text" maxlength="40" class="text" value="" name="email" />
+                                <kbd>Your email address</kbd>
+                            </p>
+
+                            <p class="submit"><input type="submit" value=""
+                                class="submit" /></p>
+                        </form>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-24986054-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+    </body>
+
+</html>

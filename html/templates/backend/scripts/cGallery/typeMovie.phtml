@@ -1,0 +1,106 @@
+<?$options = is_array($this->file['options']) ? $this->file['options'] : array(
+    'width' => 512, 'height' => 237, 'stretching' => 'stretch',
+    'allowfullscreen' => 'true', 'picture' => '', 'subtitles' => ''
+);?>
+
+<div class="f-row even">
+    <label for="movie_stretch">
+        <?=$this->lng->_('LBL_ADMIN_GALLERY_OPTIONS_MOVIE_STRETCH')?>
+        <span><?=$this->lng->_('TXT_ADMIN_GALLERY_OPTIONS_MOVIE_STRETCH')?></span>
+    </label>
+    <div class="f-inputs">
+        <select id="movie_stretch" name='options[stretching]' class='i-select'>
+            <option value='uniform'<?if($options['stretching'] == 'movie_stretch'):?> selected='selected'<?endif?>><?=$this->lng->_('LBL_ADMIN_GALLERY_OPT_STRETCH_UNIFORM')?></option>
+            <option value='fill'<?if($options['stretching'] == 'fill'):?> selected='selected'<?endif?>><?=$this->lng->_('LBL_ADMIN_GALLERY_OPT_STRETCH_FILL')?></option>
+            <option value='exactfit'<?if($options['stretching'] == 'exactfit'):?> selected='selected'<?endif?>><?=$this->lng->_('LBL_ADMIN_GALLERY_OPT_STRETCH_EXACTFIT')?></option>
+            <option value='none'<?if($options['stretching'] == 'none'):?> selected='selected'<?endif?>><?=$this->lng->_('LBL_ADMIN_GALLERY_OPT_STRETCH_NONE')?></option>
+        </select>
+        <a href='#'><?=$this->lng->_('TXT_ADMIN_GALLERY_OPT_STRETCH_EXAMPLE')?></a>
+    </div>
+</div>
+
+<div class="f-row odd">
+    <label>
+        <?=$this->lng->_('LBL_ADMIN_GALLERY_OPTIONS_MOVIE_ALLOWFULLSCREEN')?>
+        <span><?=$this->lng->_('TXT_ADMIN_GALLERY_OPTIONS_MOVIE_ALLOWFULLSCREEN')?></span>
+    </label>
+    <div class="f-inputs yes-no cleared">
+        <p class="yes">
+            <label for="allowfullscreen_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+            <input type="radio" id='allowfullscreen_yes' name='options[allowfullscreen]'
+                value='true' <?if($options['allowfullscreen'] == 'true'):?> checked='checked'<?endif?> />
+        </p>
+        <p class="no">
+            <input type="radio" id="allowfullscreen_no" name='options[allowfullscreen]' value='false'
+            <?if($options['allowfullscreen'] == 'false'):?> checked='checked'<?endif?> />
+            <label for="allowfullscreen_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+        </p>
+    </div>
+</div>
+
+<div class="f-row even">
+    <label for="movie_width">
+        <?=$this->lng->_('LBL_ADMIN_GALLERY_OPTIONS_MOVIE_WIDTH')?>
+    </label>
+    <div class="f-inputs">
+        <input type='text' name='options[width]' id="movie_width" class='i-text'
+            value='<?=$options['width']?>' maxlength='3' style='width: 50px;'
+            onchange='jQuery(this).val(parseInt(jQuery(this).val()) || 512)' /> <small>px</small>
+    </div>
+</div>
+
+<div class="f-row odd">
+    <label for="movie_height">
+        <?=$this->lng->_('LBL_ADMIN_GALLERY_OPTIONS_MOVIE_HEIGHT')?>
+    </label>
+    <div class="f-inputs">
+        <input type='text' name='options[height]' id="movie_height" class='i-text'
+            value='<?=$options['height']?>' maxlength='3' style='width: 50px;'
+            onchange='jQuery(this).val(parseInt(jQuery(this).val()) || 237)' /> <small>px</small>
+    </div>
+</div>
+
+<div class="f-row">
+    <label for="movie_picture_select">
+        <?=$this->lng->_('LBL_ADMIN_GALLERY_OPTIONS_MOVIE_PIC')?>
+    </label>
+    <div class="f-inputs">
+        <input type='text' name='options[picture]' id="movie_picture" title="jpg,gif,jpeg,png" class='i-text'
+            value='<?=$options['picture']?>' style='width: 350px;' readonly="readonly" />
+        <input type="button" id="movie_picture_select" class="button button-with-icon icon-folder"
+            value="<?=$this->lng->_('LBL_ADMIN_SELECT')?>" />
+        <input type="button" id="movie_picture_reset" class="button button-with-icon icon-reset"
+            value="<?=$this->lng->_('LBL_ADMIN_GALLERY_RESET')?>" />
+    </div>
+</div>
+
+<div class="f-row odd">
+    <label for="movie_subtitles_select">
+        <?=$this->lng->_('LBL_ADMIN_GALLERY_OPTIONS_MOVIE_SUBTITLES')?>
+    </label>
+    <div class="f-inputs">
+        <input type='text' name='options[subtitles]' title="srt,xml,txt" id="movie_subtitles" class='i-text'
+            value='<?=$options['subtitles']?>' style='width: 350px;' readonly="readonly" />
+        <input type="button" id="movie_subtitles_select" class="button button-with-icon icon-folder"
+            value="<?=$this->lng->_('LBL_ADMIN_SELECT')?>" />
+        <input type="button" id="movie_subtitles_reset" class="button button-with-icon icon-reset"
+            value="<?=$this->lng->_('LBL_ADMIN_GALLERY_RESET')?>" />
+    </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    jQuery('#movie_picture_select,#movie_subtitles_select').live('click', function() {
+        var prevObj = jQuery(this).prev();
+        window.open(
+            '/open/admin-index/?action=elfinder&inputid=' +
+            prevObj.attr('id') + '&extensions=' + prevObj.attr('title'),
+            'fileDialog', 'width=900,height=440'
+        );
+    });
+
+    jQuery('#movie_picture_reset,#movie_subtitles_reset').live('click', function() {
+        jQuery(this).parent().find('input:text').val('');
+    });
+//]]>
+</script>

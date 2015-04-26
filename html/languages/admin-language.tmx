@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.6.2"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='MSG_ADMIN_LANGUAGE_ERROR_FILEWRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Система не смогла обновить файл]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System could not update the file.]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_LANGUAGE_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить редактировать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow editing records]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_LANGUAGE_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить изменять записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to create records]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_LANGUAGE_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Просматривать записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view records]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Языки системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Languages]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Существующие записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Existing records]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE_FILE_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Описание]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Description]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE_FILE_UPDATED'>
+	<tuv xml:lang="ru"><seg><![CDATA[обновлён: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[updated: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE_FILE_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Открыть]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Open]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE_MANAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Управление]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Manage]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE_NEW_ENTRY_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Значение]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Value]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE_NEW_ENTRY_ID'>
+	<tuv xml:lang="ru"><seg><![CDATA[ID записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entry ID]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LANGUAGE_VIEW_ENTRIES'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обзор записей]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Entries overview]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_LANGUAGE_UPDATED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменены записи файла языков &laquo;%s&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File &laquo;%s&raquo; with language entries changed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_LANGUAGE_ERROR_OPEN_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось найти файл с таким названием. Возможно он был удален]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't manage to find a file with such name. May be it was deleted]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_LANGUAGE_ERROR_OPEN_READ'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось прочесть файл по причине "%s"]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System didn't manage to read the file because of "%s"]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_LANGUAGE_NEW_ENTRY_BAD_ID'>
+	<tuv xml:lang="ru"><seg><![CDATA[ID записи не соответствует необходимому формату]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Invalid ID Format]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_LANGUAGE_UPDATE_SUCCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Записи обновлены и будут доступны через некоторое время (зависит от настроек кэша)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Records were updated and will be available in some time (depends on cache settings)]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LANGUAGE_ADD_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Добавить новую запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Add new entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LANGUAGE_CONTENT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список доступных языков системы по разделам]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list of available languages by categories]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LANGUAGE_NAV_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел управления мультиязычными файлами и их записями]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[manage multilanguage files]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LANGUAGE_NEW_ENTRY_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[текст записи. можно использовать html, специальные символы и т.п.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[value of the entry. you can use html, special symbols etc.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LANGUAGE_NEW_ENTRY_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[описание создаваемой записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[attributes of the entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LANGUAGE_NEW_ENTRY_ID'>
+	<tuv xml:lang="ru"><seg><![CDATA[уникальное название записи. только: A-Z0-9_]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[unique name of the entry. you can use only: A-Z0-9_]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LANGUAGE_NEW_ENTRY_PARAMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Новая запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[New entry]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LANGUAGE_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;Языки системы&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the &laquo;Languages&raquo; module]]></seg></tuv>
+</tu>
+
+</body></tmx>

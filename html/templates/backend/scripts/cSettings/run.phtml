@@ -1,0 +1,266 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_SETTINGS'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_SETTINGS')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_SETTINGS_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_GALLERY_NEW)):?>
+            <a class='btn-new' href="/open/admin-settings/?action=toolbox"
+                style='background-image: url("<?=$this->imgUrl('admin/settings/toolbox.png')?>");'><?=$this->lng->_('LBL_ADMIN_SETTINGS_TOOLBOX')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_SETTINGS_PARAMS')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_SETTINGS_PARAMS_DESCR')?> (<?=CMS_DEBUG ? 'debug' : 'production'?>)</p>
+</div>
+
+<form method="post" action="/open/admin-settings/" enctype="multipart/form-data">
+
+    <input type='hidden' name='action' value='save' />
+
+    <div class="page-content" id='work-area'>
+
+        <ul>
+            <li><a href="#tab-main"><?=$this->lng->_('LBL_ADMIN_SETTINGS_TYPE_MAIN')?></a></li>
+            <li><a href="#tab-gallery"><?=$this->lng->_('LBL_ADMIN_GALLERY')?></a></li>
+            <li><a href="#tab-cache"><?=$this->lng->_('LBL_ADMIN_SETTINGS_TYPE_CACHE')?></a></li>
+            <li><a href="#tab-ga"><?=$this->lng->_('LBL_ADMIN_SETTINGS_TYPE_GOOGLEANALYTICS')?></a></li>
+            <li><a href="#tab-facebook"><?=$this->lng->_('LBL_ADMIN_SETTINGS_TYPE_FACEBOOK')?></a></li>
+        </ul>
+
+        <fieldset>
+            <div id='tab-main'>
+                <!-- email -->
+                <div class="f-row">
+                    <label for="default_email">
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_DEFAULT_EMAIL')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_DEFAULT_EMAIL')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type="text" class="i-text" style="width: 250px;"
+                            name="cms[default][email]" id='default_email'
+                            value="<?=$this->config->cms->default->email?>" maxlength="256" />
+                    </div>
+                </div>
+
+                <!-- language -->
+                <div class="f-row">
+                    <label for="default_language">
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_DEFAULT_LNG')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_DEFAULT_LNG')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <select name="cms[default][language]" class='i-select' id='default_language'>
+                            <?foreach($this->lng->getList() as $k=>$v):?>
+                                <option value="<?=$k?>"<?if($this->config->cms->default->language == $k):?> selected="selected"<?endif?>><?=Cms_Functions::strtoupper($v)?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- timezone -->
+                <div class="f-row">
+                    <label for="system_timezone">
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_TIMEZONE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_TIMEZONE')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <select name="cms[system][timezone]" class='i-select' id='system_timezone'>
+                            <?foreach(DateTimeZone::listIdentifiers() as $v):?>
+                                <option value="<?=$v?>"<?if($this->config->cms->system->timezone == $v):?> selected="selected"<?endif?>><?=$v?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- gallery -->
+            <div id='tab-gallery'>
+                <!-- fb sync -->
+                <div class="f-row">
+                    <label for='modules_gallery_facebook_pages'>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_GALLERY_FB_SYNC')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_GALLERY_FB_SYNC')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' class='i-text' style='width: 300px;'
+                            name='modules[gallery][facebook][pages]' id='modules_gallery_facebook_pages'
+                            maxlength='100' value="<?=$this->config->modules->gallery->facebook->pages?>" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- cache -->
+            <div id='tab-cache'>
+
+                <!-- disabled -->
+                <div class="f-row">
+                    <label>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_CACHE_DISABLE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_CACHE_DISABLE')?></span>
+                    </label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="yes">
+                            <label for="cms_cache_disabled_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='cms_cache_disabled_yes'
+                                name='cms[cache][disabled]' value='1'<?if($this->config->cms->cache->disabled):?> checked="checked"<?endif?> />
+                        </p>
+                        <p class="no">
+                            <input type="radio" id="cms_cache_disabled_no"
+                                name='cms[cache][disabled]' value='0'<?if(!$this->config->cms->cache->disabled):?> checked="checked"<?endif?> />
+                            <label for="cms_cache_disabled_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- lifetime -->
+                <div class="f-row">
+                    <label for='cache_lifetime'>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_CACHE_LIFETIME')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_CACHE_LIFETIME')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' class='i-text' style='width: 50px;'
+                            name='cms[cache][frontend][lifetime]' id='cache_lifetime'
+                            maxlength='5' value="<?=$this->config->cms->cache->frontend->lifetime?>" />
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- analytics -->
+            <div id='tab-ga'>
+
+                <!-- disabled -->
+                <div class="f-row">
+                    <label>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_GA_DISABLE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_GA_DISABLE')?></span>
+                    </label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="yes">
+                            <label for="modules_analytics_disabled_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='modules_analytics_disabled_yes'
+                                name='modules[analytics][disabled]' value='1'<?if($this->config->modules->analytics->disabled):?> checked="checked"<?endif?> />
+                        </p>
+                        <p class="no">
+                            <input type="radio" id="modules_analytics_disabled_no"
+                                name='modules[analytics][disabled]' value='0'<?if(!$this->config->modules->analytics->disabled):?> checked="checked"<?endif?> />
+                            <label for="modules_analytics_disabled_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- id -->
+                <div class="f-row">
+                    <label for='modules_analytics_id'>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_GA_ID')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_GA_ID')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' class='i-text' style='width: 110px;'
+                            name='modules[analytics][id]' id='modules_analytics_id'
+                            maxlength='12' value="<?=$this->config->modules->analytics->id?>" />
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- facebook -->
+            <div id='tab-facebook'>
+
+                <!-- disabled -->
+                <div class="f-row">
+                    <label>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_FACEBOOK_DISABLE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_FACEBOOK_DISABLE')?></span>
+                    </label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="yes">
+                            <label for="thirdparty_facebook_disabled_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='thirdparty_facebook_disabled_yes'
+                                name='thirdparty[facebook][disabled]' value='1'<?if($this->config->thirdparty->facebook->disabled):?> checked="checked"<?endif?> />
+                        </p>
+                        <p class="no">
+                            <input type="radio" id="thirdparty_facebook_disabled_no"
+                                name='thirdparty[facebook][disabled]' value='0'<?if(!$this->config->thirdparty->facebook->disabled):?> checked="checked"<?endif?> />
+                            <label for="thirdparty_facebook_disabled_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- apikey -->
+                <div class="f-row">
+                    <label for='thirdparty_facebook_apikey'>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_FACEBOOK_APIKEY')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_FACEBOOK_APIKEY')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' class='i-text' style='width: 150px;'
+                            name='thirdparty[facebook][apikey]' id='thirdparty_facebook_apikey'
+                            maxlength='15' value="<?=$this->config->thirdparty->facebook->apikey?>" />
+                    </div>
+                </div>
+
+                <!-- secret -->
+                <div class="f-row">
+                    <label for='thirdparty_facebook_secret'>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_FACEBOOK_SECRET')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_FACEBOOK_SECRET')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' class='i-text' style='width: 300px;'
+                            name='thirdparty[facebook][secret]' id='thirdparty_facebook_secret'
+                            maxlength='32' value="<?=$this->config->thirdparty->facebook->secret?>" />
+                    </div>
+                </div>
+
+                <!-- sync -->
+                <div class="f-row">
+                    <label>
+                        <?=$this->lng->_('LBL_ADMIN_SETTINGS_FACEBOOK_SYNC_DISABLE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_SETTINGS_FACEBOOK_SYNC_DISABLE')?></span>
+                    </label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="yes">
+                            <label for="thirdparty_facebook_synchronize_disabled_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='thirdparty_facebook_synchronize_disabled_yes'
+                                name='thirdparty[facebook][synchronize][disabled]' value='1'<?if($this->config->thirdparty->facebook->synchronize->disabled):?> checked="checked"<?endif?> />
+                        </p>
+                        <p class="no">
+                            <input type="radio" id="thirdparty_facebook_synchronize_disabled_no"
+                                name='thirdparty[facebook][synchronize][disabled]' value='0'<?if(!$this->config->thirdparty->facebook->synchronize->disabled):?> checked="checked"<?endif?> />
+                            <label for="thirdparty_facebook_synchronize_disabled_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+    </div>
+
+    <div class="f-submit" style="margin-top: 10px;">
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>" class="button" />
+    </div>
+
+</form>
+
+<?$this->headLink()->appendStylesheet($this->cssUrl('jui.tabs'))?>
+
+<?$this->headScript()->appendFile($this->jsUrl('jui.tabs'))?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function() {
+        jQuery('#work-area').tabs();
+    });
+<?$this->headScript()->captureEnd()?>

@@ -1,0 +1,363 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_NEWS_EDIT'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_NEWS')?> &rarr; <?=$this->lng->_('LBL_ADMIN_NEWS_EDIT')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_NEWS_EDIT_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+        <a href="/open/admin-news/">&larr; <?=$this->lng->_('LBL_ADMIN_NEWS')?></a>
+    </div>
+</div>
+
+<div class="page-title">
+    <?if($this->user->hasAcl(CMS_ACCESS_NEWS_REMOVE) && !$this->entry['system']):?>
+        <input type="button" value="<?=$this->lng->_('LBL_ADMIN_NEWS_REMOVE')?>"
+            class="button button-with-icon icon-remove" id='button-remove'
+            style="float: right;" />
+    <?endif?>
+    <h1><?=$this->lng->_('LBL_ADMIN_NEWS_OPTIONS')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_NEWS_OPTIONS_DESCR')?></p>
+</div>
+
+
+<form method="post" id="news_form" action="/open/admin-news/">
+
+    <div class="page-content" id='work-area'>
+
+        <input type='hidden' name='action' value='update' />
+        <input type='hidden' name='referer' value='<?=Cms_Core::getReferer()?>' />
+        <input type='hidden' name='id' value='<?=$this->entry['id']?>' />
+
+        <ul>
+            <li><a href="#tab-main"><?=$this->lng->_('LBL_ADMIN_NEWS_TAB_MAIN')?></a></li>
+            <li><a href="#tab-content"><?=$this->lng->_('LBL_ADMIN_NEWS_TAB_CONTENT')?></a></li>
+            <li><a href="#tab-seo"><?=$this->lng->_('LBL_ADMIN_NEWS_TAB_SEO')?></a></li>
+            <li><a href="#tab-adv"><?=$this->lng->_('LBL_ADMIN_NEWS_ADV')?></a></li>
+        </ul>
+
+
+        <fieldset>
+
+            <div id='tab-main'>
+
+                <div class="f-row">
+                    <label for="i-title" class="req">
+                        <?=$this->lng->_('LBL_ADMIN_NEWS_PARAMS_TITLE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_NEWS_PARAMS_TITLE')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input name='news_title' id='i-title' type="text"
+                            maxlength="255" class="i-text"
+                            style='width: 80%;' value="<?=$this->entry['title']?>"
+                            onchange="addressChange($(this).val())" />
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="i-rewrite" class="req">
+                        <?=$this->lng->_('LBL_ADMIN_NEWS_PARAMS_REWRITE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_NEWS_PARAMS_REWRITE')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <?$rewrite = str_replace('news/', '', $this->entry['rewrite'])?>
+                        <input name='news_rewrite' id='i-rewrite' type="text"
+                            maxlength="255" class="i-text" style='width: 75%;'
+                            onchange="addressChange($(this).val(), true)"
+                            value="<?=$rewrite?>" />
+                        <br />
+                        <span style="font-size: 0.8em;">
+                            <?=$this->lng->_('LBL_ADMIN_NEWS_PARAMS_REWRITE_PREV')?>
+                            <?=CMS_HOST?>/news/<b id='rewrite_preview'><?=$rewrite?></b>.html
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id='tab-content'>
+
+                <div class="f-row">
+                    <label for="i-content">
+                        <?=$this->lng->_('LBL_ADMIN_NEWS_PARAMS_CONTENT')?>
+                        <img src="<?=$this->imgUrl('info.png')?>" alt='?' class="vam" title='<?=$this->lng->_js('TXT_ADMIN_NEWS_PARAMS_CONTENT')?>' />
+                    </label>
+                    <div class="f-inputs">
+                        <div style='margin-top: 1px;'>
+                            <textarea name="news_content" id='i-content'
+                            rows="4" cols="50"
+                            style='width:95%;height:100px;'><?=$this->entry['content']?></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id='tab-seo'>
+
+                <div class="f-row">
+                    <label for="seo_title">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_TITLE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_SEO_TITLE')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <div style='margin-top: 1px;'>
+                            <input name='news_seo_title' id='seo_title' type="text"
+                                maxlength="255" class="i-text" style='width: 95%;'
+                                value="<?=$this->entry['metadata']['title']?>" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="seo_robots">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_ROBOTS')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_SEO_ROBOTS')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <select class="i-select" name="news_seo_robots" id="seo_robots">
+                            <option value=""<?if (empty($this->entry['metadata']['robots'])):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_SELECT')?></option>
+                            <option value="index, follow"<?if ($this->entry['metadata']['robots'] == 'index, follow'):?> selected="selected"<?endif?>>Index &mdash; Follow</option>
+                            <option value="noindex, follow"<?if ($this->entry['metadata']['robots'] == 'noindex, follow'):?> selected="selected"<?endif?>>No index &mdash; Follow</option>
+                            <option value="index, nofollow"<?if ($this->entry['metadata']['robots'] == 'index, nofollow'):?> selected="selected"<?endif?>>Index &mdash; No follow</option>
+                            <option value="noindex, nofollow"<?if ($this->entry['metadata']['robots'] == 'noindex, nofollow'):?> selected="selected"<?endif?>>No index &mdash; No follow</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="seo_keywords">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_KEYWORDS')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_SEO_KEYWORDS')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <div style='margin-top: 1px;'>
+                            <input name='news_seo_keywords' id='seo_keywords' type="text"
+                                maxlength="255" class="i-text" style='width: 95%;'
+                                value="<?=$this->entry['metadata']['keywords']?>" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="seo_descr">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_DESCR')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_SEO_DESCR')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <textarea id='seo_descr' name='news_seo_descr'
+                            class="i-text" cols="4" rows="4"
+                            style="width:95%;height:50px;"><?=$this->entry['metadata']['description']?></textarea>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="seo_author">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_SEO_AUTHOR')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_SEO_AUTHOR')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input name='news_seo_author' id='seo_author' type="text"
+                            maxlength="255" class="i-text" style='width: 95%;'
+                            value="<?=$this->entry['metadata']['author']?>" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div id='tab-adv'>
+
+                <?if($this->user->hasAcl(CMS_ACCESS_NEWS_PUBLISH)):?>
+                    <div class="f-row">
+                        <label><?=$this->lng->_('LBL_ADMIN_NEWS_PARAMS_PUBLISH')?></label>
+                        <div class="f-inputs yes-no cleared">
+                            <p class="yes">
+                                <label for="news_active_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                                <input type="radio" id='news_active_yes' name='news_active'
+                                    value='1'<?if($this->entry['active']):?> checked="checked"<?endif?> />
+                            </p>
+                            <p class="no">
+                                <input type="radio" id="news_active_no" name='news_active'
+                                    value='0'<?if(!$this->entry['active']):?> checked="checked"<?endif?> />
+                                <label for="news_active_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                            </p>
+                        </div>
+                    </div>
+                <?endif?>
+
+                <div class="f-row">
+                    <label for="news_featured">
+                        <?=$this->lng->_('LBL_ADMIN_STATIC_PARAMS_FEATURED')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_STATIC_PARAMS_FEATURED')?></span>
+                    </label>
+            		<div class="f-inputs yes-no cleared">
+                        <p class="no">
+                            <input type="radio" id="static_active_no"
+                                name='news_featured' value='0'<?if(!$this->entry['featured']):?> checked='checked'<?endif?> />
+                            <label for="static_active_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                        <p class="yes">
+                            <label for="news_featured_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='news_featured_yes'
+                                name='news_featured' value='1'<?if($this->entry['featured']):?> checked='checked'<?endif?> />
+                        </p>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="i-timestamp">
+                        <?=$this->lng->_('LBL_ADMIN_NEWS_PARAMS_TIMESTAMP')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_NEWS_PARAMS_TIMESTAMP')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input name='news_timestamp' id='i-timestamp' type="text"
+                            maxlength="10" class="i-text" style='width: 90px;' readonly="readonly"
+                            value="<?if($this->entry['timestamp']):?><?=$this->timeStamp($this->entry['timestamp'], Cms_Date::DATE_SHORT, true)?><?endif?>" />
+
+                        <input type="button" value="<?=$this->lng->_('LBL_ADMIN_STATIC_RESET')?>"
+                            class="button button-with-icon icon-reset"
+                            onclick="jQuery('#i-timestamp').val('');return false;" />
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label>
+                        <?=$this->lng->_('LBL_ADMIN_NEWS_PARAMS_TAGS')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_NEWS_PARAMS_TAGS')?></span>
+                    </label>
+                    <div class="f-inputs input-tag">
+                        <select name='news_tags' id='news_tags'>
+                            <?foreach (Cms_Tags::decode($this->entry['tags'], true) as $tag):?>
+                                <option value='<?=$tag?>' class='selected<?if (in_array($tag, explode(',', $this->config->modules->news->tags))):?> locked<?endif?>'><?=$tag?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+    </div>
+
+    <div class="f-submit" style='margin-top: 10px;'>
+        <input type="button" value="<?=$this->lng->_('LBL_ADMIN_BTN_CANCEL')?>"
+            class="button button-with-icon icon-cancel" id="button-cancel"
+                style="float: right;" />
+
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>"
+            class="button button-with-icon icon-save" name="saveAndEdit" />
+
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE_GOLIST')?>"
+            class="button button-with-icon icon-folder" name="saveAndGoList" />
+
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE_PREVIEW')?>"
+            class="button button-with-icon icon-preview" name="saveAndPreview" />
+    </div>
+
+</form>
+
+<?$this->headLink()->appendStylesheet(
+    $this->cssUrl('j.fcbkcomplete,jui.datepicker,jui.tabs')
+)?>
+
+<?$this->headScript()->appendFile(
+    $this->jsUrl(
+        'j.fcbkcomplete,jui.datepicker' .
+        ($this->input->lng != 'en' ? ',jui.datepicker-' . $this->input->lng : '') .
+        ',jui.tabs'
+    ))?>
+
+<?$this->headScript()->appendFile('/htdocs/3dparty/tiny_mce/jquery.tinymce.js')?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function() {
+        jQuery("#work-area").tabs().tabs('select', 1);
+
+        kkcms.attachEditor('i-content');
+
+        jQuery('#i-timestamp').datepicker({
+            showAnim: 'fadeIn',
+            numberOfMonths: 3,
+            defaultDate: '-1m',
+            showOn: 'both',
+            changeYear: true,
+            showButtonPanel: true,
+            showOtherMonths: true,
+            buttonImage: '<?=$this->imgUrl('calendar.png')?>',
+            buttonImageOnly: true
+        });
+
+        jQuery("#news_tags").fcbkcomplete({
+            json_url: "/open/admin-static/?action=autocomplete&type=tags&myid=<?=$this->entry['id']?>",
+            cache: true,
+            filter_hide: true,
+            filter_selected: true,
+            maxitems: 10,
+            newel: true,
+            onCorrectValue: function(value) {
+                return kkcms.normalizeTag(value);
+            },
+            onCorrectTitle: function(title) {
+                return kkcms.normalizeTag(title);
+            }
+        });
+
+        jQuery('#news_form').bind('submit', function() {
+            if (!jQuery('#i-title').val()) {
+                kkcms.effect.blink('i-title');
+                return false;
+            }
+            if (!jQuery('#i-rewrite').val()) {
+                kkcms.effect.blink('i-rewrite');
+                return false;
+            }
+            return true;
+        });
+
+        jQuery('#button-remove').live('click', function () {
+            kkcms.boxy.confirm('<?=$this->lng->_js('MSG_ADMIN_NEWS_REMOVE')?>', function() {
+                kkcms.redirect(
+                    '/open/admin-news/?action=remove&id=<?=$this->entry['id']?>&referer=<?=Cms_Core::getReferer()?>'
+                );
+            });
+        });
+
+        jQuery('#button-cancel').live('click', function() {
+            kkcms.redirect('<?=Cms_Core::getReferer()?>');
+        });
+
+        <?if (isset($this->input->message_id)):?>
+            kkcms.effect.message("<?php
+                switch ($this->input->message_id) {
+                    case 'updated':
+                        echo $this->lng->_js('MSG_ADMIN_STATIC_UPDATED');
+                    break;
+                    case 'added':
+                        echo $this->lng->_js('MSG_ADMIN_STATIC_ADDED');
+                    break;
+            }?>");
+        <?endif?>
+    });
+
+    function addressChange(str, ignoreContent)
+    {
+        var str = kkcms.normalizeAddress(str);
+        var rwr = jQuery('#i-rewrite');
+        var prev = jQuery('#rewrite_preview');
+
+        if (ignoreContent) {
+            rwr.val(str);
+            prev.text(str);
+            return false;
+        }
+
+        if (!rwr.val()) {
+            rwr.val(str);
+            prev.text(str);
+        }
+
+        return false;
+    }
+<?$this->headScript()->captureEnd()?>

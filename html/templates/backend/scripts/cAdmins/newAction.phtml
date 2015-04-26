@@ -1,0 +1,132 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_ADMINS_ACCOUNT_NEW'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_ADMINS')?> &rarr; <?=$this->lng->_('LBL_ADMIN_ADMINS_ACCOUNT_NEW')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_ADMINS_ACCOUNT_NEW_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+        <a href="/open/admin-admins/">&larr; <?=$this->lng->_('LBL_ADMIN_ADMINS')?></a>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_ADMINS_ACCOUNT_PARAMS')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_ADMINS_ACCOUNT_PARAMS_DESCR')?></p>
+</div>
+
+<form method="post" action="/open/admin-admins/">
+
+    <input type='hidden' name='action' value='save' />
+
+    <div class="page-content">
+        <fieldset>
+
+            <div class="f-row">
+                <label for='i-fio' class='req'>
+                    <?=$this->lng->_('LBL_ADMIN_ADMINS_ACCOUNT')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_ADMINS_ACCOUNT_DESCR')?></span>
+                </label>
+                <div class="f-inputs">
+                    <input id='i-fio' name='user_name' type="text"
+                        class="i-text" style='width: 300px;' maxlength='70' />
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label for="i-mail" class='req'>
+                    <?=$this->lng->_('LBL_ADMIN_ADMINS_MAIL')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_ADMINS_MAIL_DESCR')?></span>
+                </label>
+                <div class="f-inputs">
+                    <input id='i-mail' name='user_mail' type="text" autocomplete="off"
+                        class="i-text" style='width: 300px;' maxlength="50" />
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label for="i-pwd" class='req'>
+                    <?=$this->lng->_('LBL_ADMIN_ADMINS_ACCOUNT_PWD')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_ADMINS_ACCOUNT_PWD_CHANGE')?></span>
+                </label>
+                <div>
+                    <input id='i-pwd' name='user_password' type="password"
+                        class="i-text" maxlength="32" autocomplete="off" />
+                    <input name='user_password_re' type="password"
+                        class="i-text" maxlength="32" autocomplete="off" />
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label for='i-group'>
+                    <?=$this->lng->_('LBL_ADMIN_ADMINS_ROLE')?>
+                </label>
+                <div class="f-inputs">
+                    <select name='user_role' class="i-select" id='i-group'>
+                        <?if(in_array($this->user->role, array(CMS_USER_ADMIN, CMS_USER_MEMBER))):?>
+                            <option value='<?=CMS_USER_GUEST?>'><?=$this->lng->_('LBL_ADMIN_ADMINS_ROLE_GUEST')?></option>
+                        <?endif?>
+
+                        <?if(in_array($this->user->role, array(CMS_USER_ADMIN))):?>
+                            <option value='<?=CMS_USER_MEMBER?>' selected="selected"><?=$this->lng->_('LBL_ADMIN_ADMINS_ROLE_MEMBER')?></option>
+                            <option value='<?=CMS_USER_ADMIN?>'><?=$this->lng->_('LBL_ADMIN_ADMINS_ROLE_ADMIN')?></option>
+                        <?endif?>
+                    </select>
+                </div>
+            </div>
+
+        </fieldset>
+    </div>
+
+    <div class="page-title">
+        <h3><?=$this->lng->_('LBL_ADMIN_ADMINS_ACCESS')?></h3>
+        <p><?=$this->lng->_('TXT_ADMIN_ADMINS_ACCESS_DESCR')?></p>
+    </div>
+
+    <div class="page-content">
+        <div class="f-row">
+            <div class="f-inputs">
+                <input type="button" class="button" value='<?=$this->lng->_('LBL_ADMIN_ADMINS_SELECT_ALL')?>' onclick='$("[name^=user_access]:checkbox").each(function(){$(this).attr("checked", "checked")});return false;' />
+                <input type="button" class="button" value='<?=$this->lng->_('LBL_ADMIN_ADMINS_RESET')?>' onclick='$("input[name^=user_access]:checkbox").each(function(){$(this).attr("checked", "")});return false;' />
+            </div>
+        </div>
+
+        <fieldset>
+            <?foreach($this->access_list as $t=>$val):?>
+                <div class="f-row">
+                    <b><?=$this->lng->_(($t == 'ACP') ? 'TXT_ADMIN_TITLE' : 'LBL_ADMIN_' . $t)?></b><br />
+                    <a href='#' style="color: #666;text-decoration: none;font-style: italic" onclick="jQuery(this).parent().find('input:checkbox').each(function(){$(this).attr('checked', 'checked')});return false;"><?=$this->lng->_('LBL_ADMIN_ADMINS_SELECT_ALL')?></a>
+                    <br />
+                    <?$i=0?>
+                    <?foreach($val as $z):?>
+                        <div class="f-inputs" style='float: left;width: 450px;'>
+                            <?if($this->user->hasAcl($z)):?>
+                                <dl class="access-option">
+                                    <dt><input type="checkbox" name='user_access[]' id='access_<?=$z?>' value='<?=$z?>' /></dt>
+                                    <dd><label for="access_<?=$z?>"><?=$this->lng->_('ACCESS_' . $z)?></label></dd>
+                                </dl>
+                            <?endif?>
+                        </div>
+                        <?if(++$i % 2 == 0):?>
+                            <div class='clear'></div>
+                        <?endif?>
+                    <?endforeach?>
+                    <div class='clear'></div>
+                </div>
+            <?endforeach?>
+        </fieldset>
+    </div>
+
+    <div class="f-submit">
+        <a href='#' onclick="kkcms.redirect('/open/admin-admins/');return false;">&larr; <?=$this->lng->_('LBL_ADMIN_GO_TO_LIST')?></a>
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>" class="button" />
+    </div>
+</form>
+
+<?$this->headStyle()->captureStart()?>
+    .access-option{}
+    .access-option dt{ float: left; margin-right: 5px; }
+    .access-option dd{ float: left; width: 420px; }
+<?$this->headStyle()->captureEnd()?>

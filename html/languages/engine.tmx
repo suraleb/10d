@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.6.7"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='TXT_CORE_TIME_MASK_MINUTES'>
+	<tuv xml:lang="ru"><seg><![CDATA[%s назад]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[%s ago]]></seg></tuv>
+</tu>
+
+<tu tuid='LOCALE'>
+	<tuv xml:lang="ru"><seg><![CDATA[ru_RU]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[en_US]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_CORE_AJAX_WRONG_REQUEST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Неправильный формат AJAX запроса]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Invalid format of AJAX request]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_CORE_TEXT_PARSER_INCORRECT_FORMAT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системный запрос указан в неправильном формате]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Incorrect syntax of the query]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_CORE_VALIDATE_FILE_FALSE_EXTENSION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Формат файла "%value%" не соответствует необходимому]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The file "%value%" has false extension]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_CORE_VALIDATE_FILE_NOT_FOUND'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл "%value%" не найден в нашей файловой системе]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[The file "%value%" was not found]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_CORE_AJAX_LOADING'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ожидание необходимой информации от сервера]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Waiting for the information from the server]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_CORE_AJAX_LOADING_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обрабатывается&hellip;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[In progress&hellip;]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_CORE_AJAX_MESSAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сообщение системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System message]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_CORE_TIME_MASK_BEFORETODAY'>
+	<tuv xml:lang="ru"><seg><![CDATA[%s, %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[%s, %s]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_CORE_TIME_MASK_TODAY'>
+	<tuv xml:lang="ru"><seg><![CDATA[сегодня, %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[today, %s]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ENGINE_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл для ядра системы. Здесь представлены записи для различных базовых модулей]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File for the system core. Here you can find common records for different base modules]]></seg></tuv>
+</tu>
+
+</body></tmx>

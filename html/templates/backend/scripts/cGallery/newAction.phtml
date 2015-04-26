@@ -1,0 +1,410 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_GALLERY_NEW'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_GALLERY')?> &rarr; <?=$this->lng->_('LBL_ADMIN_GALLERY_NEW')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_NEW_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+        <a href="/open/admin-gallery/">&larr; <?=$this->lng->_('LBL_ADMIN_GALLERY')?></a>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_PARAMS_DESCR')?></p>
+</div>
+
+<form method="post" id='upload_form' action="/open/admin-gallery/" enctype="multipart/form-data">
+
+    <div class="page-content">
+
+        <input type='hidden' name='action' value='save' />
+
+	    <fieldset>
+
+            <div class="f-row">
+                <label class='req' for="file_type"><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_TYPE')?><span><?=$this->lng->_('TXT_ADMIN_GALLERY_PARAMS_TYPE')?></span></label>
+                <div class="f-inputs">
+                    <select name="file_type" id="file_type" class="i-select">
+                        <option value="" selected="selected"><?=$this->lng->_('LBL_ADMIN_SELECT')?></option>
+                        <option value="image"><?=sprintf($this->lng->_('LBL_ADMIN_GALLERY_PARAMS_TYPE_IMAGE'), $this->config->modules->gallery->image)?></option>
+                        <option value="archive"><?=sprintf($this->lng->_('LBL_ADMIN_GALLERY_PARAMS_TYPE_ARC'), $this->config->modules->gallery->archive)?></option>
+                        <option value="movie"><?=sprintf($this->lng->_('LBL_ADMIN_GALLERY_PARAMS_TYPE_MOVIE'), $this->config->modules->gallery->movie)?></option>
+                        <option value="file"><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_TYPE_FILE')?></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label class='req'>
+                    <?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_TAGS')?>
+                    <span><?=$this->lng->_('TXT_ADMIN_GALLERY_PARAMS_TAGS')?></span>
+                </label>
+                <div class="f-inputs input-tag">
+                    <select name='file_tags' id="file_tags"></select>
+                </div>
+            </div>
+
+            <div class="f-row">
+                <label for="file_descr"><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_DESCR')?></label>
+                <div class="f-inputs">
+                    <textarea id='file_descr' name='file_descr'
+                        cols='4' rows='4' class="i-text"
+                        style="width: 70%;height: 40px;"></textarea>
+                </div>
+            </div>
+
+            <?$maxFileSize = ini_get('upload_max_filesize')?>
+
+            <div class="f-row hidden">
+
+                <label id='tab_label'></label>
+
+                <div id="tab-area">
+
+                    <ul>
+                        <li><a href='#upload-multi'><?=$this->lng->_('LBL_ADMIN_GALLERY_TABMULTI')?></a></li>
+                        <li><a href='#upload-single'><?=$this->lng->_('LBL_ADMIN_GALLERY_TABSINGLE')?></a></li>
+                        <li><a href='#placeholder'><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_OPTIONS')?></a></li>
+                    </ul>
+
+                    <!-- milti upload -->
+                    <div id="upload-multi">
+
+                        <div class="f-row">
+                            <label class='req'>
+                                <?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_MULTIFILE')?>
+                                <span><?=sprintf($this->lng->_('TXT_ADMIN_GALLERY_PARAMS_FILE'), $maxFileSize)?></span>
+                            </label>
+                            <div class="f-inputs">
+                                <!-- Uploader -->
+                                <div id='file_upload_multi'>
+                                    <div class="uploader">
+                                        <div class="uploader-info">
+                                            <div class="uploader-progress"></div>
+                                            <div class="uploader-list cornered">
+                                                <div class="uploader-status">
+                                                    <span>0</span> <?=$this->lng->_('LBL_ADMIN_GALLERY_FILES_UPLOADED')?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='uploader-controls'>
+                                            <input class='button hidden' style='float: left;' type="button" value="<?=$this->lng->_js('LBL_ADMIN_GALLERY_MULTISTART')?>" />
+                                            <input class='button hidden' type="button" value="<?=$this->lng->_js('LBL_ADMIN_GALLERY_MULTICANCEL')?>" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="f-row">
+                            <label for="file_prefix">
+                                <?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_MULTINAME')?>
+                                <span><?=$this->lng->_('TXT_ADMIN_GALLERY_PARAMS_MULTINAME')?></span>
+                            </label>
+                            <div class="f-inputs">
+                                <input id='file_prefix'
+                                    name='file_prefix' class="i-text" type="text"
+                                    maxlength="255" style="width: 300px;" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- single upload -->
+                    <div id="upload-single">
+
+                        <div class="f-row">
+                            <label class='req'>
+                                <?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_FILE')?>
+                                <span><?=sprintf($this->lng->_('TXT_ADMIN_GALLERY_PARAMS_FILE'), $maxFileSize)?></span>
+                            </label>
+                            <div class="f-inputs"><input name='file_upload' type="file" size="50" /></div>
+                        </div>
+
+                        <div class="f-row">
+                            <label for="file_rewrite">
+                                <?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_NAME')?>
+                                <span><?=$this->lng->_('TXT_ADMIN_GALLERY_PARAMS_NAME')?></span>
+                            </label>
+                            <div class="f-inputs">
+                                <input id='file_rewrite' name='file_rewrite'
+                                    class="i-text" type="text" maxlength="255"
+                                    style="width: 300px;" />
+                            </div>
+                        </div>
+
+                        <div class="f-row">
+                            <input type="submit" class="button button-with-icon icon-save"
+                                value="<?=$this->lng->_js('LBL_ADMIN_BTN_SAVE')?>" />
+                        </div>
+
+                    </div>
+
+                    <!-- placeholder for the remote tab -->
+                    <div id="placeholder"></div>
+
+                </div>
+
+            </div>
+
+	    </fieldset>
+
+        <div class="f-submit cleared">
+            <input type="button" class="button button-with-icon icon-cancel"
+                value="<?=$this->lng->_js('LBL_ADMIN_BTN_CANCEL')?>" id="button-cancel"
+                style="float: right;" />
+        </div>
+
+    </div>
+
+</form>
+
+<div id="file_upload_multi_block" style='position: absolute; left: -1000px; border: 3px solid #EEE;' class='cornered'>
+    <span id="file_upload_multi_flash"></span>
+</div>
+
+<?$this->headScript()->appendFile($this->jsUrl('swfupload,swfupload.cookies,swfupload.speed,swfupload.handlers'))?>
+
+<?$this->headScript()->appendFile($this->jsUrl('j.fcbkcomplete,jui.progressbar,jui.tabs'))?>
+
+<?$this->headLink()->appendStylesheet($this->cssUrl('j.fcbkcomplete,jui.tabs'))?>
+
+<?$this->inlineScript()->captureStart()?>
+    var uloaderObject = false;
+
+    function initUploader()
+    {
+        if (uloaderObject) {
+            return uloaderObject;
+        }
+
+        uloaderObject = new SWFUpload({
+            flash_url : "/htdocs/3dparty/swfupload.swf",
+            upload_url: "/open/admin-gallery/",
+            post_params: {
+                action: 'save'
+            },
+            custom_settings : {
+                startValidation: validateGalleryForm,
+                dynamicParams: {
+                    file_tags: function() {
+                        var elem = jQuery('#file_tags');
+                        if (elem.val()) {
+                            return elem.val().toString();
+                        }
+                        return;
+                    },
+                    options: function() {
+                        var str = '';
+                        var hash = jQuery("[name^=options]", jQuery("#options-area")).serializeArray();
+                        if (!hash.length) {
+                            return '';
+                        }
+                        for (var k in hash) {
+                            str += ',"' + hash[k]['name'].replace(/options\[(.+?)\]/, '$1') + '":"' + hash[k]['value'] + '"';
+                        }
+                        return '{' + str.substr(1) + '}';
+                    },
+                    file_prefix: function() {
+                        var value = jQuery('#file_prefix').val();
+                        return (value) ? (value + '%index%') : '';
+                    },
+                    file_type: function() {
+                        return jQuery('#file_type').val();
+                    },
+                    file_descr: function() {
+                        return jQuery('#file_descr').val();
+                    },
+                },
+                uploaderId: "file_upload_multi",
+                translate: {
+                    Queued: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_QUEUED')?>",
+                    InProgress: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_INPROGRESS')?>",
+                    Error: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_ERROR')?>",
+                    Complete: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_COMPLETE')?>",
+                    Cancelled: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_CANCELLED')?>",
+
+                    HttpError: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_HTTPERROR')?>",
+                    UploadFailed: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_UPLOADFAILED')?>",
+                    IoError: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_IOERROR')?>",
+                    SecurityError: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_SECURITYERROR')?>",
+                    UploadLimitExceeded: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_UPLOADLIMITEXCEEDED')?>",
+                    FileValidationFailed: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_FILEVALIDATIONFAILED')?>",
+                    FileCancelled: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_FILECANCELLED')?>",
+                    UploadStopped: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_UPLOADSTOPPED')?>",
+
+                    QueueLimitExceeded: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_QUEUELIMITEXCEEDED')?>",
+                    FileExceedsSizeLimit: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_FILEEXCEEDSSIZELIMIT')?>",
+                    ZeroByteFile: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_ZEROBYTEFILE')?>",
+                    InvalidFiletype: "<?=$this->lng->_js('LBL_ADMIN_GALLERY_INVALIDFILETYPE')?>"
+
+                }
+            },
+            button_image_url: "<?=$this->imgUrl('3dparty/swfupload.png')?>",
+            button_width: "92",
+            button_height: "28",
+            button_placeholder_id: "file_upload_multi_flash",
+            button_text: '<span class="btnText"><?=$this->lng->_js('LBL_ADMIN_GALLERY_SELECTFILE')?></span>',
+            button_text_style: '.btnText { font-size: 12px; font-weight: bold; font-family: Trebuchet Ms; color: #000000; }',
+            button_text_top_padding: 4,
+            button_text_left_padding: 20,
+            file_queued_handler: fileQueued,
+            file_queue_error_handler: fileQueueError,
+            file_dialog_complete_handler: fileDialogComplete,
+            upload_start_handler: uploadStart,
+            upload_progress_handler: uploadProgress,
+            upload_error_handler: uploadError,
+            upload_success_handler: uploadSuccess,
+            upload_complete_handler: uploadComplete
+        });
+
+        return uloaderObject;
+    }
+
+    function validateGalleryForm()
+    {
+        if (!jQuery('#file_type').val()) {
+            kkcms.effect.blink('file_type');
+            return false;
+        }
+
+        if (!jQuery('#file_tags').val()) {
+            kkcms.effect.message("<?=$this->lng->_js('MSG_ADMIN_GALLERY_BAD_TAGS')?>");
+            return false;
+        }
+
+        /*
+            var whoIs = (!jQuery('#upload-multi').is(':hidden') ? 'prefix' : 'rewrite');
+            if (!jQuery('#file_' + whoIs).val()) {
+                kkcms.effect.blink(
+                    'file_' + whoIs,
+                    "<?=$this->lng->_js('MSG_ADMIN_GALLERY_BAD_REWRITE')?>"
+                );
+                return false;
+            }
+        */
+        return true;
+    }
+
+    jQuery(document).ready(function() {
+        initUploader();
+
+        jQuery('#tab-area').tabs({
+            ajaxOptions: {
+                beforeSend: function(XMLHttpRequest, settings) {
+                    if (jQuery('#options-area-current').val() == jQuery('#file_type').val()) {
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            select: function(event, ui) {
+                var placeholder = jQuery('#file_upload_multi .uploader-controls');
+                var flash = jQuery('#file_upload_multi_block');
+
+                if (ui.index == 0) {
+                    flash.css('left', 390).css('top', 490);
+                } else {
+                    flash.css('left', -1000);
+                }
+
+                return true;
+            }
+        });
+
+        jQuery('#upload_form').bind('submit', validateGalleryForm);
+
+        jQuery('#file_rewrite, #file_prefix').bind('change', function() {
+            var self = jQuery(this);
+            self.val(kkcms.normalizeAddress(self.val(), true));
+        });
+
+        jQuery("#file_tags").fcbkcomplete({
+            json_url: "/open/admin-gallery/?action=autocomplete&type=tags",
+            cache: true,
+            filter_hide: true,
+            filter_selected: true,
+            maxitems: 10,
+            newel: true,
+            onCorrectValue: function(value) {
+                return kkcms.normalizeTag(value);
+            },
+            onCorrectTitle: function(title) {
+                return kkcms.normalizeTag(title);
+            }
+        });
+
+        /* Extensions */
+        var extensionsSet = {
+            'movie': '<?=$this->config->modules->gallery->movie?>',
+            'image': '<?=$this->config->modules->gallery->image?>',
+            'archive': '<?=$this->config->modules->gallery->archive?>',
+            'file': ''
+        };
+
+        jQuery('#file_type').bind('change', function() {
+            var inputFileType = jQuery(this);
+            var divParent = jQuery('#tab-area').parent();
+            var divSubmit = jQuery('#upload_form .f-submit');
+            var elementLabel = jQuery('#tab_label');
+
+            if (!elementLabel.text()) {
+                elementLabel.text(inputFileType.find(':selected').text());
+            }
+
+            if (!inputFileType.val()) {
+                divParent.slideUp();
+                divSubmit.slideUp();
+                return;
+            }
+
+            var typeTitle = inputFileType.find(':selected').text()
+
+            if (!divParent.is(':hidden')) {
+                divParent.slideUp(function() {
+                    elementLabel.text(typeTitle);
+                });
+            }
+
+            jQuery('#tab-area').tabs("select", 1);
+
+            divParent.slideDown('slow', function() {
+                jQuery('#tab-area').tabs(
+                    "url", 2, "/open/admin-gallery/?action=options&type=" + inputFileType.val()
+                ).tabs("load", 2);
+
+                jQuery('#placeholder').html(
+                    jQuery("<span/>")
+                        .addClass("tinymceLoading")
+                        .html(kkcms.getTranslation('ajaxLoadingTitle'))
+                );
+
+                var types = extensionsSet[inputFileType.val()];
+                if (!types) {
+                    return;
+                }
+
+                types = types.split(',');
+
+                var newSet = '';
+                for (var d in types) {
+                    newSet += '*.' + types[d] + ';';
+                }
+
+                try {
+                    initUploader().setFileTypes(newSet, typeTitle);
+                } catch(ex) { }
+            });
+
+            divSubmit.show();
+        });
+
+        jQuery('#button-cancel').live('click', function() {
+            kkcms.redirect('<?=Cms_Core::getReferer()?>');
+        });
+    });
+<?$this->inlineScript()->captureEnd()?>

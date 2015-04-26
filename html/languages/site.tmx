@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.6.0b4"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='LBL_SITE_DIALOG_ASK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вопрос]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Question]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_DIALOG_CLOSE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Закрыть]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Close]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_DIALOG_CONFIRM'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пожалуйста, подтвердите]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Please, confirm]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_DIALOG_MSG'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сообщение системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System message]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_HOME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Главная страница]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Home]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_NO'>
+	<tuv xml:lang="ru"><seg><![CDATA[нет]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[no]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_PAGER_NEXT'>
+	<tuv xml:lang="ru"><seg><![CDATA[дальше]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[next]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_PAGER_PREV'>
+	<tuv xml:lang="ru"><seg><![CDATA[назад]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[back]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[kkCms]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[10denza - The convergence of pop culture, modern city style, music and media.]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_TITLE_SEPARATOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[ / ]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[ / ]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_SITE_YES'>
+	<tuv xml:lang="ru"><seg><![CDATA[да]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[yes]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Описание]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[10denza]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_KEYWORDS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ключевые слова]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Default keywords]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Общий файл для сайта]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Common file for frontend]]></seg></tuv>
+</tu>
+
+</body></tmx>

@@ -1,0 +1,122 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_GALLERY_MODIFY'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_GALLERY')?> &rarr; <?=$this->lng->_('LBL_ADMIN_GALLERY_MODIFY')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_MODIFY_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+        <a href="/open/admin-gallery/">&larr; <?=$this->lng->_('LBL_ADMIN_GALLERY')?></a>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_PARAMS_DESCR')?></p>
+</div>
+
+<form method="post" action="/open/admin-gallery/" enctype="multipart/form-data">
+
+    <input type='hidden' name='action' value='update' />
+    <input type='hidden' name='id' value='<?=$this->file['id']?>' />
+    <input type='hidden' name='file_type' value='<?=$this->file['type']?>' />
+
+    <div class="page-content">
+
+        <div id="tab-area">
+            <ul>
+                <li><a href='#tab-main'><?=$this->lng->_('LBL_ADMIN_GALLERY_TAB_MAIN')?></a></li>
+                <li><a href='#tab-options'><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_OPTIONS')?></a></li>
+            </ul>
+
+            <div id="tab-main">
+
+                <div class="f-row">
+                    <label>
+                        <?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_FILE')?>
+                        <span><?=sprintf($this->lng->_('TXT_ADMIN_GALLERY_PARAMS_FILE'), ini_get('upload_max_filesize'))?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type="button" value="<?=$this->file['rewrite']?><?=$this->file['ext'] ? " ({$this->file['ext']})" : ''?>"
+                            class="button" onclick="$(this).fadeOut('fast', function(){ $('#upload_field').fadeIn(); });" />
+                        <p id='upload_field' style="display: none;"><input name='file_upload' type="file" size="50" /></p>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label class='req'><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_TAGS')?><span><?=$this->lng->_('TXT_ADMIN_GALLERY_PARAMS_TAGS')?></span></label>
+                    <div class="f-inputs input-tag">
+                        <select name='file_tags[]' id='file_tags'>
+                            <?foreach(Cms_Tags::decode($this->file['tags'], true) as $tag):?>
+                                <option value='<?=$tag?>' class="selected"><?=$tag?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="file_rewrite">
+                        <?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_NAME')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_GALLERY_PARAMS_NAME')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input id='file_rewrite' name='file_rewrite'
+                            class="i-text" value="<?=$this->file['rewrite']?>"
+                            type="text" maxlength="255" style="width: 300px;" />
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="i-text"><?=$this->lng->_('LBL_ADMIN_GALLERY_PARAMS_DESCR')?></label>
+                    <div class="f-inputs">
+                        <textarea id='i-text' name='file_descr' class="i-text" style="width:380px;height: 100px;" cols="4" rows="4"><?=$this->file['descr']?></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="tab-options">
+                <?=$this->contentAdvanced?>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="f-submit">
+        <a href='#' onclick="kkcms.redirect('/open/admin-gallery/');return false;">&larr; <?=$this->lng->_('LBL_ADMIN_GO_TO_LIST')?></a>
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>" class="button" />
+    </div>
+</form>
+
+<?$this->headScript()->appendFile($this->jsUrl('j.fcbkcomplete,jui.tabs'))?>
+
+<?$this->headLink()->appendStylesheet($this->cssUrl('j.fcbkcomplete,jui.tabs'))?>
+
+<?$this->inlineScript()->captureStart()?>
+    jQuery(document).ready(function() {
+        jQuery('#tab-area').tabs().tabs("select", 0);
+
+        jQuery("#file_tags").fcbkcomplete({
+            json_url: "/open/admin-gallery/?action=autocomplete&type=tags&myid=<?=$this->file['id']?>",
+            cache: true,
+            filter_hide: true,
+            filter_selected: true,
+            maxitems: 10,
+            newel: true,
+            onCorrectValue: function(value) {
+                return kkcms.normalizeTag(value);
+            },
+            onCorrectTitle: function(title) {
+                return kkcms.normalizeTag(title);
+            }
+        });
+
+        jQuery('#file_rewrite').bind('change', function() {
+            var self = jQuery(this);
+            self.val(kkcms.normalizeAddress(self.val(), true));
+        });
+    });
+<?$this->inlineScript()->captureEnd()?>

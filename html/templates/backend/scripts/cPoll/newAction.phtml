@@ -1,0 +1,147 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_POLL_NEW'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_POLL')?> &rarr; <?=$this->lng->_('LBL_ADMIN_POLL_NEW')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_POLL_NEW_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+        <a href="/open/admin-poll/">&larr; <?=$this->lng->_('LBL_ADMIN_POLL')?></a>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_POLL_PARAMS')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_POLL_PARAMS_DESCR')?></p>
+</div>
+
+<form method="post" action="/open/admin-poll/">
+
+    <input type='hidden' name='action' value='save' />
+
+    <div class="page-content">
+
+        <fieldset>
+	        <div class="f-row">
+		        <label for="poll_question" class='req'><?=$this->lng->_('LBL_ADMIN_POLL_PARAMS_QUESTION')?><span><?=$this->lng->_('TXT_ADMIN_POLL_PARAMS_QUESTION')?></span></label>
+		        <div class="f-inputs"><input type="text" id='poll_question' value="" name='poll_question' class="i-text" maxlength="255" style="width: 70%;" /></div>
+	        </div>
+
+	        <div class="f-row">
+		        <label for="poll_type"><?=$this->lng->_('LBL_ADMIN_POLL_PARAMS_TYPE')?><span><?=$this->lng->_('TXT_ADMIN_POLL_PARAMS_TYPE')?></span></label>
+		        <div class="f-inputs">
+                            <select name="poll_type" id="poll_type" class="i-select">
+                                <option value="single" selected="selected">
+                                    <?=$this->lng->_('LBL_ADMIN_POLL_TYPE_SINGLE')?>
+                                </option>
+                                <option value="multi">
+                                    <?=$this->lng->_('LBL_ADMIN_POLL_TYPE_MULTY')?>
+                                </option>
+                            </select>
+		        </div>
+	        </div>
+
+	        <div class="f-row">
+		        <label class='req'><?=$this->lng->_('LBL_ADMIN_POLL_PARAMS_ANSWERS')?><span><?=$this->lng->_('TXT_ADMIN_POLL_PARAMS_ANSWERS')?></span></label>
+		        <div class="f-inputs">
+		            <div id='poll-choices'></div>
+		        </div>
+	        </div>
+
+	        <div class="f-row">
+		        <input type="button" class="button" value="<?=$this->lng->_('LBL_ADMIN_POLL_ADD_VARIANT')?>" onclick="_poll_add_variant();return false;" />
+                <input type="button" class="button" value="<?=$this->lng->_('LBL_ADMIN_POLL_REMOVE_VARIANT')?>" onclick="kkcms.boxy.confirm('<?=$this->lng->_js('MSG_ADMIN_POLL_VARIANT_REMOVE')?>', function() { _poll_remove_last(); });return false;" />
+	        </div>
+
+                <div class="f-row">
+                    <label>
+                        <?=$this->lng->_('LBL_ADMIN_POLL_PARAMS_ACTIVE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_POLL_PARAMS_ACTIVE')?></span>
+                    </label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="yes">
+                            <label for="poll_active_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='poll_active_yes' name='poll_active'
+                                value='1' checked="checked" />
+                        </p>
+                        <p class="no">
+                            <input type="radio" id="poll_active_no" name='poll_active' value='0' />
+                            <label for="poll_active_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                    </div>
+                </div>
+
+	        <div class="f-row">
+		        <label for="poll_group"><?=$this->lng->_('LBL_ADMIN_POLL_PARAMS_GROUP')?><span><?=$this->lng->_('TXT_ADMIN_POLL_PARAMS_GROUP')?></span></label>
+		        <div class="f-inputs">
+		            <select id='poll_group' name='poll_group' class="i-select">
+			            <option value='all' selected="selected"><?=$this->lng->_('LBL_ADMIN_POLL_GROUP_ALL')?></option>
+                        <?if(in_array($this->user->role, array(CMS_USER_ADMIN, CMS_USER_MEMBER))):?>
+			                <option value='<?=CMS_USER_GUEST?>'><?=$this->lng->_('LBL_ADMIN_POLL_GROUP_GUEST')?></option>
+                        <?endif?>
+
+                        <?if(in_array($this->user->role, array(CMS_USER_ADMIN))):?>
+			                <option value='<?=CMS_USER_MEMBER?>'><?=$this->lng->_('LBL_ADMIN_POLL_GROUP_MEMBER')?></option>
+			                <option value='<?=CMS_USER_ADMIN?>'><?=$this->lng->_('LBL_ADMIN_POLL_GROUP_ADMIN')?></option>
+                        <?endif?>
+		            </select>
+		        </div>
+	        </div>
+        </fieldset>
+
+    </div>
+
+    <div class="f-submit">
+        <a href='#' onclick="kkcms.redirect('/open/admin-poll/');return false;">&larr; <?=$this->lng->_('LBL_ADMIN_GO_TO_LIST')?></a>
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>" class="button" />
+    </div>
+</form>
+
+<?$this->headScript()->captureStart()?>
+    $(document).ready(function() {
+        for(var i = 1; i<= 4; i++) {
+            _poll_add_variant();
+        }
+    });
+
+    var _poll_variants = new Array();
+
+    function _poll_remove_last()
+    {
+        var _len = _poll_variants.length;
+
+        if(_len < 3) {
+        kkcms.boxy.alert('<?=$this->lng->_js('MSG_ADMIN_POLL_MIN_ANSWERS')?>');
+            return false;
+        }
+
+        $('#pVariant-' + (_len - 1)).remove();
+
+        _poll_variants.pop()
+    }
+
+    function _poll_add_variant(value, votes)
+    {
+        if (!value) { value = ''; }
+        if (!votes) { votes = 0; }
+
+        var _len = _poll_variants.length;
+
+        if (_len >= <?=intval($this->config->modules->poll->choices)?>) {
+            kkcms.boxy.alert('<?=sprintf($this->lng->_js('MSG_ADMIN_POLL_MAX_ANSWERS'), $this->config->modules->poll->choices)?>');
+            return false;
+        }
+
+        var id = _len + 1;
+        var _html  = '<' + 'div id="pVariant-' + _len + '" style="display: block;margin-bottom: 1px;">';
+            _html += (id < 10 ? "0" + id : id)  + '. <' + 'input type="text" class="i-text" name="poll_choices[' + id + ']" value="' + value + '" maxlength="50" style="margin-left: 15px;width: 550px;" /' + '> ';
+            _html += '<' + 'input type="text" class="i-text" name="poll_votes[' + id + ']" value="' + votes + '" maxlength="3" style="width: 30px;" /' + '> ';
+            _html += '<' + '/div>';
+
+        $('#poll-choices').append(_html);
+
+        _poll_variants.push(new Array());
+    }
+<?$this->headScript()->captureEnd()?>

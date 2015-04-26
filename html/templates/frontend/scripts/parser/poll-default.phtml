@@ -1,0 +1,31 @@
+
+<form method="post" action="/open/poll/">
+    <div class="cms-reset cms-poll cms-cleared">
+
+        <input type="hidden" name="action" value="vote" />
+        <input type="hidden" name="id" value="<?=$this->poll['id']?>" />
+
+        <strong><?=$this->poll['question']?></strong>
+        <ul>
+            <?foreach($this->poll['choices']['choices'] as $k => $v):?>
+                <li class="cms-cleared">
+                   <input
+                        <?if($this->poll['type'] == 'single'):?>
+                            type="radio" name="vote_choice"
+                        <?else:?>
+                            type="checkbox" name="vote_choice[]"
+                        <?endif?>
+                    value="<?=$k?>" id="choice-<?=$this->poll['id']?>-<?=$k?>" />
+                    <label for='choice-<?=$this->poll['id']?>-<?=$k?>'><?=$v['text']?></label>
+                </li>
+            <?endforeach?>
+        </ul>
+        <p>
+            <?if($_SERVER['REQUEST_URI'] != '/polls.html'):?>
+                <a href='/polls.html'><?=$this->lng->_('LBL_SITE_POLL_LINK_SHOWALL')?></a>
+            <?endif?>
+            <input type="submit" value="<?=$this->lng->_js('LBL_SITE_POLL_VOTE')?>"
+                onclick="return (jQuery(this).parents('form').find('input[name^=vote_choice]:checked').val() != undefined)" />
+        </p>
+    </div>
+</form>

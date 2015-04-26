@@ -1,0 +1,104 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCTS'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCTS')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_PRODUCTS_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/' class="cornered home"
+            style='background-image: url("<?=$this->imgUrl('admin/admin.png')?>");'><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_ECOMMERCE_VIEW)):?>
+            <a href="/open/admin-ecommerce/" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/main/mdl-ecommerce.png')?>");'><?=$this->lng->_('LBL_ADMIN_ECOMMERCE')?></a>
+        <?endif?>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_ECOMMERCE_PRODUCT_NEW)):?>
+            <a href="/open/admin-ecommerce/?action=prodform" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/ecommerce/product-add.png')?>");'><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCT_NEW')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_PRODUCTS_LIST')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_PRODUCTS_LIST_DESCR')?></p>
+</div>
+
+<?if (count($this->paginator)):?>
+    <div class="page-content">
+
+        <table class='cnt-table'>
+
+            <thead>
+                <tr>
+                    <th style="width: 5%;">#</th>
+                    <th style="width: 55%;"><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_TBL_TITLE')?></th>
+                    <th style="width: 10%;"><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_TBL_INSTOCK')?></th>
+                    <th style="width: 15%;"><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_TBL_ADDED')?></th>
+                    <th style="width: 15%;"><?=$this->lng->_('LBL_ADMIN_ECOMMERCE_TBL_MANAGE')?></th>
+                </tr>
+            </thead>
+
+            <?foreach($this->paginator as $entry):?>
+                <tr id='entry_<?=$entry->getId()?>'>
+                    <td class="center">
+                        <img src="<?=$this->thumbUrl($entry->getCover(), 40, 40)?>"
+                            alt="" />
+                    </td>
+                    <td><?=$entry->getTitle()?></td>
+                    <td class="center"><?=$this->lng->_($entry->getInStock() ? 'LBL_ADMIN_YES' : 'LBL_ADMIN_NO')?></td>
+                    <td class="center"><?=$this->timeStamp($entry->getTimeAdded(), Cms_Date::DATE_LONG)?></td>
+                    <td class="center">
+                        <?if ($this->user->hasAcl(CMS_ACCESS_ECOMMERCE_PRODUCT_EDIT)):?>
+                            <a class='btn-cube' href='/open/admin-ecommerce/?action=prodedit&amp;id=<?=$entry->getId()?>'><img
+                                src='<?=$this->imgUrl('admin/ecommerce/product-edit.png')?>' alt=''
+                                title='<?=$this->lng->_js('LBL_ADMIN_ECOMMERCE_MODIFY')?>' /></a>
+                        <?endif?>
+
+                        <?if ($this->user->hasAcl(CMS_ACCESS_ECOMMERCE_PRODUCT_REMOVE)):?>
+                            <a class='btn-cube-red' href='#' rel='<?=$entry->getId()?>' onclick="return false;"><img
+                                src='<?=$this->imgUrl('admin/ecommerce/product-remove.png')?>' alt=''
+                                title='<?=$this->lng->_js('LBL_ADMIN_ECOMMERCE_REMOVE')?>' /></a>
+                        <?endif?>
+                    </td>
+                </tr>
+            <?endforeach?>
+
+        </table>
+
+        <?=$this->paginationControl(
+            $this->paginator, null, null,
+            array(
+                'url' => "/open/admin-ecommerce/?action=products&amp;sofar=",
+                'lng' => $this->lng
+            )
+        )?>
+
+    </div>
+<?else:?>
+    <div class="page-content">
+        <p class='info'><?=$this->lng->_('TXT_ADMIN_ECOMMERCE_LIST_EMPTY')?></p>
+    </div>
+<?endif?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function () {
+        jQuery('a.btn-cube-red').bind('click', function () {
+            id = parseInt(jQuery(this).attr('rel'));
+
+            kkcms.boxy.confirm('<?=$this->lng->_js('MSG_ADMIN_ECOMMERCE_PRODUCT_REMOVE')?>', function() {
+                kkcms.ajaxCall('/open/admin-ecommerce/', {'action': 'prodremove', 'id': id}, function(json) {
+                    if (json.success) {
+                        kkcms.effect.message(json.data.msg, {status: 'success'});
+                        jQuery('#entry_' + id + ' td').fadeOut('slow');
+                    } else {
+                        kkcms.effect.message(json.msg);
+                    }
+                });
+            });
+        });
+    });
+<?$this->headScript()->captureEnd()?>

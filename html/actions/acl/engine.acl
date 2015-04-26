@@ -1,0 +1,5 @@
+define('CMS_ACCESS_LOADED'  , true);
+define('CMS_ACCESS_ACP_VIEW', 'ACP_VIEW');
+define('CMS_USER_GUEST'     , 'USER_ROLE_GUEST');
+define('CMS_USER_MEMBER'    , 'USER_ROLE_MEMBER');
+define('CMS_USER_ADMIN'     , 'USER_ROLE_ADMIN');

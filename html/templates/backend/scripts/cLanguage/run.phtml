@@ -1,0 +1,37 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_LANGUAGE'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_LANGUAGE')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_LANGUAGE_NAV_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_LANGUAGE_CONTENT')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_LANGUAGE_CONTENT_DESCR')?></p>
+</div>
+
+<div class="page-content" id='page-entries'>
+    <table class='cnt-table'>
+        <thead>
+        <tr>
+            <th style="width: 25%"><?=$this->lng->_('LBL_ADMIN_LANGUAGE_MANAGE')?></th>
+            <th style="width: 75%"><?=$this->lng->_('LBL_ADMIN_LANGUAGE_FILE_DESCR')?></th>
+        </tr>
+        </thead>
+            <?foreach($this->files as $item):?>
+                <tr>
+                    <td>
+                        <?=$this->lng->_('LBL_ADMIN_LANGUAGE_FILE_VIEW')?> &laquo;<a href='/open/admin-language/?action=view&amp;file=<?=$item?>'><?=$item?></a>&raquo;
+                        <br /><?=sprintf($this->lng->_('LBL_ADMIN_LANGUAGE_FILE_UPDATED'), $this->timeStamp($this->time[$item], Cms_Date::DATE_LONG))?>
+                    </td>
+                    <td class="middle"><?=$this->lng->_('TXT_' . str_replace('-', '_', strtoupper($item)) . '_SELF_DESCRIPTION')?></td>
+                </tr>
+            <?endforeach?>
+    </table>
+</div>

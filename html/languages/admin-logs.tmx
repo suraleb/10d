@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.4.8"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='LBL_ADMIN_LOGS_IP'>
+	<tuv xml:lang="ru"><seg><![CDATA[IP-Адрес]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[IP-Address]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_LOGS_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать &laquo;Логи&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view &laquo;Logs&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LOGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Агент наблюдения]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Observer agent]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LOGS_ACCOUNT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Учётная запись]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Account]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LOGS_ACTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Действие]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Action]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LOGS_TIME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Время]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Time]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LOGS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[записи о совершённых действиях]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[records about accomplished actions]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_LOGS_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для встроенного модуля &laquo;Логи&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the internal module &laquo;Logs&raquo;]]></seg></tuv>
+</tu>
+
+</body></tmx>

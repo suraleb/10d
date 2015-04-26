@@ -1,0 +1,30 @@
+html,body{ background: #4B2844 url('/i/bg.png') 0 0 repeat-y; height: 100%; float: 1em Tahoma, Arial, Verdana; letter-spacing: 0.1em; }
+
+#box{ border: 5px solid #000; width: 1026px; margin: 0 auto; position: relative; background-color: #F7E198; }
+#box{ box-shadow: 0 0 16px #000; -moz-box-shadow: 0 0 16px #000; webkit-box-shadow: 0 0 16px #000; -webkit-box-shadow: 0 0 16px #000; }
+
+#splash{ width: 1024px; height: 600px; background: url('/i/splash.jpg') no-repeat; border: 1px solid #FFF; }
+
+#form{ position: absolute; right: 70px; bottom: 50px; background-color: #741559; padding: 10px; }
+    #form strong{ color: #000; width: 226px; display: block; padding-top: 10px; background: url("/i/signup.png") 0 0 no-repeat; font-size: 8px; }
+    #form form p{ float: left; border: 1px solid #646464; }
+        #form form p.submit{ margin-left: -1px; padding-left: 1px; height: 34px; padding: 1px; padding-bottom: 0; }
+        #form form p.text{  }
+    #form input.submit{ width: 58px; height: 32px; background: url("/i/send.png") 0 0 no-repeat; border: 0; cursor: pointer; }
+    #form input.submit:hover{ background-position: 0 -32px; }
+    #form input.text{ border: 0; height: 35px; background-color: #000; color: #FFF; font-size: 1em; padding: 0 4px; margin: 0; margin-left: 2px; }
+
+#signup-text{ position: absolute; bottom: 135px; right: 70px; line-height: 1.3em; }
+#signup-text strong{ font-weight: bold; text-transform: uppercase; }
+#signup-text ul{ list-style: none; }
+#signup-text li{ padding-left: 30px; text-transform: uppercase;  }
+
+#open{ position: absolute; right: 80px; top: 205px; width:252px; height:42px; background: url('/i/now-open.png') 0 0 no-repeat; }
+#open p{ font-size: 2em; }
+
+#social{ position: absolute; right: 140px; top: 80px; }
+#social a{ margin-right: 17px; width: 32px; height: 32px; }
+
+.clear{ clear: both; }
+
+kbd{ display: none; color: #B0B0B0; }

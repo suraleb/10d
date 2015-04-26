@@ -1,0 +1,238 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_NEWS'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_NEWS')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_NEWS_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+    <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+    <?if($this->user->hasAcl(CMS_ACCESS_NEWS_NEW)):?>
+        <a class='btn-new' href="/open/admin-news/?action=new"
+            style='background-image: url("<?=$this->imgUrl('admin/news/new.png')?>");'><?=$this->lng->_('LBL_ADMIN_NEWS_NEW')?></a>
+    <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_NEWS_CONTENT')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_NEWS_CONTENT_DESCR')?></p>
+</div>
+
+<?if (count($this->paginator)):?>
+    <div class="page-content">
+
+        <?if(!$this->orderMode):?>
+            <input type='button'
+                value='<?=sprintf($this->lng->_js('LBL_ADMIN_STATIC_REORDER'), $this->lng->_('LBL_ADMIN_NO'))?>'
+                    class='button button-with-icon icon-order' onclick='kkcms.redirect("/open/admin-news/?order");return false;' />
+        <?else:?>
+            <input type='button'
+                value='<?=sprintf($this->lng->_js('LBL_ADMIN_STATIC_REORDER'), $this->lng->_('LBL_ADMIN_YES'))?>'
+                    class='button button-with-icon icon-order' onclick='kkcms.redirect("/open/admin-news/");return false;' />
+
+            <div class="drop-box cleared cornered hidden">
+                <i><?=$this->lng->_('TXT_ADMIN_STATIC_REORDER_DROP')?></i>
+                <?if (isset($this->paginator->getPages()->next)):?>
+                    <p class="next cornered"><?=$this->lng->_('TXT_ADMIN_STATIC_REORDER_DROP_NEXT')?></p>
+                <?endif?>
+                <?if (isset($this->paginator->getPages()->previous)):?>
+                    <p class="prev cornered"><?=$this->lng->_('TXT_ADMIN_STATIC_REORDER_DROP_PREV')?></p>
+                <?endif?>
+            </div>
+        <?endif?>
+
+        <table class='cnt-table'>
+            <thead>
+                <tr>
+                    <th style="width: 65%;" colspan="2">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_NEWS_TBL_TITLE'),
+                            "/open/admin-news/?sofar={$this->input->sofar}",
+                            'title', null, $this->orderMode)?>
+                        /
+                        <?=$this->htmlSort(
+                                $this->lng->_('LBL_ADMIN_STATIC_CONTENT_ADDRESS'),
+                                "/open/admin-news/?sofar={$this->input->sofar}",
+                                'address', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 20%;">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_NEWS_TBL_DATE'),
+                            "/open/admin-news/?sofar={$this->input->sofar}&amp;sorttype=number",
+                            'added', null, $this->orderMode)?>
+                        /
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_NEWS_TBL_AUTHOR'),
+                            "/open/admin-news/?sofar={$this->input->sofar}",
+                            'author', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 15%;"><?=$this->lng->_('LBL_ADMIN_NEWS_TBL_MANAGE')?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?foreach($this->paginator as $news):?>
+                    <tr id='entry_<?=$news['id']?>'>
+                        <?if($this->orderMode):?>
+                            <td class="center" style="width: 2%; cursor: move;"><span class="ui-icon ui-icon-arrowthick-2-n-s" style="float: none;"></span></td>
+                        <?else:?>
+                            <td class="center" style="width: 5%;">
+                                <img src="<?=$this->imgUrl('admin/static/' . (!$news['active'] ? 'status-inactive.png' : 'item.png'))?>" alt=""
+                                    style="width: 16px; height: 16px;" />
+
+                                <?if($news['featured']):?>
+                                    <img src='<?=$this->imgUrl('admin/static/status-featured.png')?>' alt='' style="width: 16px; height: 16px;" />
+                                <?endif?>
+                            </td>
+                        <?endif?>
+                        <td>
+                            <?=$news['title']?>
+                            <p style='font-size: 80%;color: #CCC;'>
+                                /<span style='color: #888;font-weight: bold;text-shadow: 1px 1px 1px #FFF;'><?=$news['rewrite']?></span>.html
+                            </p>
+                        </td>
+                        <td class='center'>
+                            <?=$news['user_name']?><br />
+                            <?=$this->timeStamp($news['added'], Cms_Date::DATE_LONG)?>
+                        </td>
+                        <td class="center middle">
+                            <a class="btn-cube" href="<?=CMS_HOST?>/<?=$news['rewrite']?>.html"><img src="<?=$this->imgUrl('admin/news/view.png')?>" title="<?=$this->lng->_js('LBL_ADMIN_NEWS_VIEW')?>" alt="<?=$this->lng->_js('LBL_ADMIN_NEWS_VIEW')?>" /></a>
+
+                            <?if($this->user->hasAcl(CMS_ACCESS_NEWS_EDIT)):?>
+                                <a class="btn-cube" href="/open/admin-news/?action=edit&amp;id=<?=$news['id']?>"><img src="<?=$this->imgUrl('admin/news/edit.png')?>" alt="<?=$this->lng->_js('LBL_ADMIN_NEWS_EDIT')?>" title="<?=$this->lng->_js('LBL_ADMIN_NEWS_EDIT')?>" /></a>
+                            <?endif?>
+
+                            <?if($this->user->hasAcl(CMS_ACCESS_NEWS_REMOVE)):?>
+                                <a class="btn-cube-red" alt='<?=$news['id']?>' href="#" onclick='return false;'><img src="<?=$this->imgUrl('admin/news/remove.png')?>" alt="<?=$this->lng->_js('LBL_ADMIN_NEWS_REMOVE')?>" title="<?=$this->lng->_js('LBL_ADMIN_NEWS_REMOVE')?>" /></a>
+                            <?endif?>
+                        </td>
+                    </tr>
+                <?endforeach?>
+
+            </tbody>
+        </table>
+
+        <?php
+            $addurl = '';
+            if (!empty($this->input->perpage)) {
+                $addurl .= "perpage={$this->input->perpage}&amp;";
+            }
+
+            if (!empty($this->input->sortby)) {
+                $addurl .= "sortby={$this->input->sortby}&amp;";
+                $addurl .= "sorttype={$this->input->sorttype}&amp;";
+                $addurl .= "sortway={$this->input->sortway}&amp;";
+            }
+
+            if ($this->orderMode) {
+                $addurl .= "order&amp;";
+            }
+
+            echo $this->paginationControl(
+                $this->paginator, null, null,
+                array(
+                    'url' => "/open/admin-news/?{$addurl}sofar=",
+                    'lng' => $this->lng
+                )
+            )
+        ?>
+    </div>
+<?else:?>
+    <div class="page-content">
+        <p class='info'>
+            <?=$this->lng->_('TXT_ADMIN_NEWS_LIST_EMPTY')?>
+        </p>
+    </div>
+<?endif?>
+
+<?$this->headScript()->appendFile($this->jsUrl('jui.mouse,jui.sortable,jui.droppable'))?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function() {
+        <?if($this->orderMode):?>
+            var $table = jQuery(".cnt-table tbody")
+            var $dropBox = jQuery(".drop-box");
+
+            var dropLock = false;
+            var trCount = 10;
+            var currentPage = <?=$this->paginator->getCurrentPageNumber()?>;
+
+            $table.sortable({
+                handle: 'td:first',
+                helper: 'clone',
+                distance: 30,
+                items: "tr",
+                revert: 80,
+                opacity: 0.5,
+                start: function(event, ui) {
+                    $dropBox.fadeIn('fast');
+                },
+                stop: function(event, ui) {
+                    $dropBox.fadeOut('fast');
+                },
+                update: function(event, ui) {
+                    if (dropLock) {
+                        dropLock = false;
+                        return false;
+                    }
+                    kkcms.ajaxCall(
+                        '/open/admin-static/?action=order&perpage=' + trCount + '&currentpage=' + currentPage, jQuery(this).sortable('serialize'),
+                        function(json) {
+                            if (json.success) {
+                                kkcms.effect.message(json.data.msg);
+                            } else {
+                                kkcms.effect.message(json.msg);
+                            }
+                        }
+                    );
+                }
+            }).disableSelection();
+
+            $dropBox.find('p').droppable({
+                hoverClass: "hover",
+                tolerance: "pointer",
+                drop: function(event, ui) {
+                    dropLock = true;
+                    kkcms.ajaxCall(
+                        '/open/admin-static/?action=order', {
+                            entry: parseInt(ui.draggable.attr('id').replace('entry_', '')),
+                            perpage: trCount,
+                            drop: true,
+                            currentpage: currentPage,
+                            direction: jQuery(this).hasClass('next') ? 'next' : 'prev'
+                        },
+                        function(json) {
+                            if (json.success) {
+                                ui.draggable.fadeOut('slow', function() {
+                                    ui.draggable.remove();
+                                    kkcms.effect.message(json.data.msg);
+                                });
+                            } else {
+                                kkcms.effect.message(json.msg);
+                            }
+                        }
+                    );
+                }
+            });
+        <?endif?>
+
+        jQuery('a.btn-cube-red').live('click', function() {
+            id = parseInt(jQuery(this).attr('alt'));
+            kkcms.boxy.confirm(
+                '<?=$this->lng->_js('MSG_ADMIN_NEWS_REMOVE')?>', function() {
+                kkcms.ajaxCall(
+                    '/open/admin-news/', {action: 'remove', id: id},
+                    function(json) {
+                        if (json.success) {
+                            kkcms.effect.message(json.data.msg);
+                            jQuery('#entry_' + id + ' td').fadeOut('slow');
+                        } else {
+                            kkcms.effect.message(json.msg);
+                        }
+                    }
+                );
+            });
+        });
+    });
+<?$this->headScript()->captureEnd()?>

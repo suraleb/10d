@@ -1,0 +1,15 @@
+
+<div id="cms-social" class="cms-reset cms-cleared">
+    <ul>
+        <li><fb:send href="<?=$this->url?>"></fb:send></li>
+
+        <li><fb:like href="<?=$this->url?>" layout="button_count"
+            show_faces="false" width="100"></fb:like></li>
+
+        <li><g:plusone size="medium"></g:plusone></li>
+
+        <li><a href="http://twitter.com/share" class="twitter-share-button"
+            data-url="<?=$this->url?>" data-lang="<?=substr($this->lang, 0, 2)?>"
+            data-count="horizontal">Tweet</a></li>
+    </ul>
+</div>

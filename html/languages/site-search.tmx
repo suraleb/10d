@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.5"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='LBL_SITE_SEARCH_START_SEARCH'>
+	<tuv xml:lang="ru"><seg><![CDATA[искать]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[search]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_SEARCH_FIELD_TIP'>
+	<tuv xml:lang="ru"><seg><![CDATA[что ищем?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[what you're looking for?]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_SEARCH_NOTHING_FOUND'>
+	<tuv xml:lang="ru"><seg><![CDATA[По вашему запросу ничего не найдено]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Sorry, nothing found]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_SEARCH_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;Поиск&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with frontend records for the &laquo;Search&raquo; module]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_SEARCH_WRONG_LENGTH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Для поиска необходимо ввести не менее двух символов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[For search you must provide not less than 2 symbols]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_SITE_SEARCH_WRONG_QUERY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы указали неправильный формат запроса]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You have provided incorrect format of the query]]></seg></tuv>
+</tu>
+
+</body></tmx>

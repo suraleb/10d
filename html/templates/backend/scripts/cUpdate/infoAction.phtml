@@ -1,0 +1,66 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_UPDATE_PKG_INFO'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_UPDATE')?> &rarr; <?=$this->lng->_('LBL_ADMIN_UPDATE_PKG_INFO')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_UPDATE_PKG_INFO_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_UPDATE_VIEW)):?>
+            <a href="/open/admin-update/">&larr; <?=$this->lng->_('LBL_ADMIN_UPDATE')?></a>
+        <?endif?>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_UPDATE_INSTALL)):?>
+            <a style="background-image: url('<?=$this->imgUrl('admin/update/install.png')?>');"
+                href="/open/admin-update/?action=install&amp;id=<?=$this->package->version?>"><?=$this->lng->_('LBL_ADMIN_UPDATE_PKG_INSTALL')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div style="float: left; width: 48%;margin-right: 10px;">
+    <div class="page-title">
+	    <h2><?=$this->lng->_('LBL_ADMIN_UPDATE_PKG_DESCR')?></h2>
+	    <p><?=$this->lng->_('TXT_ADMIN_UPDATE_PKG_DESCR_DESCR')?></p>
+    </div>
+
+    <div class="page-content">
+	    <?=$this->package->description?>
+    </div>
+</div>
+
+<div style="float: left; width: 50%;">
+    <div class="page-title">
+	    <h3><?=$this->lng->_('LBL_ADMIN_UPDATE_PKG_TECH')?></h3>
+	    <p><?=$this->lng->_('TXT_ADMIN_UPDATE_PKG_TECH_DESCR')?></p>
+    </div>
+
+    <div class="page-content">
+        <?=sprintf(
+            $this->lng->_('LBL_ADMIN_UPDATE_PKG_VERSION'),
+            $this->package->previous
+        )?><br />
+        <?=sprintf(
+            $this->lng->_('LBL_ADMIN_UPDATE_PKG_CRTIME'),
+            $this->timeStamp((string)$this->package->time, Cms_Date::DATE_LONG)
+        )?><br />
+        <?=sprintf(
+            $this->lng->_('LBL_ADMIN_UPDATE_PKG_PRIORITY'),
+            $this->package->type
+        )?><br />
+        <?=sprintf(
+            $this->lng->_('LBL_ADMIN_UPDATE_PKG_SIZE'),
+            Cms_Filemanager::sizeToString($this->package->size)
+        )?><br />
+
+	    <?=$this->lng->_('LBL_ADMIN_UPDATE_PKG_CHECKSUM')?><br />
+
+        <span style="margin-left: 15px;color: #666">
+            <?=$this->package->md5?>
+        </span>
+    </div>
+</div>
+
+<div class="clear"></div>

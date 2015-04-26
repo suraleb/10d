@@ -1,0 +1,39 @@
+<?$this->headLink()->prependStylesheet(
+    $this->cssUrl(
+        'common.reset,jui.core,jui.theme,jui.button,j.boxy,j.gritter,
+         j.tipsy,engine,backend'
+    ),
+    'screen, projection'
+)?>
+
+<?$this->headScript()->prependScript(
+    'jQuery(document).ready(function () {
+        jQuery(".f-row:not(:hidden):odd").each(function() {jQuery(this).addClass("odd");});
+        jQuery(".f-row:not(:hidden):even").each(function() {jQuery(this).addClass("even");});
+        jQuery("table tr:odd").each(function() {jQuery(this).addClass("odd");});
+        jQuery("table tr:even").each(function() {jQuery(this).addClass("even");});
+        jQuery("img[title]").tipsy({html:true,gravity:"w"});
+    });'
+)?>
+
+<?$this->headScript()->prependScript(
+    'kkcms.setParam("host", "' . CMS_HOST . '")
+        .setParam("cookiePrefix", "' . Cms_Core::COOKIE_PREFIX . '")
+        .setTranslation({
+            languageId: "' . $this->lng->_js('LOCALE') . '",
+            ajaxLoading: "' . $this->lng->_js('TXT_CORE_AJAX_LOADING') . '",
+            ajaxLoadingTitle: "' . $this->lng->_js('TXT_CORE_AJAX_LOADING_TITLE') . '",
+            ajaxMessage: "' . $this->lng->_js('TXT_CORE_AJAX_MESSAGE') . '",
+            dialogMessage: "' . $this->lng->_js('LBL_ADMIN_DIALOG_MSG') . '",
+            dialogConfirm: "' . $this->lng->_js('LBL_ADMIN_DIALOG_CONFIRM') . '",
+            dialogAsk: "' . $this->lng->_js('LBL_ADMIN_DIALOG_ASK') . '",
+            dialogClose: "' . $this->lng->_js('LBL_ADMIN_DIALOG_CLOSE') . '"
+     });'
+)?>
+
+<?$this->headScript()->prependFile(
+    $this->jsUrl(
+        'jquery,j.boxy,j.gritter,j.cookie,jui.core,jui.widget,jui.button,
+         j.tipsy,engine,backend'
+    )
+)?>

@@ -1,0 +1,37 @@
+
+<div class="cms-reset cms-poll cms-cleared">
+    <strong><?=$this->poll['question']?></strong>
+
+    <?foreach($this->poll['choices']['choices'] as $k => $v):?>
+        <div class='cms-poll-answer cms-cleared'>
+            <?$_width = $this->poll['choices']['percentmax'] > 0 ? intval(100 * $v['percent'] / $this->poll['choices']['percentmax']) : 0?>
+            <?$_width = $_width < 4 ? 4 : $_width?>
+            <?$_width = $_width > 98 ? 98 : $_width?>
+
+            <dl>
+                <dt class='cms-cornered'><?=(strlen($v['percent']) < 4) ? '0' . $v['percent'] : $v['percent']?>%</dt>
+                <dd><?=$v['text']?></dd>
+            </dl>
+
+            <div class='cms-poll-progress'>
+
+
+                <div class='cms-poll-progress-percent'>
+                    <p style='width:<?=$_width?>%'></p>
+                    <span>&nbsp;</span>
+                </div>
+
+                <div class='cms-poll-progress-bg'>
+                    <p>&nbsp;</p>
+                    <span>&nbsp;</span>
+                </div>
+
+                <b><?=$v['votes']?></b>
+            </div>
+        </div>
+    <?endforeach?>
+
+    <?if($_SERVER['REQUEST_URI'] != '/polls.html'):?>
+        <p><a href='/polls.html'><?=$this->lng->_('LBL_SITE_POLL_LINK_SHOWALL')?></a></p>
+    <?endif?>
+</div>

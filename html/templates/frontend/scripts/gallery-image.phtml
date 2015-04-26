@@ -1,0 +1,14 @@
+
+<div class='cms-reset cms-cleared cms-gallery-image'>
+    <ul>
+        <?foreach ($this->entries as $e):?>
+            <?$path = "tmp/uploads/type-{$e['type']}/{$e['path']}"?>
+            <li>
+                <a href='<?=$this->thumbUrl($path, 800, 600, 100, true)?>'
+                    title="<?=$this->escape($e['descr'])?>" rel='set-image-<?=$this->group?>'><img
+                        src="<?=$this->thumbUrl($path, 80, 80, 100, true)?>"
+                        alt="<?=$e['descr']?>" style='width: 80px; height: 80px;' /></a>
+            </li>
+        <?endforeach?>
+    </ul>
+</div>

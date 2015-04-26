@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.4.6"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+<tu tuid='ACCESS_ACP_ELFINDER_READ'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать файлы и папки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view files and folders]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ELFINDER_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить удалять файлы и папки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to delete files and folders]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ELFINDER_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить открывать файловый менеджер]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to open the file manager]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_ELFINDER_WRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить создавать файлы и папки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to create files and folders]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_ELFINDER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файловый менеджер]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File manager]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_INDEX_NAV_ADV'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дополнительные модули]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Additional modules]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_INDEX_NAV_MAIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Основные модули системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Main system modules]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_INDEX_NEWS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Новости для клиентов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[News for clients]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_INDEX_UPDATES_AVAILABLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Для системы доступны новые обновления.<br /><a href='/open/admin-update/'>Вы можете установить их в соотв. разделе по этой ссылке</a>]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There are new updates available.<br /><a href='/open/admin-update/'>You can check them by clicking this link.</a>]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_INDEX_NAV_ADV_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список несистемных разделов, которые доступны вашей учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list of not system sections which are available to your account]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_INDEX_NAV_MAIN_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список основных системных модулей, которые доступны вашей учетной записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list of main system modules which are available to your account]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_INDEX_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для домашней страницы администратора]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the home admin page]]></seg></tuv>
+</tu>
+
+</body></tmx>

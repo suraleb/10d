@@ -1,0 +1,102 @@
+<?=$this->doctype()?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?$this->render('engine.phtml')?>
+
+        <?$this->headTitle()->setSeparator($this->lng->_('LBL_SITE_TITLE_SEPARATOR'))?>
+
+        <?$this->headTitle($this->lng->_('LBL_SITE_TITLE'))?>
+
+        <?$this->headMeta()
+            ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
+            ->appendHttpEquiv('Content-Language', $this->lng->_('LOCALE'))?>
+
+        <?$this->headMeta()
+            ->appendName('keywords', !empty($this->metaData['keywords']) ? $this->metaData['keywords'] : $this->lng->_('TXT_SITE_KEYWORDS'))
+            ->appendName('robots', !empty($this->metaData['robots']) ? $this->metaData['robots'] : 'index, follow')
+            ->appendName('description', !empty($this->metaData['description']) ? $this->metaData['description'] : $this->lng->_('TXT_SITE_DESCRIPTION'))?>
+
+        <?if (!empty($this->metaData['author'])):?>
+            <?$this->headMeta()->appendName('author', $this->metaData['author'])?>
+        <?endif?>
+
+        <?=$this->headTitle()?>
+
+        <?$this->headMeta()->appendName('SKYPE_TOOLBAR', 'SKYPE_TOOLBAR_PARSER_COMPATIBLE')?>
+        <?=$this->headMeta()?>
+
+        <?$this->headLink()->appendStylesheet(
+            $this->cssUrl('j.modal'), 'screen, projection'
+        )?>
+
+        <?=$this->headLink()?>
+        <?=$this->headStyle()?>
+    </head>
+
+    <body>
+
+        <?$this->headScript()->appendFile(
+            'http://maps.google.com/maps?file=api&v=2&key=' .
+            'ABQIAAAAKWyDqSchO62f5s27g5oosRQWTbwjb7RpfqH_toe7VyBlkim9eRQ9VCH2Mp2fcaNeOOxxVKwYLajsMA'
+        )?>
+        <?$this->headScript()->appendFile($this->jsUrl('j.modal,j.gmap'))?>
+
+        <?=$this->headScript()?>
+        <?=$this->msgGritter()?>
+
+        <?=$this->render('admin.phtml')?>
+
+        <div id='site'>
+
+            <div id='header'>
+                <ul class="cleared">
+                    <li class="code layer"></li>
+                    <li class="social">
+                        <a href="http://www.facebook.com/10denza" class="fb" target="_blank"><img src="<?=$this->imgUrl('social-fb.png')?>"
+                            title="10denza at Facebook" alt="10denza at Facebook"></a>
+                        <a href="http://twitter.com/#!/10denza" target="_blank" class="tw"><img src="<?=$this->imgUrl('social-tw.png')?>"
+                                title="10denza at Twitter" alt="10denza at Twitter"></a>
+                        <!-- AddThis Button BEGIN -->
+                        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                            <a class="addthis_button_email"></a>
+                            <a class="addthis_button_google"></a>
+                            <a class="addthis_button_compact"></a>
+                        </div>
+                        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e4448ff75c3f259"></script>
+                        <!-- AddThis Button END -->
+                    </li>
+                    <li class="member">
+                        <p>
+                            <a href="signup.html" class="layer modalLink" title="sign up"></a>
+                            <span class="layer" title="become a member"></span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id='inner-box'>
+
+                <?=$this->render('header.phtml')?>
+
+                <div id='main'>
+                    <div id='content-box' class="cleared">
+                        <div id='content'>
+                            <?=$this->layout()->content?>
+                        </div> <!-- #content -->
+                    </div>
+                    <div class="layer box-corner"></div>
+                    <div class="noise-top-left layer noise">&nbsp;</div>
+                    <div class="noise-top-right layer noise">&nbsp;</div>
+                    <div class="noise-right noise">&nbsp;</div>
+                </div>
+
+                <?=$this->render('footer.phtml')?>
+
+            </div>
+
+        </div> <!-- #site -->
+
+        <?=$this->googleAnalytics()?>
+        <?=$this->debug()?>
+    </body>
+</html>

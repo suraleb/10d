@@ -1,0 +1,13 @@
+<div class='cms-reset cms-gallery-archive cms-cleared'>
+    <?foreach ($this->entries as $e):?>
+        <div>
+            <?if($e['descr']):?>
+                <p><?=$e['descr']?></p>
+            <?endif?>
+
+            <a href='/tmp/uploads/type-archive/<?=$e['path']?>'><?=$e['rewrite']?></a>
+
+            <span><?=Cms_Filemanager::sizeToString($e['size'])?></span>
+        </div>
+    <?endforeach?>
+</div>

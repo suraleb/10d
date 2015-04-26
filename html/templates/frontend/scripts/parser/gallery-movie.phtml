@@ -1,0 +1,43 @@
+
+<div class='cms-reset cms-gallery-movie cms-cleared'>
+
+    <div id="set-movie-<?=$this->group?>">
+        <?foreach ($this->entries as $e):?>
+            <div>
+                <span id='movie-<?=$this->group?>-<?=$e['id']?>'></span>
+                <?if($e['descr']):?>
+                    <p><?=$e['descr']?></p>
+                <?endif?>
+            </div>
+
+            <script type="text/javascript">
+            //<![CDATA[
+                if (typeof jQuery != "undefined") {
+                    jQuery(document).ready(function() {
+                        swfobject.embedSWF(
+                            '/htdocs/3dparty/media-player.swf', 'movie-<?=$this->group?>-<?=$e['id']?>',
+                            <?=$e['options']['width']?>, <?=$e['options']['height']?>, '9.0.24', '/htdocs/3dparty/express-install.swf', {
+                                'stretching': '<?=$e['options']['stretching']?>',
+                                'file': '/tmp/uploads/type-movie/<?=$e['path']?>'
+                                <?if ($e['options']['picture']):?>
+                                    , 'image': '<?=$e['options']['picture']?>'
+                                <?endif?>
+                                <?if ($e['options']['subtitles']):?>
+                                    , 'plugins': 'captions-1', 'captions.file': '<?=$e['options']['subtitles']?>',
+                                <?endif?>
+                            }, {
+                                'allowfullscreen': <?=$e['options']['allowfullscreen']?>,
+                                'quality': 'high',
+                                'wmode': 'opaque',
+                                'allowScriptAccess': 'sameDomain'
+                            }
+                        );
+                    });
+                }
+            //]]>
+            </script>
+
+        <?endforeach?>
+    </div>
+
+</div>

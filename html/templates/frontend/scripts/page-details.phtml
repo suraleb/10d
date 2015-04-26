@@ -1,0 +1,10 @@
+<?if ($this->entryParts > 1):?>
+    <?=$this->staticPaginator(
+        $this->entryParts, $this->entryPartNumber,
+        "/{$this->entry['rewrite']}.html?"
+    )?>
+<?endif?>
+
+<?if (!$this->usedByParser):?>
+    <?=$this->social(CMS_HOST . "/{$this->entry['rewrite']}.html")?>
+<?endif?>

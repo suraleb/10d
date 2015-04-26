@@ -1,0 +1,14 @@
+
+<div>
+    <?if($this->entries):?>
+        <?foreach($this->entries as $k => $v):?>
+            <p>
+                <a href='/<?=$v['rewrite']?>.html'><?=$v['title']?></a>
+                <br />
+                <small><?=$this->timeStamp($v['added'], Cms_Date::DATE_LONG)?></small>
+            </p>
+        <?endforeach?>
+        <br />
+        <?=$this->paginator($this->entries, $this->pagerHash)?>
+    <?endif?>
+</div>

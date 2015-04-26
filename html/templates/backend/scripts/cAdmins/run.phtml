@@ -1,0 +1,80 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_ADMINS'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_ADMINS')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_ADMINS_NAV_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_ADMINS_NEW)):?>
+            <a class='btn-new' href="/open/admin-admins/?action=new" style='background-image: url("<?=$this->imgUrl("admin/admins/add.png")?>");'><?=$this->lng->_('LBL_ADMIN_ADMINS_NEW')?></a>
+        <?endif?>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_ADMINS_EDIT_SELF)):?>
+            <a class='btn-edit' href="/open/admin-admins/?action=editself" style='background-image: url("<?=$this->imgUrl("admin/admins/edit.png")?>");'><?=$this->lng->_('LBL_ADMIN_ADMINS_EDIT_SELF')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_ADMINS_CONTENT')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_ADMINS_CONTENT_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <table class='cnt-table'>
+        <thead>
+            <tr>
+                <th style="width:5%;">#</th>
+                <th style="width:35%;"><?=$this->lng->_('LBL_ADMIN_ADMINS_ACCOUNT')?></th>
+                <th style="width:30%;"><?=$this->lng->_('LBL_ADMIN_ADMINS_MAIL')?></th>
+                <th style="width:15%;"><?=$this->lng->_('LBL_ADMIN_ADMINS_ROLE')?></th>
+                <th style="width:15%;"><?=$this->lng->_('LBL_ADMIN_ADMINS_MANAGE')?></th>
+            </tr>
+        </thead>
+
+	<?foreach ($this->entries as $v):?>
+            <tr>
+                <td class='center middle'>
+                    <?$activity = empty($v['activity']) ? $this->lng->_js('LBL_ADMIN_NO') :  $this->timeStamp($v['activity'], Cms_Date::DATE_FULL)?>
+                    <img src='<?=$this->imgUrl("admin/admins/user.png")?>' alt=''
+                        style='width: 16px; height: 16px;'
+                        <?if ($v['id']):?> title='<?=sprintf($this->lng->_js('TXT_ADMIN_ADMINS_STATS_SHORT'), $v['count_static'], $v['count_gallery'], $activity)?>'<?endif?> />
+                </td>
+                <td><?=$v['name']?></td>
+                <td><?=$v['mail']?></td>
+                <td class='middle center'>
+                    <?php
+                        switch($v['role']) {
+                            case CMS_USER_GUEST:
+                                    echo $this->lng->_('LBL_ADMIN_ADMINS_ROLE_GUEST');
+                                    break;
+                            case CMS_USER_MEMBER:
+                                    echo $this->lng->_('LBL_ADMIN_ADMINS_ROLE_MEMBER');
+                                    break;
+                            case CMS_USER_ADMIN:
+                                    echo $this->lng->_('LBL_ADMIN_ADMINS_ROLE_ADMIN');
+                                    break;
+                        }
+                    ?>
+                </td>
+                <td class='center'>
+                    <?if($v['id'] == $this->user->id || $this->user->hasAcl(CMS_ACCESS_ADMINS_EDIT)):?>
+                        <?if($v['id'] == $this->user->id && $this->user->hasAcl(CMS_ACCESS_ADMINS_EDIT_SELF)):?>
+                            <a class='btn-cube' href='/open/admin-admins/?action=editself'><img src='<?=$this->imgUrl("admin/admins/edit.png")?>' alt='' title='<?=$this->lng->_js('LBL_ADMIN_ADMINS_EDIT')?>' /></a>
+                        <?else:?>
+                            <a class='btn-cube' href='/open/admin-admins/?action=edit&amp;id=<?=$v['id']?>'><img src='<?=$this->imgUrl("admin/admins/edit.png")?>' alt='' title='<?=$this->lng->_js('LBL_ADMIN_ADMINS_EDIT')?>' /></a>
+                        <?endif?>
+                    <?endif?>
+
+                    <?if ($this->user->hasAcl(CMS_ACCESS_ADMINS_REMOVE)):?>
+                        <a class='btn-cube-red' href='#' onclick="kkcms.boxy.confirm('<?=$this->lng->_js('MSG_ADMIN_ADMINS_REMOVE')?>', function() { kkcms.redirect('/open/admin-admins/?action=remove&amp;id=<?=$v['id']?>'); });return false;"><img src='<?=$this->imgUrl("admin/admins/delete.png")?>' alt='' title='<?=$this->lng->_js('LBL_ADMIN_ADMINS_REMOVE')?>' /></a>
+                    <?endif?>
+                </td>
+            </tr>
+	<?endforeach?>
+    </table>
+</div>

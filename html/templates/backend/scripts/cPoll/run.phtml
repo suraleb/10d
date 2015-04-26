@@ -1,0 +1,115 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_POLL'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_POLL')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_POLL_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class="admin-nav cleared">
+        <a href='/open/admin-index/'>&uarr; <?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_POLL_NEW)):?>
+            <a class='btn-new' href="/open/admin-poll/?action=new" style="background-image: url('<?=$this->imgUrl('admin/poll/new.png')?>');"><?=$this->lng->_('LBL_ADMIN_POLL_NEW')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_POLL_CONTENT')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_POLL_CONTENT_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <table class='cnt-table'>
+	    <thead>
+	        <tr>
+		        <th style="width: 5%;">#</th>
+		        <th style="width: 45%;"><?=$this->lng->_('LBL_ADMIN_POLL_TBL_QUESTION')?></th>
+		        <th style="width: 10%;"><?=$this->lng->_('LBL_ADMIN_POLL_TBL_OPTIONS')?></th>
+		        <th style="width: 5%;"><?=$this->lng->_('LBL_ADMIN_POLL_TBL_TYPE')?></th>
+		        <th style="width: 6%;"><?=$this->lng->_('LBL_ADMIN_POLL_TBL_VOTES')?></th>
+		        <th style="width: 10%;"><?=$this->lng->_('LBL_ADMIN_POLL_TBL_VISIBLE')?></th>
+		        <th style="width: 4%;"><?=$this->lng->_('LBL_ADMIN_POLL_TBL_ACTIVE')?></th>
+		        <th style="width: 15%;"><?=$this->lng->_('LBL_ADMIN_POLL_TBL_MANAGE')?></th>
+	        </tr>
+	    </thead>
+
+	    <?foreach($this->polls as $v):?>
+	        <?$v['choices'] = unserialize($v['choices'])?>
+	        <tr id='entry_<?=$v['id']?>'>
+		        <td class="center top"><?=$v['id']?></td>
+		        <td>
+		            <?=$v['question']?>
+		            <div id='poll-choices-<?=$v['id']?>' class="hidden">
+			            <?foreach($v['choices']['choices'] as $c):?>
+			                <span style="display: block;padding: 3px;"><span style="font-size:10px;"><?=$c['votes']?>)</span> <?=$c['text']?> &mdash; <?=$c['percent']?>%</span>
+			            <?endforeach?>
+		            </div>
+		        </td>
+		        <td class="center top"><a href='#' onclick="$('#poll-choices-<?=$v['id']?>').slideToggle('def');return false;"><?=$this->lng->_('LBL_ADMIN_POLL_VARIANTS')?></a> &darr;</td>
+		        <td class="center top"><?=($v['type'] == 'single' ? $this->lng->_('LBL_ADMIN_POLL_TYPE_SINGLE') : $this->lng->_('LBL_ADMIN_POLL_TYPE_MULTY'))?></td>
+		        <td class="center top"><?=$v['choices']['total']?></td>
+		        <td class='center top'>
+		            <?php
+			            switch($v['group']) {
+			                case 'all':
+				                echo $this->lng->_('LBL_ADMIN_POLL_GROUP_ALL');
+			                break;
+
+			                case CMS_USER_GUEST:
+				                echo $this->lng->_('LBL_ADMIN_POLL_GROUP_GUEST');
+			                break;
+
+			                case CMS_USER_MEMBER:
+				                echo $this->lng->_('LBL_ADMIN_POLL_GROUP_MEMBER');
+			                break;
+
+			                case CMS_USER_ADMIN:
+				                echo $this->lng->_('LBL_ADMIN_POLL_GROUP_ADMIN');
+			                break;
+			            }
+		            ?>
+		        </td>
+		        <td class="center top"><?=($v['active'] ? $this->lng->_('LBL_ADMIN_YES') : '<b>' . $this->lng->_('LBL_ADMIN_NO') . '</b>')?></td>
+		        <td class="center top">
+		            <?if ($this->user->hasAcl(CMS_ACCESS_POLL_EDIT)):?>
+			            <a class='btn-cube' href='/open/admin-poll/?action=edit&amp;id=<?=$v['id']?>'><img src='<?=$this->imgUrl('admin/poll/edit.png')?>' alt='' title='<?=$this->lng->_js('LBL_ADMIN_POLL_MODIFY')?>' /></a>
+		            <?endif?>
+
+		            <?if ($this->user->hasAcl(CMS_ACCESS_POLL_REMOVE)):?>
+			            <a class='btn-cube-red' href='#' rel='<?=$v['id']?>' onclick="return false;"><img src='<?=$this->imgUrl('admin/poll/remove.png')?>' alt='' title='<?=$this->lng->_js('LBL_ADMIN_POLL_REMOVE')?>' /></a>
+		            <?endif?>
+		        </td>
+	        </tr>
+	    <?endforeach?>
+    </table>
+</div>
+
+<?$this->headScript()->captureStart()?>
+jQuery(document).ready(
+    function()
+    {
+        jQuery('a.btn-cube-red').bind('click',
+            function()
+            {
+                id = parseInt(jQuery(this).attr('rel'));
+
+                kkcms.boxy.confirm('<?=$this->lng->_js('MSG_ADMIN_POLL_REMOVE')?>',
+                    function()
+                    {
+                        kkcms.ajaxCall('/open/admin-poll/',
+                            {action: 'remove', id: id},
+                                function(json)
+                                {
+                                    if (json.success) {
+                                        kkcms.effect.message(json.data.msg, {status: 'success'});
+                                        jQuery('#entry_' + id + ' td').fadeOut('slow');
+                                    } else {
+                                        kkcms.effect.message(json.msg);
+                                    }
+                                });
+                    });
+            });
+    });
+<?$this->headScript()->captureEnd()?>

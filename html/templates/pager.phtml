@@ -1,0 +1,42 @@
+
+<?if($this->pageCount):?>
+    <div class="pagination cleared">
+        <p class="links">
+            <?if (isset($this->previous)):?>
+                <a href="<?=$this->url?><?=$this->first?>"><?=$this->lng->_('LBL_ADMIN_PAGER_FIRST')?></a>
+            <?else:?>
+                <span class="disabled"><?=$this->lng->_('LBL_ADMIN_PAGER_FIRST')?></span>
+            <?endif?>
+
+            <?if(isset($this->previous)):?>
+                <a href="<?=$this->url?><?=$this->previous?>"><?=$this->lng->_('LBL_ADMIN_PAGER_PREV')?></a>
+            <?else:?>
+                <span class="disabled"><?=$this->lng->_('LBL_ADMIN_PAGER_PREV')?></span>
+            <?endif?>
+
+            <?foreach ($this->pagesInRange as $page): ?>
+                <?if($page != $this->current): ?>
+                    <a href="<?=$this->url?><?=$page?>"><?=$page?></a>
+                <?else:?>
+                    <b><?=$page?></b>
+                <?endif?>
+            <?endforeach?>
+
+            <?if(isset($this->next)): ?>
+                <a href="<?=$this->url?><?=$this->next?>"><?=$this->lng->_('LBL_ADMIN_PAGER_NEXT')?></a>
+            <?else:?>
+                <span class="disabled"><?=$this->lng->_('LBL_ADMIN_PAGER_NEXT')?></span>
+            <?endif?>
+
+            <?if (isset($this->next)):?>
+                <a href="<?=$this->url?><?=$this->last?>"><?=$this->lng->_('LBL_ADMIN_PAGER_LAST')?></a>
+            <?else:?>
+                <span class="disabled"><?=$this->lng->_('LBL_ADMIN_PAGER_LAST')?></span>
+            <?endif?>
+        </p>
+        <p class="count">
+            <?=$this->lng->_('LBL_ADMIN_PAGER_VIEW')?> <?=$this->firstItemNumber?> &mdash; <?=$this->lastItemNumber?>
+            <?=$this->lng->_('LBL_ADMIN_PAGER_FROM')?> <?=$this->totalItemCount?>
+        </p>
+    </div>
+<?endif?>

@@ -1,0 +1,254 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_EVENTS'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_EVENTS')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_EVENTS_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a class='cornered' href='/open/admin-index/'
+            style='background-image: url("<?=$this->imgUrl('admin/admin.png')?>");'><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+        <?if($this->user->hasAcl(CMS_ACCESS_EVENTS_NEW)):?>
+            <a class='cornered' href="/open/admin-events/?action=new"
+                style='background-image: url("<?=$this->imgUrl('admin/events/new.png')?>");'><?=$this->lng->_('LBL_ADMIN_EVENTS_NEW')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h3><?=$this->lng->_('LBL_ADMIN_EVENTS_CONTENT')?></h3>
+    <p><?=$this->lng->_('TXT_ADMIN_EVENTS_CONTENT_DESCR')?></p>
+</div>
+
+<?if (count($this->entries)):?>
+    <div class="page-content">
+
+        <?if($this->orderMode):?>
+            <input type='button'
+                value='<?=$this->lng->_js('LBL_ADMIN_EVENTS_REORDER_CANCEL')?>'
+                class='button button-with-icon icon-order' onclick='kkcms.redirect("/open/admin-events/");return false;' />
+
+            <div class="drop-box cleared cornered hidden">
+                <i><?=$this->lng->_('TXT_ADMIN_STATIC_REORDER_DROP')?></i>
+                <?if (isset($this->entries->getPages()->next)):?>
+                    <p class="next cornered"><?=$this->lng->_('TXT_ADMIN_STATIC_REORDER_DROP_NEXT')?></p>
+                <?endif?>
+                <?if (isset($this->entries->getPages()->previous)):?>
+                    <p class="prev cornered"><?=$this->lng->_('TXT_ADMIN_STATIC_REORDER_DROP_PREV')?></p>
+                <?endif?>
+            </div>
+        <?else:?>
+            <input type='button'
+                value='<?=$this->lng->_js('LBL_ADMIN_EVENTS_REORDER')?>'
+                class='button button-with-icon icon-order' onclick='kkcms.redirect("/open/admin-events/?order");return false;' />
+        <?endif?>
+
+        <table class='cnt-table'>
+            <thead>
+                <tr>
+                    <th style="width: 45%;" colspan="2">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_EVENTS_TBL_TITLE'),
+                            "/open/admin-events/?sofar={$this->input->sofar}",
+                            'title', null, $this->orderMode)?>
+                        /
+                        <?=$this->htmlSort(
+                                $this->lng->_('LBL_ADMIN_EVENTS_TBL_LOCATION'),
+                                "/open/admin-events/?sofar={$this->input->sofar}",
+                                'location', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 20%;">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_EVENTS_TBL_TIME_START'),
+                            "/open/admin-events/?sofar={$this->input->sofar}&amp;sorttype=number",
+                            'start', null, $this->orderMode)?>
+                        /
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_EVENTS_TBL_TIME_END'),
+                            "/open/admin-events/?sofar={$this->input->sofar}&amp;sorttype=number",
+                            'end', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 20%;">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_EVENTS_TBL_DATE'),
+                            "/open/admin-events/?sofar={$this->input->sofar}&amp;sorttype=number",
+                            'added', null, $this->orderMode)?>
+                        /
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_EVENTS_TBL_AUTHOR'),
+                            "/open/admin-events/?sofar={$this->input->sofar}",
+                            'author', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 15%;"><?=$this->lng->_('LBL_ADMIN_EVENTS_TBL_MANAGE')?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?foreach($this->entries as $entry):?>
+                    <tr id='entry_<?=$entry['id']?>'>
+                        <?if($this->orderMode):?>
+                            <td class="center" style="width: 2%; cursor: move;"><span class="ui-icon ui-icon-arrowthick-2-n-s" style="float: none;"></span></td>
+                            <td>
+                        <?else:?>
+                            <td colspan="2">
+                        <?endif?>
+                            <?=$entry['title']?>
+                            <p style='font-size: 80%;color: #CCC;'>
+                                <span style='color: #555;font-weight: bold;text-shadow: 1px 1px 1px #FFF;'><?=$entry['location']?></span>
+                            </p>
+                        </td>
+                        <td class='center'>
+                            <?if (empty($entry['timestamp_start']) && empty($entry['timestamp_end'])):?>
+                                <?=$this->lng->_('LBL_ADMIN_EVENTS_TBL_NOTIME')?>
+                            <?else:?>
+                                <?if ($entry['timestamp_start']):?>
+                                    <?=$this->timeStamp($entry['timestamp_start'], Cms_Date::DATETIME_SHORT, true)?>
+                                <?endif?>
+                                <br />
+                                <?if ($entry['timestamp_end']):?>
+                                    <?=$this->timeStamp($entry['timestamp_end'], Cms_Date::DATETIME_SHORT, true)?>
+                                <?endif?>
+                            <?endif?>
+                        </td>
+                        <td class='center'>
+                            <?=$entry['user_name']?><br />
+                            <?=$this->timeStamp($entry['added'], Cms_Date::DATE_LONG)?>
+                        </td>
+                        <td class="center middle">
+                            <?if($this->user->hasAcl(CMS_ACCESS_NEWS_EDIT)):?>
+                                <a class="btn-cube" href="/open/admin-events/?action=edit&amp;id=<?=$entry['id']?>"><img src="<?=$this->imgUrl('admin/events/edit.png')?>" alt="<?=$this->lng->_js('LBL_ADMIN_EVENTS_EDIT')?>" title="<?=$this->lng->_js('LBL_ADMIN_EVENTS_EDIT')?>" /></a>
+                            <?endif?>
+
+                            <?if($this->user->hasAcl(CMS_ACCESS_NEWS_REMOVE)):?>
+                                <a class="btn-cube-red" alt='<?=$entry['id']?>' href="#" onclick='return false;'><img src="<?=$this->imgUrl('admin/events/remove.png')?>" alt="<?=$this->lng->_js('LBL_ADMIN_EVENTS_REMOVE')?>" title="<?=$this->lng->_js('LBL_ADMIN_EVENTS_REMOVE')?>" /></a>
+                            <?endif?>
+                        </td>
+                    </tr>
+                <?endforeach?>
+
+            </tbody>
+        </table>
+
+        <?php
+            $addurl = '';
+            if (!empty($this->input->perpage)) {
+                $addurl .= "perpage={$this->input->perpage}&amp;";
+            }
+
+            if (!empty($this->input->sortby)) {
+                $addurl .= "sortby={$this->input->sortby}&amp;";
+                $addurl .= "sorttype={$this->input->sorttype}&amp;";
+                $addurl .= "sortway={$this->input->sortway}&amp;";
+            }
+
+            if ($this->orderMode) {
+                $addurl .= "order&amp;";
+            }
+
+            echo $this->paginationControl(
+                $this->entries, null, null, array(
+                    'url' => "/open/admin-events/?{$addurl}sofar=",
+                    'lng' => $this->lng
+                )
+            )
+        ?>
+    </div>
+<?else:?>
+    <div class="page-content">
+        <p class='info'>
+            <?=$this->lng->_('TXT_ADMIN_EVENTS_LIST_EMPTY')?>
+        </p>
+    </div>
+<?endif?>
+
+<?$this->headScript()->appendFile($this->jsUrl('jui.mouse,jui.sortable,jui.droppable'))?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function() {
+
+        <?if($this->orderMode):?>
+            var $table = jQuery(".cnt-table tbody")
+            var $dropBox = jQuery(".drop-box");
+
+            var dropLock = false;
+            var trCount = 10;
+            var currentPage = <?=$this->entries->getCurrentPageNumber()?>;
+
+            $table.sortable({
+                handle: 'td:first',
+                helper: 'clone',
+                distance: 30,
+                items: "tr",
+                revert: 80,
+                opacity: 0.5,
+                start: function(event, ui) {
+                    $dropBox.fadeIn('fast');
+                },
+                stop: function(event, ui) {
+                    $dropBox.fadeOut('fast');
+                },
+                update: function(event, ui) {
+                    if (dropLock) {
+                        dropLock = false;
+                        return false;
+                    }
+                    kkcms.ajaxCall(
+                        '/open/admin-events/?action=order&perpage=' + trCount + '&currentpage=' + currentPage, jQuery(this).sortable('serialize'),
+                        function(json) {
+                            if (json.success) {
+                                kkcms.effect.message(json.data.msg);
+                            } else {
+                                kkcms.effect.message(json.msg);
+                            }
+                        }
+                    );
+                }
+            }).disableSelection();
+
+            $dropBox.find('p').droppable({
+                hoverClass: "hover",
+                tolerance: "pointer",
+                drop: function(event, ui) {
+                    dropLock = true;
+                    kkcms.ajaxCall(
+                        '/open/admin-events/?action=order', {
+                            entry: parseInt(ui.draggable.attr('id').replace('entry_', '')),
+                            perpage: trCount,
+                            drop: true,
+                            currentpage: currentPage,
+                            direction: jQuery(this).hasClass('next') ? 'next' : 'prev'
+                        },
+                        function(json) {
+                            if (json.success) {
+                                ui.draggable.fadeOut('slow', function() {
+                                    ui.draggable.remove();
+                                    kkcms.effect.message(json.data.msg);
+                                });
+                            } else {
+                                kkcms.effect.message(json.msg);
+                            }
+                        }
+                    );
+                }
+            });
+        <?endif?>
+
+        jQuery('a.btn-cube-red').bind('click', function() {
+            id = parseInt(jQuery(this).attr('alt'));
+            kkcms.boxy.confirm(
+                '<?=$this->lng->_js('MSG_ADMIN_EVENTS_REMOVE')?>', function() {
+                kkcms.ajaxCall(
+                    '/open/admin-events/', {action: 'remove', id: id},
+                    function(json) {
+                        if (json.success) {
+                            kkcms.effect.message(json.data.msg);
+                            jQuery('#entry_' + id + ' td').fadeOut('slow');
+                        } else {
+                            kkcms.effect.message(json.msg);
+                        }
+                    }
+                );
+            });
+        });
+    });
+<?$this->headScript()->captureEnd()?>

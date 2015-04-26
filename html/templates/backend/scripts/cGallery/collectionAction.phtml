@@ -1,0 +1,316 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_GALLERY'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_GALLERY')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/' class="cornered"
+            style='background-image: url("<?=$this->imgUrl('admin/admin.png')?>"); float: right;'><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_GALLERY_COLLECTIONS_VIEW)):?>
+            <a href="/open/admin-gallery/" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/gallery/collections.png')?>");'><?=$this->lng->_('LBL_ADMIN_GALLERY_COLLECTIONS')?></a>
+        <?endif?>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_GALLERY_NEW)):?>
+            <a href="/open/admin-gallery/?action=new" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/gallery/upload.png')?>");'><?=$this->lng->_('LBL_ADMIN_GALLERY_NEW')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title" style='border: 1px solid #EEE;'>
+    <h2>
+        <a href='#' id='btn_filter_area' onclick='return false;' style='text-decoration: none;'><img
+            src='<?=$this->imgUrl('admin/toggle-plus.png')?>'
+                style='width: 16px; height: 16px;' class='vam' alt='' />
+        <?=$this->lng->_('LBL_ADMIN_GALLERY_FILTER')?></a>
+    </h2>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_FILTER_DESCR')?></p>
+</div>
+
+<div class="page-content cleared<?if(Cms_Core::getCookie('admin_gallery_filter') !== 'true'):?> hidden<?endif?>" id='filter_area' style='padding-top: 2px;'>
+    <form method="get" action="/open/admin-gallery/">
+
+        <input type='hidden' name='action' value='collection' />
+        <input type='hidden' name='sofar' value='<?=intval($this->input->sofar)?>' />
+        <input type='hidden' name='sortby' value='<?=$this->input->sortby?>' />
+        <input type='hidden' name='sorttype' value='<?=$this->input->sorttype?>' />
+        <input type='hidden' name='sortway' value='<?=$this->input->sortway?>' />
+
+        <div style='border-bottom: 1px dashed #EEE;padding: 5px;' class='cleared'>
+
+            <div style='float: left;margin-right: 25px;'>
+                <label for="filter_title"><?=$this->lng->_('LBL_ADMIN_GALLERY_FILTER_TITLE')?></label><br />
+                <input type="text" name='title' id='filter_title' class='i-text'
+                    value="<?=$this->input->title?>" style="width: 200px; margin-top: 1px;" />
+            </div>
+
+            <div style='float: left;margin-right: 25px;'>
+                <label><?=$this->lng->_('LBL_ADMIN_GALLERY_FILTER_TAG')?></label>
+                <select name='tags' id='filter_tag'>
+                    <?foreach(Cms_Tags::decode($this->input->tags, true) as $tag):?>
+                        <option value='<?=$tag?>' class='selected'><?=$tag?></option>
+                    <?endforeach?>
+                </select>
+            </div>
+
+            <div style='float: left;'>
+                <label for="filter_perpage"><?=$this->lng->_('LBL_ADMIN_GALLERY_FILTER_PERPAGE')?></label><br />
+                <select name='perpage' id='filter_perpage' class='i-select'>
+                    <option value='-1'<?if($this->input->perpage == '-1'):?> selected='selected'<?endif?>><?=$this->lng->_('LBL_ADMIN_GALLERY_FILTER_ALL')?></option>
+                    <option value='5'<?if($this->input->perpage == 5):?> selected='selected'<?endif?>>5</option>
+                    <option value='10'<?if($this->input->perpage == 10 || empty($this->input->perpage)):?> selected='selected'<?endif?>>10</option>
+                    <option value='15'<?if($this->input->perpage == 15):?> selected='selected'<?endif?>>15</option>
+                    <option value='20'<?if($this->input->perpage == 20):?> selected='selected'<?endif?>>20</option>
+                    <option value='25'<?if($this->input->perpage == 25):?> selected='selected'<?endif?>>25</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div style='padding: 5px;'>
+            <input type="submit" class='button' value='<?=$this->lng->_js('LBL_ADMIN_GALLERY_UPDATE_LIST')?>' />
+            <input type="button" class='button' value='<?=$this->lng->_js('LBL_ADMIN_GALLERY_RESET')?>'
+                onclick='kkcms.redirect("/open/admin-gallery/?action=collection&amp;sofar=<?=$this->input->sofar?>&amp;sortby=<?=$this->input->sortby?>&amp;sortway=<?=$this->input->sortway?>&amp;sorttype=<?=$this->input->sorttype?>");return false;' />
+        </div>
+    </form>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_GALLERY_CONTENT')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_CONTENT_DESCR')?></p>
+</div>
+
+<?if(count($this->paginator)):?>
+    <?php
+        $advPathHash = array();
+        $advPathHash['tags'] = Cms_Tags::decode($this->input->tags);
+
+        if (empty($advPathHash['tags'])) {
+            unset($advPathHash['tags']);
+        }
+
+        $advString = '&amp;action=collection' .
+                     '&amp;perpage=' . intval($this->input->perpage) .
+                     '&amp;title=' . urlencode($this->input->title) .
+                     '&amp;sofar=' . intval($this->input->sofar);
+
+        foreach ($advPathHash as $k => $v) {
+            if (!is_array($v)) {
+                $v = array($v);
+            }
+            $advString .= implode("&amp;{$k}[]=", $v);
+        }
+
+        unset($advPathHash);
+    ?>
+
+    <div class="page-content" id='page-entries'>
+
+        <?if ($this->user->hasAcl(CMS_ACCESS_GALLERY_REMOVE_MULTI)):?>
+            <div style='text-align: right;margin-bottom: 1px;margin-right: 20px;'>
+                <input type='button'
+                    value='<?=$this->lng->_js('LBL_ADMIN_GALLERY_REMOVE_MULTI')?>'
+                    class='button button-with-icon icon-remove' id='btn_multi_remove' />
+            </div>
+        <?endif?>
+
+        <table class='cnt-table'>
+
+            <thead>
+                <tr>
+                    <th style="width: 5%">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_GALLERY_TBL_TYPE'),
+                            "/open/admin-gallery/?{$advString}",
+                            'type', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 48%">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_GALLERY_TBL_NAME'),
+                            "/open/admin-gallery/?{$advString}",
+                            'title', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 5%;">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_GALLERY_TBL_SIZE'),
+                            "/open/admin-gallery/?sorttype=number{$advString}",
+                            'size', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 22%;">
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_GALLERY_TBL_UPDATE'),
+                            "/open/admin-gallery/?sorttype=number{$advString}",
+                            'time', null, $this->orderMode)?>
+                        /
+                        <?=$this->htmlSort(
+                            $this->lng->_('LBL_ADMIN_GALLERY_TBL_AUTHOR'),
+                            "/open/admin-gallery/?{$advString}",
+                            'author', null, $this->orderMode)?>
+                    </th>
+                    <th style="width: 20%;">
+                        <?if ($this->user->hasAcl(CMS_ACCESS_GALLERY_REMOVE_MULTI)):?>
+                            <input type='checkbox' id='toggler_delete_markers' class='vam' style="float: right;"/>
+                        <?endif?>
+                        <?=$this->lng->_('LBL_ADMIN_GALLERY_TBL_MANAGE')?>
+                    </th>
+                </tr>
+            </thead>
+
+            <?foreach($this->paginator as $item):?>
+                <tr id='entry_<?=$item['id']?>'>
+                    <td class='middle center'>
+                        <?if($item['type'] == 'image'):?>
+                            <img src='/open/admin-gallery/?action=thumb&amp;type=<?=$item['type']?>&amp;file=<?=$item['path']?>' alt='' />
+                        <?else:?>
+                            <img src='<?=$this->imgUrl('admin/gallery/type-' . $item['type'] . '.png')?>' alt='<?=$item['type']?>' style='width: 16px;height: 16px;' />
+                        <?endif?>
+                    </td>
+                    <td class='middle' style="line-height: 14px;">
+                        <?=$item['rewrite']?><br />
+                        <span style='font-size: 0.8em;color: #333;'><?=Cms_Tags::decode($item['tags'])?></span>
+                    </td>
+
+                    <td class="middle center">
+                        <?$fileUri = CMS_HOST . "/tmp/uploads/type-{$item['type']}/{$item['path']}"?>
+                        <a href='#' style='text-decoration: none;'
+                            onclick='kkcms.boxy.alert("<b><?=$this->lng->_js('TXT_ADMIN_GALLERY_FILEPATH')?>:</b><br /><a href=\"<?=$fileUri?>\"><?=$fileUri?></a>");return false;'><?=Cms_Filemanager::sizeToString($item['size'])?></a>
+                    </td>
+
+                    <td class="middle center">
+                        <?=$item['name']?><br />
+                        <?=$this->timeStamp($item['updated'] ? $item['updated'] : $item['added'], Cms_Date::DATE_LONG)?>
+                    </td>
+
+                    <td class="middle center">
+                        <?if ($this->user->hasAcl(CMS_ACCESS_GALLERY_REMOVE_MULTI)):?>
+                            <input type='checkbox' name='delete_marker[]'
+                                value='<?=$item['id']?>' class='vam' style="float: right;" />
+                        <?endif?>
+
+                        <?if ($this->user->hasAcl(CMS_ACCESS_GALLERY_EDIT)):?>
+                            <?if ($item['type'] == 'image'):?>
+                                <?$pixlrUri = "?loc={$this->input->lng}&amp;" .
+                                    "referrer={$_SERVER['HTTP_HOST']}&amp;" .
+                                    "image=" . urlencode($fileUri) . "&amp;" .
+                                    "title={$item['rewrite']}&amp;" .
+                                    "locktype=true&amp;".
+                                    "locktitle=true&amp;".
+                                    "exit=" . urlencode(CMS_HOST . '/open/admin-gallery/?' . str_replace('&amp;', '&', $advString)) . '&amp;' .
+                                    "target=" . urlencode(CMS_HOST . '/open/admin-gallery/?action=pixlr')?>
+
+                                <a class='btn-cube' href='http://www.pixlr.com/editor/<?=$pixlrUri?>'><img
+                                    src='<?=$this->imgUrl('admin/gallery/type-image-edit.png')?>' alt=''
+                                    title='<?=$this->lng->_js('LBL_ADMIN_GALLERY_PIXLR_EDITOR')?>' /></a>
+
+                                <a class='btn-cube' href='http://www.pixlr.com/express/<?=$pixlrUri?>'><img
+                                    src='<?=$this->imgUrl('admin/gallery/type-image-express.png')?>' alt=''
+                                    title='<?=$this->lng->_js('LBL_ADMIN_GALLERY_PIXLR_EXPRESS')?>' /></a>
+                            <?endif?>
+                            <a class='btn-cube' href='/open/admin-gallery/?action=edit&amp;id=<?=$item['id']?>'><img src='<?=$this->imgUrl('admin/gallery/edit.png')?>' alt='' title='<?=$this->lng->_js('LBL_ADMIN_GALLERY_EDIT')?>' /></a>
+                        <?endif?>
+
+                        <?if ($this->user->hasAcl(CMS_ACCESS_GALLERY_REMOVE)):?>
+                            <a class='btn-cube-red' href='#' alt='<?=$item['id']?>' onclick='return false;'><img src='<?=$this->imgUrl('admin/gallery/delete.png')?>' alt='' title='<?=$this->lng->_js('LBL_ADMIN_GALLERY_REMOVE')?>' /></a>
+                        <?endif?>
+                    </td>
+                </tr>
+            <?endforeach?>
+        </table>
+    </div>
+    <?=$this->paginationControl(
+        $this->paginator, null, null,
+            array(
+                'url' => "/open/admin-gallery/?{$advString}" .
+                    "&amp;sortway={$this->input->sortway}" .
+                    "&amp;sortby={$this->input->sortby}" .
+                    "&amp;sorttype={$this->input->sorttype}" .
+                    "&amp;sofar=",
+                'lng' => $this->lng
+            )
+    )?>
+<?else:?>
+    <div class="page-content">
+        <p class='info'>
+            <?=$this->lng->_('TXT_ADMIN_GALLERY_LIST_EMPTY')?>
+        </p>
+    </div>
+<?endif?>
+
+<?$this->headLink()->appendStylesheet($this->cssUrl('j.fcbkcomplete'))?>
+
+<?$this->headScript()->appendFile($this->jsUrl('j.fcbkcomplete'))?>
+
+<?$this->headScript()->captureStart()?>
+jQuery(document).ready(function() {
+    jQuery('a.btn-cube-red').bind('click', function() {
+        id = parseInt(jQuery(this).attr('alt'));
+        kkcms.boxy.confirm('<?=$this->lng->_js('MSG_ADMIN_GALLERY_REMOVE')?>', function() {
+            entryRemove(id);
+        });
+    });
+
+    jQuery("#btn_filter_area").bind("click", function() {
+        if (!kkcms.cookie.get('admin_gallery_filter') ||
+            kkcms.cookie.get('admin_gallery_filter') == "false") {
+            jQuery("#filter_area").slideDown();
+            kkcms.cookie.set('admin_gallery_filter', 'true');
+            return false;
+        }
+
+        jQuery("#filter_area").slideUp();
+        kkcms.cookie.set('admin_gallery_filter', 'false');
+        return false;
+    });
+
+    jQuery("#filter_tag").fcbkcomplete({
+        json_url: "/open/admin-gallery/?action=autocomplete&type=tags",
+        cache: true,
+        filter_hide: true,
+        filter_selected: true,
+        maxitems: 10,
+        newel: false,
+        onCorrectValue: function(value) {
+            return kkcms.normalizeTag(value);
+        },
+        onCorrectTitle: function(title) {
+            return kkcms.normalizeTag(title);
+        }
+    });
+
+    jQuery('#toggler_delete_markers').bind('change', function() {
+        jQuery('input:checkbox[name^="delete_marker"]').each(function() {
+            if (!jQuery(this).attr('checked')) {
+                jQuery(this).attr('checked', 'checked');
+            } else {
+                jQuery(this).removeAttr('checked');
+            }
+        });
+    });
+
+    jQuery('#btn_multi_remove').bind('click', function() {
+        kkcms.boxy.confirm('<?=$this->lng->_js('MSG_ADMIN_GALLERY_REMOVE_MULTI')?>', function() {
+            jQuery('input:checkbox[name^="delete_marker"]:checked').each(function() {
+                entryRemove(parseInt(jQuery(this).parent().find("a.btn-cube-red").attr('alt')));
+            });
+        });
+        return false;
+    });
+
+    function entryRemove(id)
+    {
+        kkcms.ajaxCall('/open/admin-gallery/', {action: 'remove', id: id}, function(json) {
+            if (json.success) {
+                kkcms.effect.message(json.data.msg);
+                jQuery('#entry_' + id + ' td').fadeOut('slow');
+            } else {
+                kkcms.effect.message(json.msg);
+            }
+        });
+    }
+});
+<?$this->headScript()->captureEnd()?>

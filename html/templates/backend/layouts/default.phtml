@@ -1,0 +1,49 @@
+<?=$this->doctype()?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?$this->render('engine.phtml')?>
+
+        <?$this->headTitle()->setSeparator(', ');?>
+
+        <?$this->headTitle($this->lng->_('TXT_ADMIN_TITLE'))?>
+
+        <?$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
+                           ->appendHttpEquiv('Content-Language', $this->lng->_('LOCALE'))
+                           ->appendHttpEquiv('imagetoolbar', 'no')
+                           ->appendHttpEquiv('Cache-Control', 'no-store, no-cache, must-revalidate, private')
+                           ->appendHttpEquiv('Expires', date('r'))
+                           ->appendHttpEquiv('Pragma', 'no-cache')?>
+
+        <?=$this->headTitle()?>
+        <?=$this->headMeta()?>
+        <?=$this->headLink()?>
+        <?=$this->headStyle()?>
+    </head>
+
+    <body>
+        <?=$this->headScript()?>
+        <?=$this->msgGritter()?>
+
+        <div id='site'>
+
+            <div id="page">
+
+                <?if(!$this->layout()->workAreaOnly):?>
+                    <div id="container" class="cornered">
+                        <div id="box" class="cornered">
+                            <?=$this->render('header.phtml')?>
+                            <?=$this->layout()->content?>
+                            <?=$this->render('footer.phtml')?>
+                        </div>
+                    </div> <!-- end of #container -->
+                <?else:?>
+                    <?=$this->layout()->content?>
+                <?endif?>
+
+            </div> <!-- end of #page -->
+
+        </div> <!-- end of #site -->
+
+        <?=$this->debug()?>
+    </body>
+</html>

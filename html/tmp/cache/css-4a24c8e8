@@ -1,0 +1,233 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,nav,section{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}article,aside,dialog,figure,footer,header,hgroup,nav,section{display:block}body{line-height:1.5}table{border-collapse:separate;border-spacing:0}caption,th,td{text-align:left;font-weight:normal}table,td,th{vertical-align:middle}blockquote:before,blockquote:after,q:before,q:after{content:""}blockquote,q{quotes:"" ""}a
+img{border:none}
+
+.ui-helper-hidden{display:none}.ui-helper-hidden-accessible{position:absolute !important;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px)}.ui-helper-reset{margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;font-size:100%;list-style:none}.ui-helper-clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}.ui-helper-clearfix{display:inline-block}/*\*/* html .ui-helper-clearfix{height:1%}.ui-helper-clearfix{display:block}/**/.ui-helper-zfix{width:100%;height:100%;top:0;left:0;position:absolute;opacity:0;filter:Alpha(Opacity=0)}.ui-state-disabled{cursor:default !important}.ui-icon{display:block;text-indent: -99999px;overflow:hidden;background-repeat:no-repeat}.ui-widget-overlay{position:absolute;top:0;left:0;width:100%;height:100%}
+
+#gritter-notice-wrapper{position:fixed;top:10px;right:10px;width:301px;z-index:9999}.gritter-item-wrapper{position:relative;margin:0
+0 10px 0;background:url("http://i.10denza.com/htdocs/images/blank.gif")}.gritter-top{background:url("http://i.10denza.com/htdocs/images/3dparty/gritter/gritter.png") no-repeat left -30px;height:10px}.hover .gritter-top{background-position:right -30px}.gritter-bottom{background:url("http://i.10denza.com/htdocs/images/3dparty/gritter/gritter.png") no-repeat left bottom;height:8px;margin:0}.hover .gritter-bottom{background-position:bottom right}.gritter-item{display:block;background:url("http://i.10denza.com/htdocs/images/3dparty/gritter/gritter.png") no-repeat left -40px;color:#eee;padding:2px
+11px 8px 11px;font-size:1em}.hover .gritter-item{background-position:right -40px}.gritter-item
+p{padding:0;margin:0;text-shadow:1px 1px 1px #000}.gritter-item p
+a{color:#DB8B27;text-decoration:none}.gritter-item p a:hover{color:#FFF}.gritter-close{position:absolute;top:5px;left:3px;background:url("http://i.10denza.com/htdocs/images/3dparty/gritter/gritter.png") no-repeat left top;cursor:pointer;width:30px;height:30px}.gritter-title{font-size:1em;font-weight:bold;font-style:italic;padding:0
+0 7px 0;display:block;text-shadow:1px 1px 1px #000}.gritter-image{width:32px;height:32px;margin:7px
+0 0 7px;float:left}.gritter-with-image,.gritter-without-image{padding:0
+0 5px 0}.gritter-with-image{width:220px;float:right}
+
+.boxy-wrapper{position:absolute}.boxy-wrapper.fixed{position:fixed}.boxy-modal-blackout{position:absolute;background-color:#222;left:0;top:0}.boxy-wrapper{empty-cells:show}.boxy-wrapper .boxy-top-left,
+.boxy-wrapper .boxy-top-right,
+.boxy-wrapper .boxy-bottom-right,
+.boxy-wrapper .boxy-bottom-left{width:10px;height:10px;padding:0}:root .boxy-wrapper .boxy-top-left{background:url("http://i.10denza.com/htdocs/images/3dparty/boxy/nw.png")}:root .boxy-wrapper .boxy-top-right{background:url("http://i.10denza.com/htdocs/images/3dparty/boxy/ne.png")}:root .boxy-wrapper .boxy-bottom-right{background:url("http://i.10denza.com/htdocs/images/3dparty/boxy/se.png")}:root .boxy-wrapper .boxy-bottom-left{background:url("http://i.10denza.com/htdocs/images/3dparty/boxy/sw.png")}.boxy-wrapper .boxy-top-left{#filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/htdocs/images/3dparty/boxy/nw.png');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/htdocs/images/3dparty/boxy/nw.png')"}.boxy-wrapper .boxy-top-right{#filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/htdocs/images/3dparty/boxy/ne.png');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/htdocs/images/3dparty/boxy/ne.png')"}.boxy-wrapper .boxy-bottom-right{#filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/htdocs/images/3dparty/boxy/se.png');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/htdocs/images/3dparty/boxy/se.png')"}.boxy-wrapper .boxy-bottom-left{#filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/htdocs/images/3dparty/boxy/sw.png');-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/htdocs/images/3dparty/boxy/sw.png')"}.boxy-wrapper .boxy-top,
+.boxy-wrapper .boxy-bottom{height:10px;background-color:black;opacity:0.6;filter:alpha(opacity=60);padding:0}.boxy-wrapper .boxy-left,
+.boxy-wrapper .boxy-right{width:10px;background-color:black;opacity:0.6;filter:alpha(opacity=60);padding:0}.boxy-wrapper .title-bar{background-color:black;padding:6px;position:relative}.boxy-wrapper .title-bar.dragging{cursor:move}.boxy-wrapper .title-bar
+h2{font-size:12px;color:white;line-height:1;margin:0;padding:0;font-weight:normal}.boxy-wrapper .title-bar
+.close{color:white;position:absolute;top:6px;right:6px;font-size:90%;line-height:1}.boxy-inner{overflow:hidden;background-color:white;padding:0}.boxy-content{padding:15px}.boxy-wrapper
+.question{width:350px;min-height:80px}.boxy-wrapper
+.answers{text-align:right}
+
+#colorbox,#cboxOverlay,#cboxWrapper{position:absolute;top:0;left:0;z-index:9999;overflow:hidden}#cboxOverlay{position:fixed;width:100%;height:100%}#cboxMiddleLeft,#cboxBottomLeft{clear:left}#cboxContent{position:relative}#cboxLoadedContent{overflow:auto}#cboxTitle{margin:0}#cboxLoadingOverlay,#cboxLoadingGraphic{position:absolute;top:0;left:0;width:100%}#cboxPrevious,#cboxNext,#cboxClose,#cboxSlideshow{cursor:pointer}.cboxPhoto{float:left;margin:auto;border:0;display:block}.cboxIframe{width:100%;height:100%;display:block;border:0}#cboxOverlay{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/overlay.png") repeat 0 0}#colorbox{}#cboxTopLeft{width:21px;height:21px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") no-repeat -100px 0}#cboxTopRight{width:21px;height:21px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") no-repeat -129px 0}#cboxBottomLeft{width:21px;height:21px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") no-repeat -100px -29px}#cboxBottomRight{width:21px;height:21px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") no-repeat -129px -29px}#cboxMiddleLeft{width:21px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") left top repeat-y}#cboxMiddleRight{width:21px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") right top repeat-y}#cboxTopCenter{height:21px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/border.png") 0 0 repeat-x}#cboxBottomCenter{height:21px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/border.png") 0 -29px repeat-x}#cboxContent{background:#fff;overflow:hidden}#cboxError{padding:50px;border:1px
+solid #ccc}#cboxLoadedContent{margin-bottom:28px}#cboxTitle{position:absolute;bottom:4px;left:0;text-align:center;width:100%;color:#949494}#cboxCurrent{position:absolute;bottom:4px;left:58px;color:#949494}#cboxSlideshow{position:absolute;bottom:4px;right:30px;color:#0092ef}#cboxPrevious{position:absolute;bottom:0;left:0;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") no-repeat -75px 0;width:25px;height:25px;text-indent:-9999px}#cboxPrevious.hover{background-position:-75px -25px}#cboxNext{position:absolute;bottom:0;left:27px;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") no-repeat -50px 0;width:25px;height:25px;text-indent:-9999px}#cboxNext.hover{background-position:-50px -25px}#cboxLoadingOverlay{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/loading_background.png") no-repeat center center}#cboxLoadingGraphic{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/loading.gif") no-repeat center center}#cboxClose{position:absolute;bottom:0;right:0;background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/controls.png") no-repeat -25px 0;width:25px;height:25px;text-indent:-9999px}#cboxClose.hover{background-position:-25px -25px}.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE
+#cboxMiddleRight{filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)}.cboxIE6
+#cboxTopLeft{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/ie6/borderTopLeft.png")}.cboxIE6
+#cboxTopCenter{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/ie6/borderTopCenter.png")}.cboxIE6
+#cboxTopRight{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/ie6/borderTopRight.png")}.cboxIE6
+#cboxBottomLeft{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/ie6/borderBottomLeft.png")}.cboxIE6
+#cboxBottomCenter{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/ie6/borderBottomCenter.png")}.cboxIE6
+#cboxBottomRight{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/ie6/borderBottomRight.png")}.cboxIE6
+#cboxMiddleLeft{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/ie6/borderMiddleLeft.png")}.cboxIE6
+#cboxMiddleRight{background:url("http://i.10denza.com/htdocs/images/3dparty/colorbox/ie6/borderMiddleRight.png")}.cboxIE6 #cboxTopLeft,
+.cboxIE6 #cboxTopCenter,
+.cboxIE6 #cboxTopRight,
+.cboxIE6 #cboxBottomLeft,
+.cboxIE6 #cboxBottomCenter,
+.cboxIE6 #cboxBottomRight,
+.cboxIE6 #cboxMiddleLeft,
+.cboxIE6
+#cboxMiddleRight{_behavior:expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')")}
+
+body{font:0.8em Tahoma,Arial}kbd{display:none}.cms-gallery-image{text-align:center}.cms-gallery-image
+ul{margin-top:5px}.cms-gallery-image
+img{border:4px
+solid #64D4F2;margin:1px}.cms-gallery-image
+li{display:inline;background:inherit}.cms-gallery-movie{padding:3px;width:600px}.cms-gallery-movie
+div{padding:3px}.cms-gallery-movie div div
+p{float:left;width:250px}.cms-gallery-movie div div
+span{float:left;margin:10px
+10px 0 0;display:block}.cms-gallery-file{margin:5px}.cms-gallery-file
+ul{list-style:none;padding:0;margin:0}.cms-gallery-file
+li{margin-left:12px;position:relative;padding-left:20px;float:left}.cms-gallery-file
+p{padding:0;margin:0;max-width:200px}.cms-gallery-file
+span{position:absolute;left:0;top:0}.cms-mime{background:url("http://i.10denza.com/htdocs/images/mime-types/default.png") 0 0 no-repeat;min-height:32px;min-width:32px}.cms-mime-doc,.cms-mime-docx,.cms-mime-rtf{background-image:url("http://i.10denza.com/htdocs/images/mime-types/doc.png")}.cms-mime-pdf{background-image:url("http://i.10denza.com/htdocs/images/mime-types/pdf.png")}.cms-mime-psd{background-image:url("http://i.10denza.com/htdocs/images/mime-types/psd.png")}.cms-mime-ai{background-image:url("http://i.10denza.com/htdocs/images/mime-types/ai.png")}.cms-mime-xls{background-image:url("http://i.10denza.com/htdocs/images/mime-types/xls.png")}.cms-mime-png,.cms-mime-gif,.cms-mime-jpeg,.cms-mime-jpg,.cms-mime-bmp{background-image:url("http://i.10denza.com/htdocs/images/mime-types/png.png")}.cms-mime-zip,.cms-mime-rar,.cms-mime-gzip,.cms-mime-tar,.cms-mime-7z,.cms-mime-gz{background-image:url("http://i.10denza.com/htdocs/images/mime-types/archive.png")}.cms-mime-avi,.cms-mime-wma,.cms-mime-swf{background-image:url("http://i.10denza.com/htdocs/images/mime-types/film.png")}.cms-search{padding:10px}.cms-search
+ul{list-style:none;padding:0}.cms-search
+li{padding:5px}.cms-poll{width:250px;padding:10px
+0 5px 10px!important}.cms-poll
+a{float:left;margin-top:3px;margin-left:10px;text-decoration:none}.cms-poll
+strong{padding-bottom:5px;display:block}.cms-poll
+ul{padding-left:5px}.cms-poll
+li{margin-bottom:4px;padding:3px}.cms-poll
+label{font-style:normal;float:left;margin-left:3px;width:200px;cursor:pointer}.cms-poll
+input{float:left;margin-left:5px}.cms-poll-answer{margin-bottom:4px;margin-left:7px}.cms-poll-answer
+dl{}.cms-poll-answer
+dt{float:right;margin-top:5px;background-color:#FFF;padding:0
+2px}.cms-poll-answer
+dd{line-height:14px;padding:5px}.cms-poll-progress{position:relative}.cms-poll-progress
+b{position:absolute;font:0.6em Verdana, Tahoma;top:0;right:10px;color:#000;text-shadow:1px 1px 0 #FFF;text-align:right;font-weight:normal}.cms-poll-progress p,
+.cms-poll-progress
+span{overflow:hidden;float:left;background:url("http://i.10denza.com/htdocs/images/poll-bg.png") 0 0 no-repeat}.cms-poll-progress-bg{}.cms-poll-progress-bg p, .cms-poll-progress-bg
+span{height:11px;width:98%}.cms-poll-progress-bg
+p{width:98%}.cms-poll-progress-bg
+span{width:4px;background-position:100% 0}.cms-poll-progress-percent{width:98%;padding:0
+2px 0 2px;position:absolute;top:2px}.cms-poll-progress-percent p,
+.cms-poll-progress-percent
+span{height:7px;background-position:0 -12px}.cms-poll-progress-percent
+span{width:4px;background-position:100% -12px}#cms-admin-bar,#cms-admin-bar-small{color:#333;height:28px;background:url("http://i.10denza.com/htdocs/images/admin/th-bg.gif") 0 100% repeat-x;z-index:9000;position:relative;border-bottom:1px solid #CCC}#cms-admin-bar
+p{padding:6px
+0 0 10px}#cms-admin-bar
+span{margin-right:10px}#cms-admin-bar a, #cms-admin-bar-small
+a{text-decoration:none;color:#333;text-shadow:1px 1px 0 #EEE;background-color:#FFF;padding:2px
+5px}#cms-admin-bar a:hover, #cms-admin-bar-small a:hover{text-shadow:1px 1px 0 #FFF;background-color:#DDD}#cms-admin-bar-small{width:150px;text-align:center;border:0}#cms-admin-bar-small
+span{display:block;padding-top:5px}#cms-admin-area{padding:5px;text-align:right;clear:both}#cms-admin-area
+span{margin-right:5px;padding:2px
+5px;background-color:#FFF}#cms-admin-area
+a{text-decoration:none}#cms-admin-area a:hover{text-decoration:underline}#cms-admin-auth{width:370px;background:#FFF url("http://i.10denza.com/htdocs/images/admin/lock.png") 10px 10px no-repeat;margin:0
+auto;padding:10px}#cms-admin-auth>p{border-top:1px dashed #CCC;color:#666}#cms-admin-auth
+p{padding:5px;margin:0!important;line-height:1.1em;clear:both}#cms-admin-auth
+input{vertical-align:middle;padding:5px;font-size:1em}#cms-admin-auth
+fieldset{padding:20px;padding-bottom:5px}#cms-admin-auth fieldset
+p{white-space:nowrap;text-align:center}#cms-admin-auth div
+input{width:200px}#cms-admin-auth div p
+label{cursor:pointer;width:80px;float:left;margin-top:10px;text-align:right;margin-right:5px;color:#000}#cms-social{margin:10px}#cms-social
+ul{width:400px}#cms-social
+li{float:left;margin-right:10px}.cms-hidden{display:none}.cms-cornered{-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.cms-shadow{-moz-box-shadow:0 0 3px #000;-webkit-box-shadow:0 0 3px #000;box-shadow:0 0 3px #000}.cms-reset
+*{margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;font:100% Tahoma,Arial;list-style:none}.cms-cleared:after{content:".";display:block;height:0;clear:both;visibility:hidden}.cms-cleared{display:inline-block}/*\*/* html .cms-cleared{height:1%}.cms-cleared{display:block}/**/
+
+body{background:#E56131 url("http://i.10denza.com/htdocs/images/bg.jpg") 0 0 no-repeat;color:#FFF;font:1em Helvetica, Arial, Tahoma}table
+td{font:1em Helvetica,Arial,Tahoma}a{color:#c643b5;text-decoration:none}#site{width:1010px;margin:0
+auto}#header{background-color:#FFF;height:75px}#header
+ul{list-style:none}#header
+li{float:left;height:65px}#header
+li.code{width:372px;background-color:#000;background-position: -428px 0;margin-right:1px}#header
+li.social{width:243px;margin-right:1px;background-color:#202020}#header li.social a.fb, #header li.social
+a.tw{float:left;margin-top:17px;margin-left:4px}#header li.social a.fb img, #header li.social a.tw
+img{width:32px;height:32px}#header li.social
+a.fb{margin-left:34px}#header li.social
+div.addthis_toolbox{margin-top:17px;margin-left:104px}#header
+li.member{width:382px;background-color:#000}#header li.member
+p{margin-top:16px}#header li.member
+span{width:173px;height:13px;background-position:0 -306px;float:left;margin-left:40px;margin-top:10px}#header li.member
+a{width:107px;height:32px;background-position: -427px -77px;float:right;margin-right:34px}#inner,#footer,#main{width:979px;margin-left:29px;position:relative}#inner{background:url("http://i.10denza.com/htdocs/images/bg-red.png") 0 0 no-repeat}#inner-first{height:31px}#inner-second{height:37px;border-bottom:12px solid #FFF}#inner-white{height:198px;background-color:#FFF}#logo-box{background-color:#000;height:174px;border-bottom:4px solid #c643b5;width:999px}#logo-box
+div.logo{float:left}#logo-box div.logo
+a{display:block;width:352px;height:114px;margin-top:56px}#logo-box
+div.navigation{float:right;margin-top:36px;height:125px;background-color:#c643b5;border:13px
+solid #FFF;border-right:0;border-bottom:0;width:588px;position:relative}#logo-box div.navigation
+ul{list-style:none;margin-top:50px;margin-left:5px}#logo-box div.navigation
+li{float:left;margin:0
+4px;padding:10px}#logo-box div.navigation li
+a{color:#C643B5;display:block}#logo-box div.navigation li.story
+a{width:60px;height:20px;background-position:0 -170px}#logo-box div.navigation li.story a:hover, #logo-box div.navigation li.story
+a.active{background-position: -407px -170px}#logo-box div.navigation li.propaganda
+a{width:131px;height:20px;background-position:0 -195px}#logo-box div.navigation li.propaganda a:hover, #logo-box div.navigation li.propaganda
+a.active{background-position: -407px -195px}#logo-box div.navigation li.contact
+a{width:99px;height:16px;background-position:0 -225px}#logo-box div.navigation li.contact a:hover, #logo-box div.navigation li.contact
+a.active{background-position: -407px -225px}#logo-box div.navigation li.gallery
+a{width:78px;height:20px;background-position:0 -277px}#logo-box div.navigation li.gallery a:hover, #logo-box div.navigation li.gallery
+a.active{background-position: -407px -277px}#logo-box div.navigation li.next
+a{width:75px;height:16px;background-position:0 -252px}#logo-box div.navigation li.next a:hover, #logo-box div.navigation li.next
+a.active{background-position: -407px -252px}#logo-box div.navigation
+li.last{margin-right:0}#logo-box div.navigation
+div.left{background-position: -786px -414px;width:14px;height:186px;top: -48px;left: -17px}#logo-box div.navigation
+div.bottom{background-position:0 -562px;width:307px;height:20px;bottom: -14px;left: -20px}#logo-box div.navigation
+div.right{background-position:0 -534px;width:277px;height:20px;top: -5px;right:2px}#main{}#main div.box-corner{top: -31px}#main div.noise-right{background:url("http://i.10denza.com/htdocs/images/bg-right-line.png") 0 0 repeat-y;width:36px;height:100%;right: -20px;top:0}#main div.noise-top-left{background-position:0 -586px;width:533px;height:20px;top: -5px;left: -6px}#main div.noise-top-right{background-position:0 -517px;width:360px;height:1px;top: -1px;right: -15px;overflow:hidden}#content-box{background-color:#000;position:relative;left: -32px;width:999px;border-right:12px solid #FFF}#content{padding:50px;background:url("http://i.10denza.com/htdocs/images/bg-content.png") 8px 17px no-repeat}#white-area{background-color:#FFF;color:#000;padding:50px;text-shadow:0 0 1px #FFF;position:relative;border:1px
+solid #848484}#white-area div.e-pagination
+div{padding-right:60px}#white-area div.e-pagination
+p{float:right}span.top-left-symbol,span.top-right-symbol,span.bottom-right-symbol,span.bottom-left-symbol{width:7px;height:5px;border-width:0;border-style:solid;border-color:#020202;overflow:hidden;position:absolute}span.top-left-symbol{border-left-width:1px;border-top-width:1px;top:25px;left:25px}span.top-right-symbol{border-right-width:1px;border-top-width:1px;top:25px;right:25px}span.bottom-left-symbol{border-left-width:1px;border-bottom-width:1px;bottom:25px;left:25px}span.bottom-right-symbol{border-right-width:1px;border-bottom-width:1px;bottom:25px;right:25px}#homepage{position:relative}#homepage
+p{padding:15px;margin-bottom:40px!important}#homepage
+ul{width:907px;height:922px;background:url("http://i.10denza.com/htdocs/images/bg-homepage.png") 0 0 no-repeat;list-style:none;position:relative}#homepage
+li{position:absolute}#homepage li
+a{display:block}#homepage
+li.wear{width:300px;height:414px;top:74px;left:32px}#homepage
+li.adorn{width:229px;height:229px;top:20px;left:344px}#homepage
+li.read{width:140px;height:140px;top:103px;left:588px}#homepage
+li.collect{width:227px;height:227px;top:260px;left:344px}#homepage
+li.shade{width:229px;height:347px;top:259px;left:586px}#homepage
+li.carry{width:233px;height:232px;top:502px;left:95px}#homepage
+li.misk{width:106px;height:107px;top:501px;left:343px}#homepage
+li.listen{width:109px;height:107px;top:501px;left:463px}#homepage
+li.amuse{width:522px;height:231px;top:622px;left:342px}#ecommerce{}#ecommerce
+ul{list-style:none}#ecommerce
+li{float:left}#ecommerce
+li.preview{position:relative;padding:3px;width:400px;margin-right:20px}#ecommerce li.preview
+img{width:400px}#ecommerce
+li.content{width:420px;overflow:hidden}#ecommerce span.top-left-symbol{top:0;left:0}#ecommerce span.top-right-symbol{top:0;right:0}#ecommerce span.bottom-left-symbol{bottom:4px;left:0;right:auto}#ecommerce span.bottom-right-symbol{bottom:4px;right:0;left:auto}#ecommerce
+#edescr{padding-left:5px}#ecommerce #edescr
+h2{color:#c643b5;font-weight:bold;display:block;font-size:1.5em;margin:15px
+0}#gallery{padding:50px
+0 50px 0;position:relative}#gallery
+ul{list-style-type:none;margin:0
+auto;width:780px}#gallery
+li{float:left;margin:25px}#gallery li
+img{width:200px;height:200px;padding:2px;border:1px
+solid #000}#gallery li
+strong{display:block}#gallery li
+span{display:block}#blog{position:relative}#blog
+hr.blog{background-color:#C649B6;border:1px
+solid #BE2DAB;height:4px;overflow:hidden;margin:20px
+0}#blog
+div.entry{padding-top:20px}#blog
+div.entries{padding:60px}#blog div.entries
+div.first{padding-top:0}#page{padding:50px;position:relative}#page-nav{}#page-nav
+p{float:right;width:180px;margin-top:15px;margin-right:50px}#page-nav
+a{color:#FFF}#page-nav
+strong{float:right;font-size:140%;font-weight:normal;margin-top:1px}#signup{width:99%;border:1px
+solid #fff;padding:3px}#signup
+td.first{width:49%;padding:30px;background-color:#c644b3;color:#000}#signup td.first
+p{padding:10px
+0 0 30px}#signup td.first
+div{width:230px;margin:0
+auto}#signup
+td.second{padding:30px}#signup td.second
+table{margin:0
+auto}#signup td.second table
+td{padding:0
+2px;border:1px
+solid #737373}#signup td
+td.text{border-right:0!important}#signup td td.text
+input{background-color:#3f3f3f;border:none;padding:7px
+10px;width:170px;color:#FFF;font-size:1em}#signup td td.submit
+input{width:58px;height:32px;background:url("http://i.10denza.com/htdocs/images/send.png") 0 0 no-repeat;border:0;cursor:pointer}#signup td td.submit input:hover{background-position:0 -32px}#signup td td.submit
+kbd{display:none}#rroll{width:400px;margin:0
+auto;border:1px
+solid #FFF;padding:3px}#rroll
+td{padding:20px;background-color:#C644B3}#rroll
+p{text-align:center;color:#000;font-weight:bold;margin-top:10px}#rroll
+a{margin:0
+auto}#footer div.box-corner{top:18px}#footer-line{height:120px;background:#FFF url("http://i.10denza.com/htdocs/images/bg-red-bottom.jpg") 100% 0 no-repeat;border-bottom:12px solid #FFF;border-top:14px solid #FFF}#footer-box{height:83px;width:999px;background-color:#000;top:50px}#footer-box
+ul{list-style:none;margin-top:34px;margin-left:39px}#footer-box ul
+a{color:#FFF;display:block}#footer-box ul a
+small{margin:0
+10px;vertical-align:top}#footer-box
+li{float:left;margin-right:20px}#footer-box li.address-label
+a{background-position: -240px -169px;width:98px;height:17px}#footer-box li.address
+a{margin-top:1px}#footer-box li.phone-label
+a{background-position: -240px -199px;width:75px;height:21px}#footer-box li.phone
+a{margin-top:1px}#footer-box li.email-label
+a{background-position: -240px -229px;width:61px;height:17px}#footer-box li.email
+a{margin-top:1px}div.noise{position:absolute;z-index:99}div.topshadow{background:url("http://i.10denza.com/htdocs/images/bg-shadow-hor.png") 0 0 repeat-x;height:24px}div.shifted{position:absolute;left: -32px;top:42px}div.box-corner{background-position:0 -128px;width:32px;height:32px;position:absolute;top:10px;left: -32px}#black-holder{width:800px}#googleMap{width:508px;margin-left:20px;height:500px}.e-pagination{}.e-pagination div,#page-nav{height:52px;background-color:#c643b5;color:#FFF}.e-pagination
+p{width:230px;margin:0
+auto;text-align:center;padding-top:16px}.e-pagination p
+b{float:left;font-size:180%;margin-top:1px}.e-pagination p
+a{float:left;margin:0
+20px}#content
+p{margin-bottom:15px;line-height:1.3em}#content
+td{vertical-align:top}h1{color:#c643b5;font-size:210%;text-shadow:1px 1px 1px #000;text-transform:lowercase;margin-top:20px;margin-bottom:25px}h1
+span{color:#FFF}h1
+small{font-size:120%;margin-right:15px;float:left;color:#FFF}.fade{position:relative}.fade
+div{position:absolute;top:0;left:0;display:none}span.modal-close{background-position: -609px -82px;width:23px;height:25px}.layer{background-image:url("http://i.10denza.com/htdocs/images/layer.png");background-position:0 0;background-repeat:no-repeat}a.layer{display:block}a.readmore{width:115px;height:25px;background-position: -654px -119px;float:right}a.explore{width:107px;height:32px;background-position: -654px -77px}a.arrow-left,a.arrow-right{width:23px;height:23px}a.arrow-left{background-position: -545px -82px}a.arrow-right{background-position: -575px -82px}.clear{clear:both}.vam{vertical-align:middle}.hidden{display:none}.cornered{-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.bordered{background-color:#FFF;border:1px
+solid #DDD;padding:2px;box-shadow:0 0 5px #EEE}.shadow{-moz-box-shadow:0 0 3px #000;-webkit-box-shadow:0 0 3px #000;box-shadow:0 0 3px #000}.cleared:after, #content h1:after{content:".";display:block;height:0;clear:both;visibility:hidden}.cleared{display:inline-block}/*\*/* html
+.cleared{height:1%}.cleared{display:block}/**/
+

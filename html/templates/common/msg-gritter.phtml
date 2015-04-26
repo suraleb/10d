@@ -1,0 +1,8 @@
+
+<script type="text/javascript">
+//<![CDATA[
+    <?foreach ($this->entries as $entry):?>
+        kkcms.effect.message("<?=$entry[0]?>", {status: "<?=$entry[1]['status']?>"});
+    <?endforeach?>
+//]]>
+</script>

@@ -1,0 +1,192 @@
+<?php
+    global $class, $action, $filePath;
+    $dprofiler = Cms_Db::getInstance()->getProfiler();
+?>
+
+<!-- Begin Debugging -->
+<style type='text/css'>
+    #show-debug{ padding: 5px; border-top: 2px solid #DA7B25; background-color: #3B3B3B; font: 0.9em Verdana, Tahoma, Arial; text-shadow: 1px 1px 0 #000; }
+
+    #debug{ font: 0.8em Verdana, Tahoma, Arial; color: #F7C55C; clear: both; opacity: 0.4; width: 90%; }
+        #debug td{ font: 0.8em Verdana, Tahoma, Arial; }
+        #debug .bg{ padding: 3px; background-color: #484848; border-bottom: 1px solid #363636; }
+        #debug pre{ margin-top: 6px; line-height: 12px; font-size: 10px; background-color: #3B3B3B; padding: 3px; }
+        #debug:hover{ opacity: 1; }
+        #debug a{ color: #F7C55C; text-decoration: none; text-transform: uppercase; text-shadow: 1px 1px 0 #000; }
+            #debug a:hover{ background-color: #303030; }
+
+    #debug-info{ display:none; font: 10px Verdana, Tahoma; border-bottom: 5px solid #DA7B25; margin-bottom: 5px; padding: 10px; color: #FFF0CF; background-color: #3B3B3B; }
+        #debug-info h3{ font-weight: bold; }
+        #debug-info fieldset{ border: 1px solid #666; padding: 0 10px 2px 10px; margin-bottom: 5px; }
+        #debug-info .last{ padding-bottom: 0; margin-bottom: 0; }
+        #debug-info legend{ padding: 0 5px; font-weight: bold; text-transform: uppercase; }
+        #debug-info p{ margin: 10px 0; }
+            #debug-info .query{ display: block; padding: 5px; color: #DA7B25; }
+
+    #debug-info p{ }
+        #debug-info p label{ text-transform: capitalize; }
+        #debug-info p span{  }
+
+    #dbg-sql-details{ padding: 5px; display: none; margin-left: 10px; line-height: 18px; }
+        #dbg-sql-details dt{ }
+        #dbg-sql-details dd{ margin-left: 10px; margin-bottom: 5px; }
+
+
+    #dbg-files{ padding: 10px; height: 300px; overflow: auto; }
+        #dbg-files td{ padding: 3px; color: #CCC; background-color: #3B3B3B; border: 0; white-space: nowrap; font-size: 10px; }
+        #dbg-files .marked{ color: #DA7B25; }
+
+    #dbg-vars{ overflow: auto; height: 200px; }
+</style>
+
+<script type='text/javascript'>
+    function showDetails(lnk, target) {
+        _link = document.getElementById(lnk);
+        _target = document.getElementById(target);
+
+        if(_target.style.display != 'block') {
+            _target.style.display = 'block';
+            _link.innerHTML = _link.innerHTML.replace(/ ↓/, '') + ' &uarr;';
+        } else {
+            _target.style.display = 'none';
+            _link.innerHTML = _link.innerHTML.replace(/ ↑/g, '') + ' &darr;';
+        }
+
+        return false;
+    }
+</script>
+
+<?$totalTime = $dprofiler->getTotalElapsedSecs()?>
+<?$totalQueries = $dprofiler->getTotalNumQueries()?>
+
+<div id='debug'>
+    <div id='debug-info'>
+        <fieldset>
+            <p>
+                <a id='dbg-sql-link' href='#' onclick="return showDetails('dbg-sql-link', 'dbg-sql-details');">SQL summary &darr;</a> <?=$totalQueries?> quer<?=($totalQueries) == 1 ? 'y' : 'ies'?> in <?=sprintf('%01.4f', $totalTime)?> seconds.
+            </p>
+
+            <?php
+                $prof = $dprofiler->getQueryProfiles(null, true);
+                $longestTime = 0;
+                $longestQuery = null;
+
+                if (is_array($prof)) {
+                    echo '<dl id="dbg-sql-details">';
+
+                    foreach ($prof as $key => $details) {
+                        $queryTime = $details->getElapsedSecs();
+                        $color = '7DA88C';
+
+                        if ($queryTime >= 5) $color = '9B2D1E';
+                        if ($queryTime >= 1) $color = 'DA7B25';
+
+                        if ($queryTime > $longestTime) {
+                            $longestTime  = $queryTime;
+                            $longestQuery = $details->getQuery();
+                            $longestColor = $color;
+                        }
+
+                        echo '<dt>' . sprintf('%01.4f', $details->getElapsedSecs()) . ':</dt>';
+                        echo '<dd class="bg" style="color:#' . $color . ';">';
+                        echo $details->getQuery();
+                        echo '</dd>';
+                    }
+
+                    echo '</dl>';
+                }
+            ?>
+
+            <?if ($longestQuery):?>
+                <p>
+                    <label>Longest execution time:</label> <span><?=sprintf('%01.4f', $longestTime)?></span>
+                </p>
+
+                <p>
+                    <label>Longest query:</label> <span class='bg' style="line-height: 18px;display: block;color: #<?=$longestColor?>;"><?=$longestQuery?></span>
+                </p>
+
+
+                <p>
+                    <label>Average query execution time:</label> <span><? printf('%.4f', @($totalTime / $totalQueries))?></span>
+                </p>
+
+                <p>
+                    <label>Number of queries per seconds:</label> <span><?=@intval($totalQueries / $totalTime)?></span>
+                </p>
+            <?else:?>
+                <p>No queries</p>
+            <?endif?>
+        </fieldset>
+
+        <fieldset>
+            <?if(function_exists('memory_get_usage')):?>
+                <p>
+                    <label>Memory usage:</label> <?=Cms_Filemanager::sizeToString(memory_get_usage())?>
+                </p>
+                <p>
+                    <label>Allocated memory:</label> <?=Cms_Filemanager::sizeToString(memory_get_peak_usage())?>
+                </p>
+            <?endif?>
+
+            <?$_inc_files = get_included_files()?>
+
+            <p>
+                <a id='dbg-files-link' href='#' onclick="return showDetails('dbg-files-link', 'dbg-files');">Included files &darr;</a> <?=count($_inc_files)?>
+            </p>
+
+            <div id='dbg-files' style="display:none;">
+                <?$i=1;?>
+                <table>
+                    <tr>
+                        <?foreach(get_included_files() as $v):?>
+                            <td<?if(strpos($v, 'Zend') === false):?> class='marked'<?endif?>>
+                                <?=sprintf('%03d', $i)?>. <?=str_replace(CMS_ROOT, '', $v)?>
+                            </td>
+                        <?if($i % 3 == 0):?></tr><tr><?endif?>
+                        <?$i++?>
+                        <?endforeach?>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <p><label>Module called:</label> <?=$class?></p>
+            <p><label>Resource:</label> <?=$filePath?></p>
+            <p><label>Action called:</label> <?=$action?></p>
+            <p><label>Cms version:</label> <?=Cms_Version::VERSION?></p>
+            <p><label>Date of last modification:</label> <?=gmdate('D, d M Y H:i:s', getlastmod()) . ' GMT'?></p>
+            <p><label>Page generation time:</label> <?=sprintf('%01.3f', $_ENV['CMS_TIME_END'] - $_ENV['CMS_TIME_START'])?></p>
+        </fieldset>
+
+        <fieldset class='last'>
+            <p>
+                <a id='dbg-vars-link' href='#' onclick="return showDetails('dbg-vars-link', 'dbg-vars');">Variable list &darr;</a> <?=count($GLOBALS)?> arrays
+            </p>
+
+            <div id='dbg-vars' style="display: none;">
+                <pre>
+                    <?var_dump($GLOBALS)?>
+                </pre>
+            </div>
+        </fieldset>
+    </div>
+    <a id='show-debug' href='#' onclick="return showDetails('show-debug', 'debug-info');">debug information &darr;</a>
+    <?if (isset($_GET['remove-error-log'])):?>
+        <?Cms_Filemanager::fileUnlink(CMS_TMP . 'logs/errors.log')?>
+    <?endif?>
+    <?php
+        $logChar = (strpos($_SERVER['REQUEST_URI'], '?') === false) ? '?' : '&';
+        if (strpos($_SERVER['REQUEST_URI'], 'remove-error-log') !== false) {
+            $redirect = $_SERVER['REQUEST_URI'];
+            $redirect = preg_replace("~(&|\?)remove\-error\-log~", '', $redirect);
+            Cms_Core::redirect($redirect);
+        }
+    ?>
+    <?$log = Cms_Filemanager::fileRead(CMS_TMP . 'logs/errors.log')?>
+    <?if($log):?>
+        <pre><?=$log?><br /><a href="<?=$_SERVER['REQUEST_URI']?><?=$logChar?>remove-error-log">remove log with errors</a></pre>
+    <?endif?>
+</div>
+<!-- End Debugging -->

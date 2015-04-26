@@ -1,0 +1,601 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.6.0b3"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_LAYOUT_AJAX'>
+	<tuv xml:lang="ru"><seg><![CDATA[AJAX Макет]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[AJAX Layout]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_TPL_AJAX'>
+	<tuv xml:lang="ru"><seg><![CDATA[AJAX Шаблон]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[AJAX Template]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_STATIC_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить изменять публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to change publications]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_STATIC_HIDE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить метить публикации как скрытые]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to mark publications as hidden]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_STATIC_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить создавать публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to create publications]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_STATIC_OPTIONS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить изменять дополнительные параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to change additional parameters]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_STATIC_PUBLISH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить метить публикации опубликованными]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to mark publications as published]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_STATIC_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить удалять публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to delete publications]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_STATIC_SYSTEM'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить метить публикации системными]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to mark publications as system]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_STATIC_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view publications]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publications]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Содержимое]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Content]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_CONTENT_ADDRESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Адрес]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Address]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_CONTENT_AUTHOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Автор]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Author]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_CONTENT_DATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дата]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Date]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_CONTENT_MANAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Управление]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Manage]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_CONTENT_STATUS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Статус]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Status]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_CONTENT_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Название]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Modify]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_FILTER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Фильтр]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Filter]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_FILTER_ALL'>
+	<tuv xml:lang="ru"><seg><![CDATA[все]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[all]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_FILTER_HIDDEN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Должна быть &laquo;скрытой&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Must be &laquo;hidden&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_FILTER_NOTPUBLISHED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Должна быть &laquo;неопубликованной&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Must be &laquo;not published&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_FILTER_PERPAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[записей на страницу]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[entries per-page]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_FILTER_SYSTEM'>
+	<tuv xml:lang="ru"><seg><![CDATA[Должна быть &laquo;системной&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Must be &laquo;system&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_FILTER_TAG'>
+	<tuv xml:lang="ru"><seg><![CDATA[Содержит тег:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Has a tag:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_FILTER_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[В названии есть:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title has:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_GROUP_ADMINS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Администраторам]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Administrators]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_GROUP_ALL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Всем]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Everybody]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_GROUP_GUEST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Гостям]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Guests]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_GROUP_MEMBERS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пользователям]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Members]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_INFORMATION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Информация]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Information]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_MODIFY'>
+	<tuv xml:lang="ru"><seg><![CDATA[Редактирование публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Editing publication]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Создать публикацию]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Create a publication]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Parameters]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Текст публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Text]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_FEATURED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Популярно?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Featured?]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_GROUP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Доступна группе:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Access group:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_HDR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отсылать собственный заголовок:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Send own header:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_HDR_200'>
+	<tuv xml:lang="ru"><seg><![CDATA[код: 200 (всё хорошо)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[code: 200 (doing well)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_HDR_403'>
+	<tuv xml:lang="ru"><seg><![CDATA[код: 403 (доступ запрещен)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[code: 403 (access forbidden)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_HDR_404'>
+	<tuv xml:lang="ru"><seg><![CDATA[код: 404 (документ не найден)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[code: 404 (document not found)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_HIDDEN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Скрытая?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Hidden?]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_LAYOUT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Макет:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Layout:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_LAYOUT_AJAX_ON'>
+	<tuv xml:lang="ru"><seg><![CDATA[Использовать другой макет при AJAX запросе]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Use different layout with AJAX request]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_LAYOUT_NONE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Не использовать]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Do not use]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_LNG'>
+	<tuv xml:lang="ru"><seg><![CDATA[Язык:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Language:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_OPTIONS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дополнительные опции:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Additional options:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_PARENTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Родители:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Parents:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_PUBLISH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публиковать?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publicate it?]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_REWRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Адрес на сайте:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Address on the site:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_REWRITE_PREV'>
+	<tuv xml:lang="ru"><seg><![CDATA[Адрес:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Address:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_SEO_AUTHOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Автор:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Author:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_SEO_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Краткое описание:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Meta Description:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_SEO_KEYWORDS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ключевые слова:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Meta Keywords:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_SEO_ROBOTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Поисковые роботы:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Indexing robots:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_SEO_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Название публикации:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title of the publication:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_SYSTEM'>
+	<tuv xml:lang="ru"><seg><![CDATA[Системная?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System?]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_TAGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тэги:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Tags:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_TIMESTAMP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Время создания публикации:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Date your publication was written:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Название публикации:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_TPL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Шаблон:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Template:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_TPL_AJAX_ON'>
+	<tuv xml:lang="ru"><seg><![CDATA[Использовать другой шаблон при AJAX запросе]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Use different template with AJAX request]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PARAMS_TPL_NONE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Не использовать]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Do not use]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_PREVIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Просмотр]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Preview]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_REORDER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить порядок: %s]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Change order: %s]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_RESET'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сбросить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Reset]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_TAB_ADV'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дополнительные настройки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Advanced settings]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_TAB_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Содержимое публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Contents of the publication]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_TAB_MAIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Основная информация]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Main information]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_TAB_SEO'>
+	<tuv xml:lang="ru"><seg><![CDATA[Индексация (SEO)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Indexation (SEO)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_STATIC_UPDATE_LIST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновить список]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Update the list]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_STATIC_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Создана новая публикация &laquo;<a href="/open/admin-static/?action=edit&id=%d">%s</a>&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[New publication &laquo;<a href="/open/admin-static/?action=edit&id=%d">%s</a>&raquo; was created {ID:%d}]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_STATIC_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалена публикация &laquo;%s&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publication &laquo;%s&raquo; {ID:%d} was deleted ]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_STATIC_REORDER'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменён порядок сортировки публикаций]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Sorting order for publications was changed]]></seg></tuv>
+</tu>
+
+<tu tuid='LOG_ADMIN_STATIC_UPDATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Обновлена публикация &laquo;<a href="/open/admin-static/?action=edit&id=%d">%s</a>&raquo; {ID:%d}]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publication &laquo;<a href="/open/admin-static/?action=edit&id=%d">%s</a>&raquo; was updated {ID:%d}]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_ADDED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публикация занесена в нашу базу данных и доступна для редактирования]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publication was added to our database and is available for editing]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_BAD_PARENTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы указали некорректные адреса родителей публикации.<br />Адреса (через запятую) могут содержать цифры, латинские буквы и знаки: "_", ".", "-"]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You provide incorrect addresses of publication's parents.<br />Addresses, separated by commas, may contain digits, letters and symbols: "_", ".", "-"]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_BAD_REWRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы указали некорректный адрес публикации.<br />Адрес может содержать цифры, латинские буквы и знаки: "_", ".", "-"]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You provide incorrect publication's address.<br />Address may contains digits, letters and symbols: "_", ".", "-"]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_BAD_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Укажите название публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You must set title for the publication]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публикация с таким адресом уже есть в нашей базе данных]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publication with the same address has already been registered]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_NOT_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публикация отсутствует в нашей базе данных]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publication was not found in our database]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_ORDERED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Порядок публикации успешно изменён]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publication order was successfully changed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить выбранную публикацию?<br /><b>Внимание:</b> восстановить публикацию после удаления невозможно!]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove selected publication?<br /><b>Note:</b> you will not be able to restore publication after deleting!]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_REMOVED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публикация успешно удалена из нашей Базы Данных]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publication was successfully removed from our database]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_REMOVE_ERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[При удалении публикации возникла ошибка. Попробуйте позже либо обратитесь к администратору]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[While removing publication an error has occurred. Try later, or contact with administrator]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_REORDER_EMPTY_TAGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Чтобы изменить порядок публикаций, необходимо выбрать тэги, по которым будет производиться сортировка]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[To change the order of publications you need to select tags for which the sorting will be performed]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_REORDER_TIP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Выберите тэги, по которым хотите изменить порядок:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Choose tags by which you want to change the order:]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_UPDATED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публикация обновлена и доступна для редактирования]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publication was updated and is available for editing]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_STATIC_WRONG_REORDER_PARAMS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Неправильные параметры сортировки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Wrong parameters for sorting]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_CONTENT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[перечень доступных публикаций для управления]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list of available publications to manage]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет создавать статические публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section allows to create static publications]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_FILTER_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[позволяет ограничить список публикаций для отображения]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[allows to sort list of publications for view]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_INFORMATION_ADDED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публикация создана: <i>%s</i>]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Created: <i>%s</i>]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_INFORMATION_AUTHOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Автор: <i>%s</i>]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Author: <i>%s</i>]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_INFORMATION_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[дополнительная информация о текущей записи]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[additional information]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_INFORMATION_EDITED'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публикация редактировалась: <i>%s</i>]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Updated: <i>%s</i>]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_LIST_EMPTY'>
+	<tuv xml:lang="ru"><seg><![CDATA[По вашему запросу записей не найдено]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There are no entries matching your request]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_MODIFY_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[изменение параметров публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[editing publication params]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_NEW_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[параметры для новой публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[params for the new publication]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_DESCR_NAV'>
+	<tuv xml:lang="ru"><seg><![CDATA[настройки и текст публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[settings and text]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_FEATURED'>
+	<tuv xml:lang="ru"><seg><![CDATA[публикация будет размещена выше других]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[publication will be placed higher than others]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_GROUP'>
+	<tuv xml:lang="ru"><seg><![CDATA[какой группе открыть доступ к данной публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[which group is to be privileged to access given publication]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_PARENTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[адреса публикаций, которые связаны с текущей, разделяются запятыми и могут содержать только &laquo;a-z&raquo;, &laquo;0-9&raquo;, &laquo;/&raquo;, &laquo;_&raquo;, &laquo;.&raquo;, &laquo;-&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[addresses of publications which are linked with this one. are separated by commas and can consist only of &laquo;a-z&raquo;, &laquo;0-9&raquo;, &laquo;/&raquo;, &laquo;_&raquo;, &laquo;.&raquo;, &laquo;-&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_REWRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[адрес публикации может состоять только из символов &laquo;a-z&raquo;, &laquo;0-9&raquo;, &laquo;/&raquo;, &laquo;_&raquo;, &laquo;.&raquo;, &laquo;-&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[publication address can consist only of &laquo;a-z&raquo;, &laquo;0-9&raquo;, &laquo;/&raquo;, &laquo;_&raquo;, &laquo;.&raquo;, &laquo;-&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_SEO_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[используется поисковыми системами для лучшей индексации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[An optional paragraph to be used as the description of the page in the HTML output. This will generally display in the results of search engines.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_SEO_KEYWORDS'>
+	<tuv xml:lang="ru"><seg><![CDATA[слова через запятую]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[An optional comma-separated list of keywords and/or phrases to be used in the HTML output.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_SEO_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[будет отображено в заголовке браузера]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[will be displayed in the browser's title]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_TAGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[теги для публикации, по которым её можно легко найти. напишите, затем выберите]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[tags by which the publication can be found. type then click]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_TIMESTAMP'>
+	<tuv xml:lang="ru"><seg><![CDATA[будет отображено на сайте. если оставить пустым, система выставит текущую дату]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[this date will display on the site. left blank and system will put the current date]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_PARAMS_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[только текст, без html и специальных символов]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[only text, without html and special chars]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_REORDER_DROP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Перетащите сюда содержимое, чтобы перенести его:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Place here the entry to transfer it:]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_REORDER_DROP_NEXT'>
+	<tuv xml:lang="ru"><seg><![CDATA[на следующую страницу]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[to the next page]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_REORDER_DROP_PREV'>
+	<tuv xml:lang="ru"><seg><![CDATA[на предыдущую страницу]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[to the previous page]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля публикаций]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the Publication module]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_SEO_AUTHOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[атовр этой публикации]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[the author of this publication]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_STATIC_SEO_ROBOTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[инструкции для доступа к данным]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[rule to access a data]]></seg></tuv>
+</tu>
+
+</body></tmx>

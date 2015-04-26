@@ -1,0 +1,353 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_EVENTS_NEW'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_EVENTS')?> &rarr; <?=$this->lng->_('LBL_ADMIN_EVENTS_NEW')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_EVENTS_NEW_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/' class="cornered"
+            style="background-image: url('<?=$this->imgUrl('admin/admin.png')?>');"><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+        <?if($this->user->hasAcl(CMS_ACCESS_EVENTS_VIEW)):?>
+            <a href="/open/admin-events/" class="cornered"
+                style="background-image: url('<?=$this->imgUrl('admin/arrow-prev.png')?>');"><?=$this->lng->_('LBL_ADMIN_EVENTS')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h3><?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS')?></h3>
+    <p><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_DESCR')?></p>
+</div>
+
+<form method="post" action="/open/admin-events/" id='eventsform'>
+
+    <div class="page-content" id='work-area'>
+
+        <input type='hidden' name='action' value='update' />
+        <input type='hidden' name='id' value='<?=$this->entry['id']?>' />
+        <input type='hidden' name='referer' value='<?=Cms_Core::getReferer()?>' />
+
+        <ul>
+            <li><a href="#tab-main"><?=$this->lng->_('LBL_ADMIN_EVENTS_TAB_MAIN')?></a></li>
+            <li><a href="#tab-advanced"><?=$this->lng->_('LBL_ADMIN_EVENTS_TAB_ADVANCED')?></a></li>
+            <li><a href="#tab-media"><?=$this->lng->_('LBL_ADMIN_EVENTS_TAB_MEDIA')?></a></li>
+        </ul>
+
+        <fieldset>
+
+            <div id="tab-main">
+
+                <div class="f-row">
+                    <label for="event_title" class='req'><?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_TITLE')?></label>
+                    <div class="f-inputs">
+                        <input id='event_title' name='event_title'
+                            type="text" value="<?=$this->entry['title']?>" maxlength="255"
+                            style="width: 60%;" class="i-text" />
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="event_type" class="req">
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_TYPE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_TYPE')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <div style='margin-top: 1px;'>
+                            <select class="i-select" name="event_type" id="event_type">
+                                <option value="event"<?if($this->entry['type'] == 'event'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_EVENTS_TYPE_EVENT')?></option>
+                                <option value="promo"<?if($this->entry['type'] == 'promo'):?> selected="selected"<?endif?>><?=$this->lng->_('LBL_ADMIN_EVENTS_TYPE_PROMO')?></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="event_text" class="req">
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_DESCR')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_DESCR')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <div style='margin-top: 1px;'>
+                            <textarea id='event_text' name='event_text' cols="4" rows="4"
+                                class="i-text" style="width:380px;height: 100px;"><?=$this->entry['description']?></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="event_location">
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_WHERE')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_WHERE')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type="text" id='event_location' name='event_location'
+                            class="i-text" style="width:60%;" value="<?=$this->entry['location']?>" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="tab-advanced">
+
+                <div class="f-row">
+                    <label><?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_ACTIVE')?></label>
+                    <div class="f-inputs yes-no cleared">
+                        <p class="yes">
+                            <label for="event_active_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='event_active_yes' name='event_active'
+                                value='1'<?if($this->entry['active']):?> checked="checked"<?endif?> />
+                        </p>
+                        <p class="no">
+                            <input type="radio" id="event_active_no"
+                                name='event_active' value='0'<?if(!$this->entry['active']):?> checked="checked"<?endif?> />
+                            <label for="event_active_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="event_timestamp">
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_TIMESTAMP')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_TIMESTAMP')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <?$time = $timeTo = array('date' => '', 'hour' => '', 'part' => 'pm')?>
+                        <?$time['hour'] = '6:00';$timeTo['hour'] = '9:00';?>
+
+                        <?if($this->entry['timestamp_start']):?>
+                            <?$time['date'] = $this->timeStamp($this->entry['timestamp_start'], Cms_Date::DATE_SHORT, true)?>
+                            <?$time['hour'] = date("h:i", $this->entry['timestamp_start'])?>
+                            <?$time['part'] = date("a", $this->entry['timestamp_start'])?>
+                        <?endif?>
+
+                        <input name='event_timestamp_start' id='event_timestamp' type="text"
+                            maxlength="10" class="i-text" style='width: 90px;'
+                            value="<?=$time['date']?>" />
+
+                        <select name='event_timestamp_start_hour' class="i-select">
+                            <?for($i=12; $i>=0; $i--):?>
+                                <?$hour = sprintf('%02d', $i)?>
+                                <option value="<?=$hour?>:30"<?if($time['hour'] == "{$hour}:30"):?> selected="selected"<?endif?>><?=$hour?>:30</option>
+                                <option value="<?=$hour?>:00"<?if($time['hour'] == "{$hour}:00"):?> selected="selected"<?endif?>><?=$hour?>:00</option>
+                            <?endfor?>
+                        </select>
+
+                        <select name='event_timestamp_start_part' class="i-select">
+                            <option value="am"<?if($time['part'] == 'am'):?> selected="selected"<?endif?>>am</option>
+                            <option value="pm"<?if($time['part'] == 'pm'):?> selected="selected"<?endif?>>pm</option>
+                        </select>
+
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_TIMESTAMP_TO')?>
+
+                        <?if($this->entry['timestamp_end']):?>
+                            <?$timeTo['date'] = $this->timeStamp($this->entry['timestamp_end'], Cms_Date::DATE_SHORT, true)?>
+                            <?$timeTo['hour'] = date("h:i", $this->entry['timestamp_end'])?>
+                            <?$timeTo['part'] = date("a", $this->entry['timestamp_end'])?>
+                        <?endif?>
+
+                        <input name='event_timestamp_end' id='event_timestamp_to' type="text"
+                            maxlength="10" class="i-text" style='width: 90px;'
+                            value="<?=$timeTo['date']?>" />
+
+                        <select name='event_timestamp_end_hour' class="i-select">
+                            <?for($i=0; $i<=12; $i++):?>
+                                <?$hour = sprintf('%02d', $i)?>
+                                <option value="<?=$hour?>:00"<?if($timeTo['hour'] == "{$hour}:00"):?> selected="selected"<?endif?>><?=$hour?>:00</option>
+                                <option value="<?=$hour?>:30"<?if($timeTo['hour'] == "{$hour}:30"):?> selected="selected"<?endif?>><?=$hour?>:30</option>
+                            <?endfor?>
+                        </select>
+
+                        <select name='event_timestamp_end_part' class="i-select">
+                            <option value="am"<?if($timeTo['part'] == 'am'):?> selected="selected"<?endif?>>am</option>
+                            <option value="pm"<?if($timeTo['part'] == 'pm'):?> selected="selected"<?endif?>>pm</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="f-row cleared">
+                    <label>
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_POPUP')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_POPUP')?></span>
+                    </label>
+                    <div class="f-inputs yes-no" style="float: left;">
+                        <p class="yes">
+                            <label for="event_popup_yes"><?=$this->lng->_('LBL_ADMIN_YES')?></label>
+                            <input type="radio" id='event_popup_yes' name='event_popup'
+                                value='1'<?if($this->entry['popup']):?> checked="checked"<?endif?> />
+                        </p>
+                        <p class="no">
+                            <input type="radio" id="event_popup_no"
+                                name='event_popup' value='0'<?if(!$this->entry['popup']):?> checked="checked"<?endif?> />
+                            <label for="event_popup_no"><?=$this->lng->_('LBL_ADMIN_NO')?></label>
+                        </p>
+                    </div>
+                    <div style="float: left;margin-top: 2px;margin-left: 5px;" id='button-preview' class="hidden">
+                        <a class="button button-with-icon icon-preview"
+                                style="float: left;"><?=$this->lng->_('LBL_ADMIN_EVENTS_PREVIEW')?></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="tab-media">
+                <div class="f-row">
+                    <label for="event_media_document">
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_MEDIA_DOC')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_MEDIA_DOC')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' name='event_media[document]' id="event_media_document" class='i-text'
+                            value='<?=$this->entry['options']['document']?>' style='width: 350px;' readonly="readonly" />
+                        <input type="button" id="event_media_document_select" class="button button-with-icon icon-folder"
+                            value="<?=$this->lng->_('LBL_ADMIN_SELECT')?>" />
+                        <input type="button" id="event_media_document_reset" class="button button-with-icon icon-reset"
+                            value="<?=$this->lng->_('LBL_ADMIN_GALLERY_RESET')?>" />
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="event_media_picture">
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_MEDIA_PIC')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_MEDIA_PIC')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' name='event_media[picture]' id="event_media_picture" class='i-text'
+                            value='<?=$this->entry['options']['picture']?>' style='width: 350px;' title="gif,jpeg,jpg,png" readonly="readonly" />
+                        <input type="button" id="event_media_picture_select" class="button button-with-icon icon-folder"
+                            value="<?=$this->lng->_('LBL_ADMIN_SELECT')?>" />
+                        <input type="button" id="event_media_picture_reset" class="button button-with-icon icon-reset"
+                            value="<?=$this->lng->_('LBL_ADMIN_GALLERY_RESET')?>" />
+                    </div>
+                </div>
+
+                <div class="f-row">
+                    <label for="event_media_thumbnail">
+                        <?=$this->lng->_('LBL_ADMIN_EVENTS_PARAMS_MEDIA_THUMB')?>
+                        <span><?=$this->lng->_('TXT_ADMIN_EVENTS_PARAMS_MEDIA_THUMB')?></span>
+                    </label>
+                    <div class="f-inputs">
+                        <input type='text' name='event_media[thumbnail]' id="event_media_thumbnail" class='i-text'
+                            value='<?=$this->entry['options']['thumbnail']?>' style='width: 350px;' title="gif,jpeg,jpg,png" readonly="readonly" />
+                        <input type="button" id="event_media_thumbnail_select" class="button button-with-icon icon-folder"
+                            value="<?=$this->lng->_('LBL_ADMIN_SELECT')?>" />
+                        <input type="button" id="event_media_thumbnail_reset" class="button button-with-icon icon-reset"
+                            value="<?=$this->lng->_('LBL_ADMIN_GALLERY_RESET')?>" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+
+    <div class="f-submit" style='margin-top: 10px;'>
+        <input type="button" value="<?=$this->lng->_('LBL_ADMIN_BTN_CANCEL')?>"
+            class="button button-with-icon icon-cancel" id="button-cancel"
+                style="float: right;" />
+
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE')?>"
+            class="button button-with-icon icon-save" name="saveAndEdit" />
+
+        <input type="submit" value="<?=$this->lng->_('LBL_ADMIN_BTN_SAVE_GOLIST')?>"
+            class="button button-with-icon icon-folder" name="saveAndGoList" />
+    </div>
+
+</form>
+
+<?$this->headScript()->appendFile('/htdocs/3dparty/tiny_mce/jquery.tinymce.js')?>
+
+<?$this->headLink()->appendStylesheet($this->cssUrl('jui.datepicker,jui.tabs'))?>
+
+<?$this->headScript()->appendFile($this->jsUrl('jui.tabs,jui.datepicker' . ($this->input->lng != 'en' ? ',jui.datepicker-' . $this->input->lng : '')))?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function(){
+        kkcms.attachEditor('event_text');
+
+        jQuery('#work-area').tabs();
+
+        var $dates = jQuery('#event_timestamp,#event_timestamp_to').datepicker({
+            showAnim: '',
+            numberOfMonths: 3,
+            yearRange: 'c-2:c+2',
+            defaultDate: '-1m',
+            showOn: 'both',
+            showWeek: true,
+            changeYear: true,
+            showOtherMonths: true,
+            buttonImage: '<?=$this->imgUrl('calendar.png')?>',
+            buttonImageOnly: true,
+            onSelect: function(selectedDate) {
+                var option = this.id == "event_timestamp" ? "minDate" : "maxDate",
+                    instance = $(this).data("datepicker"),
+                    date = $.datepicker.parseDate(
+                        instance.settings.dateFormat ||
+                        $.datepicker._defaults.dateFormat,
+                        selectedDate, instance.settings );
+                $dates.not(this).datepicker("option", option, date);
+            }
+        });
+
+        jQuery('#button-preview a').live('click', function() {
+            var titleText = jQuery('#event_title').val();
+            if (!titleText) {
+                return false;
+            }
+
+            var text = jQuery('#event_text').val();
+            if (!text) {
+                text = titleText;
+                titleText = "&nbsp;";
+            }
+
+            kkcms.boxy.setOptions({
+                modal: true,
+                title: titleText
+            }).dialog("<div style='width: 400px;overflow: hidden;'>" + text + "</div>");
+
+            return false;
+        });
+
+        jQuery('#event_popup_yes,#event_popup_no').live('click', function() {
+            if (jQuery(this).val() == '1') {
+                jQuery('#button-preview').fadeIn();
+            } else {
+                jQuery('#button-preview').fadeOut();
+            }
+        });
+
+        jQuery('#event_media_document_select,#event_media_picture_select,#event_media_thumbnail_select').live('click', function() {
+            var prevObj = jQuery(this).prev();
+            window.open(
+                '/open/admin-index/?action=elfinder&inputid=' +
+                prevObj.attr('id') + '&extensions=' + prevObj.attr('title'),
+                'fileDialog', 'width=900,height=440'
+            );
+        });
+
+        jQuery('#event_media_document_reset,#event_media_picture_reset,#event_media_thumbnail_reset').live('click', function() {
+            jQuery(this).parent().find('input:text').val('');
+        });
+
+        jQuery('#eventsform').bind('submit', function() {
+            $title = jQuery('#event_title', this);
+            $text = jQuery('#event_text', this);
+
+            if (!$title.val()) {
+                kkcms.effect.blink($title);
+                return false;
+            }
+
+            if (!$text.val()) {
+                return false;
+            }
+
+            return true;
+        });
+
+        jQuery('#button-cancel').live('click', function() {
+            kkcms.redirect('<?=Cms_Core::getReferer()?>');
+        });
+    });
+<?$this->headScript()->captureEnd()?>

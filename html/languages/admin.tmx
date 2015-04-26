@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.6.0b3"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='ACCESS_ACP_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить открывать "Панель управления" (основная опция)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to open "Admin area" (main option)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_BTN_CANCEL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отмена]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Cancel]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_BTN_SAVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сохранить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Apply]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_BTN_SAVE_GOLIST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сохранить &amp; Закрыть]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Apply &amp; Close]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_BTN_SAVE_PREVIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сохранить &amp; Просмотреть]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Apply &amp; Preview]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_CANCEL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Отмена]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Cancel]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_CONTINUE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Продолжить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Continue]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_DIALOG_ACTIONS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Доступные действия]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Actions available]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_DIALOG_ASK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вопрос]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Question]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_DIALOG_CLOSE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Закрыть]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Close]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_DIALOG_CONFIRM'>
+	<tuv xml:lang="ru"><seg><![CDATA[Пожалуйста, подтвердите]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Please, confirm]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_DIALOG_MSG'>
+	<tuv xml:lang="ru"><seg><![CDATA[Сообщение системы]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[System message]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_DIALOG_RESULT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Результат]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Summary]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GO_BACK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вернуться назад]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Go back]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_GO_TO_LIST'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вернуться к списку]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Go back to list]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_HOME'>
+	<tuv xml:lang="ru"><seg><![CDATA[Главная страница]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Admin home]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_LOGOUT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Выйти]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Logout]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NO'>
+	<tuv xml:lang="ru"><seg><![CDATA[Нет]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[No]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_OK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Ok]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Ok]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PAGER_FIRST'>
+	<tuv xml:lang="ru"><seg><![CDATA[&laquo; первая]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[&laquo; first]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PAGER_FROM'>
+	<tuv xml:lang="ru"><seg><![CDATA[из]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[from]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PAGER_LAST'>
+	<tuv xml:lang="ru"><seg><![CDATA[последняя &raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[last &raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PAGER_NEXT'>
+	<tuv xml:lang="ru"><seg><![CDATA[дальше &rsaquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[next &rsaquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PAGER_PREV'>
+	<tuv xml:lang="ru"><seg><![CDATA[&lsaquo; назад]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[&lsaquo; back]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_PAGER_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Показано]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Displayed]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_SELECT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Выберите&hellip;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Please, select&hellip;]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_YES'>
+	<tuv xml:lang="ru"><seg><![CDATA[Да]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Yes]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_DIALOG_ACTION_NOT_EXISTS'>
+	<tuv xml:lang="ru"><seg><![CDATA[В системе нет данного функционала, возможно он отключен администратором либо в разработке.<br />Попробуйте выполнить операцию позже]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There is no such functionality in the system, perhaps it was deactivated by administrator or is in development.<br />Try later]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_DIALOG_ERROR'>
+	<tuv xml:lang="ru"><seg><![CDATA[В результате выполнения операции возникли ошибки]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Errors were encountered while executing operation]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_DIALOG_HAVENT_ACCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[У вас нет прав для выполнения этой операции либо нет доступа к данному разделу.<br />В любом случае доступ к функционалу намеренно ограничен]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You have no rights for this operation, or you have no access to this section.<br />In any case access to the functionality was deliberately limited]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_DIALOG_INFO'>
+	<tuv xml:lang="ru"><seg><![CDATA[Операция выполнена с последующими инструкциями]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Operation was done with following instructions]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_DIALOG_NOTICE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Операция выполнена с некоторыми замечаниями]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Operation was done with some remarks]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_DIALOG_SUCCESS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Операция успешно выполнена]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Operation was successfully done]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_DIALOG_ACTIONS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[варианты для перенаправления]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[options for redirect]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_DIALOG_MSG_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[информация для дальнейших действий]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[information for further actions]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_GO_SITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[перейти на сайт]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[go to site]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Общий файл для панели управления администратора]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Common file for backend]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Панель управления]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Admin area]]></seg></tuv>
+</tu>
+
+</body></tmx>

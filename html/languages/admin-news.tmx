@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+<header creationtoolversion="0.5.8.1"
+                    datatype="winres" segtype="sentence" adminlang="en"
+                    srclang="en" o-tmf="abc" creationtool="kkcms">
+                    </header>
+<body>
+
+
+<tu tuid='LBL_ADMIN_NEWS_EDIT_FULL'>
+	<tuv xml:lang="ru"><seg><![CDATA[Расширенная правка]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Extended Edit
+]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_NEWS_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить редактировать новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to edit news]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_NEWS_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить создавать новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to create news]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_NEWS_PUBLISH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить метить новости опубликованными]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to mark news as published]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_NEWS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить удалять новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to delete news]]></seg></tuv>
+</tu>
+
+<tu tuid='ACCESS_ACP_NEWS_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Разрешить просматривать новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Allow to view news]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[News]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_ADV'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дополнительные параметры]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Advanced Settings]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Содержимое]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Content]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_EDIT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Изменить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Modify]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_NEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Добавить новость]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Add new News Article]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_OPTIONS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Параметры новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Parameters for your News Article]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_PARAMS_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Текст новости:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[News Article text:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_PARAMS_PUBLISH'>
+	<tuv xml:lang="ru"><seg><![CDATA[Публиковать новость?]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Publish News Article?]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_PARAMS_REWRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Адрес на сайте:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Address on the site:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_PARAMS_REWRITE_PREV'>
+	<tuv xml:lang="ru"><seg><![CDATA[Адрес:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Address:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_PARAMS_TAGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[Тэги:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Tags:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_PARAMS_TIMESTAMP'>
+	<tuv xml:lang="ru"><seg><![CDATA[Время публикации новости:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Date your News Article was written:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_PARAMS_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Название новости:]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Title of your News Article:]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_TAB_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Текст новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Contents of the News Article]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_TAB_MAIN'>
+	<tuv xml:lang="ru"><seg><![CDATA[Основная информация]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Main information]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_TAB_SEO'>
+	<tuv xml:lang="ru"><seg><![CDATA[Индексация (SEO)]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Indexation (SEO)]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_TBL_AUTHOR'>
+	<tuv xml:lang="ru"><seg><![CDATA[Автор]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Author]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_TBL_DATE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Дата]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Date]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_TBL_MANAGE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Управление]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Manage]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_TBL_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Заголовок новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[News Title]]></seg></tuv>
+</tu>
+
+<tu tuid='LBL_ADMIN_NEWS_VIEW'>
+	<tuv xml:lang="ru"><seg><![CDATA[Просмотр]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Preview]]></seg></tuv>
+</tu>
+
+<tu tuid='MSG_ADMIN_NEWS_REMOVE'>
+	<tuv xml:lang="ru"><seg><![CDATA[Удалить выбранную новость?<br /><b>Внимание:</b> восстановить новость после удаления невозможно!]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[Remove selected news?<br /><b>Note:</b> you will not be able to restore News Article after deleting!]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_CONTENT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[список доступных новостей]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[list of news articles]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет управлять новостями]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section helps to manage news]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_EDIT_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет изменять новость]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section helps to modify news article]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_LIST_EMPTY'>
+	<tuv xml:lang="ru"><seg><![CDATA[По вашему запросу записей не найдено]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[There are no entries matching your request]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_NEW_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[раздел позволяет создать новую новость]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[section allows to create new news article]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_OPTIONS_DESCR'>
+	<tuv xml:lang="ru"><seg><![CDATA[настройки и текст новости]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[your news articles settings and text]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_PARAMS_CONTENT'>
+	<tuv xml:lang="ru"><seg><![CDATA[Вы можете управлять длиной текста. Если новость содержит много информации, добавьте в текст &laquo;Page Break&raquo;. Система автоматически обрежет текст до этого места и вставит ссылку (&laquo;читать полностью&raquo;). При клике по ссылке будет показан полный текст.<br /><br />
+<b>Как вставить Page Break:</b><br />
+1. Введите полный текст новости.<br />
+2. Поставьте курсор на позицию, куда следует вставить сcылку и обрезать текст. Нажмите на иконку редактора.<br />
+3. Должен появиться разделитель, который покажет, что текст будет обрезан в этом месте.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[You have the ability to manage your article lengths. If you have an article that is really long, add a &laquo;Page Break&raquo;. 
+Doing so will automatically truncate your article where your Page Break was placed. When a Page Break is inserted, the system will automatically add a link (&laquo;click here for full article&raquo;) which when clicked will take the user to the full article.<br /><br />
+<b>Steps to insert a Page Break:</b><br />
+1. Enter your Article text, imagery, links etc.<br />
+2. Place your cursor where you want to have your Page Break and click the Page Break icon.<br />
+3. You should see a line added to your copy area which indicates where the page will be divided.]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_PARAMS_REWRITE'>
+	<tuv xml:lang="ru"><seg><![CDATA[дрес публикации может состоять только из символов &laquo;a-z&raquo;, &laquo;0-9&raquo;, &laquo;/&raquo;, &laquo;_&raquo;, &laquo;.&raquo;, &laquo;-&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[publication address can consist only of &laquo;a-z&raquo;, &laquo;0-9&raquo;, &laquo;/&raquo;, &laquo;_&raquo;, &laquo;.&raquo;, &laquo;-&raquo;]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_PARAMS_TAGS'>
+	<tuv xml:lang="ru"><seg><![CDATA[теги для новости, по которым её можно легко найти. напишите, затем выберите]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[tags by which the news can be found. type then click]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_PARAMS_TIMESTAMP'>
+	<tuv xml:lang="ru"><seg><![CDATA[будет отображено на сайте. если оставить пустым, система выставит текущую дату]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[this date will display on the site. left blank and system will put the current date]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_PARAMS_TITLE'>
+	<tuv xml:lang="ru"><seg><![CDATA[будет отображено в заголовке браузера и на сайте]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[title will display on the main site]]></seg></tuv>
+</tu>
+
+<tu tuid='TXT_ADMIN_NEWS_SELF_DESCRIPTION'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл с записями для модуля &laquo;Новости&raquo;]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File with records for the &laquo;News&raquo; module]]></seg></tuv>
+</tu>
+
+</body></tmx>

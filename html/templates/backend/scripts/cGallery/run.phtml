@@ -1,0 +1,87 @@
+<?$this->headTitle($this->lng->_('LBL_ADMIN_GALLERY'))?>
+
+<div class="page-title">
+    <h1><?=$this->lng->_('LBL_ADMIN_GALLERY')?></h1>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div class='admin-nav cleared'>
+        <a href='/open/admin-index/' class="cornered"
+            style='background-image: url("<?=$this->imgUrl('admin/admin.png')?>"); float: right;'><?=$this->lng->_('LBL_ADMIN_HOME')?></a>
+
+        <?if($this->user->hasAcl(CMS_ACCESS_GALLERY_COLLECTIONS_FB_SYNC)):?>
+            <a href="/open/admin-gallery/?action=fbsync" class="cornered"
+                style='background-image: url("<?=$this->imgUrl('admin/gallery/fb-sync.png')?>");'><?=$this->lng->_('LBL_ADMIN_GALLERY_FB_SYNC')?></a>
+        <?endif?>
+    </div>
+</div>
+
+<div class="page-title">
+    <h2><?=$this->lng->_('LBL_ADMIN_GALLERY_COLLECTIONS')?></h2>
+    <p><?=$this->lng->_('TXT_ADMIN_GALLERY_COLLECTIONS_DESCR')?></p>
+</div>
+
+<div class="page-content">
+    <div id='collections' class="cleared">
+        <?$db = new Cms_Db_Gallery()?>
+
+        <?foreach ($this->paginator as $entry):?>
+            <?php
+                $tag = current(Cms_Tags::decode($entry->tags, true));
+
+                $items = $db->getCollectionItemsCountByTag($tag);
+
+                $class = '';
+                if ($items > 30) {
+                    $class = ' orange';
+                }
+
+                if ($items > 100) {
+                    $class = ' red';
+                }
+            ?>
+            <div class="entry cornered<?=$class?>" onclick="kkcms.redirect('/open/admin-gallery/?action=collection&amp;tags=<?=urlencode($tag)?>')">
+                <p>
+                    <strong><?=trim($entry->collection, '][')?></strong>
+                    <span>
+                        <?=sprintf(
+                            $this->lng->_('LBL_ADMIN_GALLERY_COLLECTION_ITEMS'), $items
+                        )?>
+                    </span>
+                </p>
+            </div>
+        <?endforeach?>
+    </div>
+</div>
+
+<?=$this->paginationControl(
+    $this->paginator, null, null, array(
+        'url' => "/open/admin-gallery/?sofar=",
+        'lng' => $this->lng
+    )
+)?>
+
+<?$this->headScript()->captureStart()?>
+    jQuery(document).ready(function () {
+        jQuery('#collections div.entry').hover(function () {
+            jQuery(this).addClass('active')
+        }, function () {
+            jQuery(this).removeClass('active')
+        });
+
+        jQuery('#collections div.entry:odd').addClass('odd');
+        jQuery('#collections div.entry:even').addClass('even');
+    });
+<?$this->headScript()->captureEnd()?>
+
+<?$this->headStyle()->captureStart()?>
+    #collections{  }
+    #collections div.entry{ margin: 1px; padding: 10px; text-align: center; height: 50px; width: 135px; float: left; padding-top: 65px; background: url('/htdocs/images/admin/gallery/collection-blue.png') 55% 10px no-repeat; }
+    #collections div.entry strong{ display: block; height: 30px; font-size: 90%; }
+    #collections div.entry span{ display: block; }
+    #collections div.active{ background-color: #CCC!important; cursor: pointer; }
+    #collections div.odd{ background-color: #F5F5F5; }
+    #collections div.orange{ background-image: url('/htdocs/images/admin/gallery/collection-orange.png'); }
+    #collections div.red{ background-image: url('/htdocs/images/admin/gallery/collection-red.png'); }
+<?$this->headStyle()->captureEnd()?>
