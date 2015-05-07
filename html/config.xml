@@ -55,8 +55,8 @@
         <synchronize>
           <disabled>1</disabled>
         </synchronize>
-        <apikey>873262672719939</apikey>
-        <secret>7f75698528941482cfcfec6e7e401b91</secret>
+        <apikey>239577979411441</apikey>
+        <secret>14880f3befd04accdca3fbd233a7d198</secret>
       </facebook>
     </thirdparty>
     <modules>
@@ -72,7 +72,7 @@
         <archive>bzip,zip,tar,rar,gz,7z</archive>
         <deny>exe,php,sh,pl,py,cgi,bat,bin,cmd</deny>
         <facebook>
-          <pages>10denzatest</pages>
+          <pages>10denza</pages>
         </facebook>
       </gallery>
       <news>
@@ -172,8 +172,8 @@
         <synchronize>
           <disabled>0</disabled>
         </synchronize>
-        <apikey>873262672719939</apikey>
-        <secret>7f75698528941482cfcfec6e7e401b91</secret>
+        <apikey>239577979411441</apikey>
+        <secret>14880f3befd04accdca3fbd233a7d198</secret>
       </facebook>
     </thirdparty>
     <modules>
@@ -189,7 +189,7 @@
         <archive>bzip,zip,tar,rar,gz,7z</archive>
         <deny>exe,php,sh,pl,py,cgi,bat,bin,cmd</deny>
         <facebook>
-          <pages>10denzatest</pages>
+          <pages>10denza</pages>
         </facebook>
       </gallery>
       <news>

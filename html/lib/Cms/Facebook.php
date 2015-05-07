@@ -12,10 +12,41 @@
  * @author   Kanstantsin A Kamkou (2ka.by)
  * @license  http://creativecommons.org/licenses/by-nc-nd/3.0/legalcode
  */
+require_once( 'ThirdParty/Facebook/FacebookSession.php' );
+require_once('ThirdParty/Facebook/FacebookSession.php');
+require_once('ThirdParty/Facebook/FacebookRedirectLoginHelper.php');
+require_once('ThirdParty/Facebook/FacebookRequest.php');
+require_once('ThirdParty/Facebook/FacebookResponse.php');
+require_once('ThirdParty/Facebook/FacebookSDKException.php');
+require_once('ThirdParty/Facebook/FacebookRequestException.php');
+require_once( 'ThirdParty/Facebook/FacebookPermissionException.php' );
+require_once('ThirdParty/Facebook/FacebookAuthorizationException.php');
+require_once('ThirdParty/Facebook/GraphObject.php');
+require_once('ThirdParty/Facebook/GraphUser.php');
+require_once('ThirdParty/Facebook/GraphSessionInfo.php');
 
-require_once 'ThirdParty/Facebook/base_facebook.php';
+require_once( 'ThirdParty/Facebook/HttpClients/FacebookHttpable.php' );
+require_once( 'ThirdParty/Facebook/HttpClients/FacebookCurl.php' );
+require_once( 'ThirdParty/Facebook/HttpClients/FacebookCurlHttpClient.php' );
+require_once( 'ThirdParty/Facebook/Entities/AccessToken.php' );
+require_once( 'ThirdParty/Facebook/Entities/SignedRequest.php' );
 
-class Cms_Facebook extends BaseFacebook
+
+
+
+use Facebook\FacebookSession;
+use Facebook\FacebookRedirectLoginHelper;
+use Facebook\FacebookRequest;
+use Facebook\FacebookResponse;
+use Facebook\FacebookSDKException;
+use Facebook\FacebookRequestException;
+use Facebook\FacebookAuthorizationException;
+use Facebook\GraphObject;
+use Facebook\GraphUser;
+use Facebook\GraphSessionInfo;
+
+
+class Cms_Facebook
 {
     /**
      * Supported keys
@@ -42,6 +73,12 @@ class Cms_Facebook extends BaseFacebook
      * @var Zend_Session_Namespace
      */
     protected $_session;
+    
+    /**
+     * Session storage
+     * @var Zend_Session_Namespace
+     */
+    protected $_fbSession;
 
     /**
      * Default permissions
@@ -53,6 +90,7 @@ class Cms_Facebook extends BaseFacebook
         'user_about_me',
         'user_photos',
         'manage_pages',
+        'publish_pages',
         'publish_actions'
     );
 
@@ -74,21 +112,47 @@ class Cms_Facebook extends BaseFacebook
 
         $this->_secretKey = Cms_Config::getInstance()->thirdparty
             ->facebook->secret;
-
-        // session sorage
+        
         $this->_session = new Zend_Session_Namespace(__CLASS__, true);
         $this->_session->setExpirationSeconds(60 * 60 * 3);
-
+        
         // facebook client
-        parent::__construct(
-            array_merge(
-                array(
-                    'appId' => $this->_appId,
-                    'secret'=> $this->_secretKey
-                ),
-                $options
-            )
-        );
+        FacebookSession::setDefaultApplication( $this->_appId, $this->_secretKey );
+        // session sorage
+        if (!$this->_session->access_token) { 
+            if (!$options['redirect_uri']) {
+                $options['redirect_uri'] = "http://$_SERVER[HTTP_HOST]/open/admin-gallery/?action=fbsync";
+            }
+            $helper = new FacebookRedirectLoginHelper($options['redirect_uri'] );
+            try {
+                $session = $helper->getSessionFromRedirect();
+
+            } catch(FacebookRequestException $ex) {
+                var_dump($ex->getMessage()); exit();
+            } catch(\Exception $ex) {
+                var_dump($ex->getMessage()); exit();
+            }
+            if ($session) {
+                $request = new FacebookRequest($session, 'GET', '/me/accounts?fields=name,access_token,perms');
+                $pageList = $request->execute()
+                  ->getGraphObject()
+                  ->asArray();
+                
+                foreach ($pageList as $pages) {
+                    foreach ($pages as $page) {
+                        if ($page->name == '10denza') {
+                            $this->_session->access_token = $page->access_token;
+                        }
+                    }
+                }
+            } else {
+                $loginUrl = $helper->getLoginUrl($this->_permissions);
+                header("location:".$loginUrl);
+                exit;
+            }
+        }
+
+        
 
         // cache object
         $this->_permissionsCache = new Cms_Cache_File(
@@ -123,7 +187,9 @@ class Cms_Facebook extends BaseFacebook
         }
 
         if (!is_numeric($fbUserId)) {
-            $fbUserId = $this->getUser();
+            $response = (new FacebookRequest($this->_fbSession, 'GET', '/me'))->execute();
+            $user = $response->getGraphObject(GraphUser::className());
+            $fbUserId = $user->getId();
         }
 
         $id = hash('crc32', serialize($permissions) . $fbUserId);
@@ -139,7 +205,6 @@ class Cms_Facebook extends BaseFacebook
             }
 
             $res = true;
-            
             foreach ($permissions as $permission) {
                 $key = false;
                 foreach ($result['data'] as $data) { 
@@ -149,10 +214,10 @@ class Cms_Facebook extends BaseFacebook
                 }
                 if ($key == FALSE) {
                     $res = false;
-                    
-                } 
-            } 
-            
+                    break;
+                }
+            }
+
             $this->_permissionsCache->save(
                 array('result' => $res),
                 $id,
@@ -163,27 +228,6 @@ class Cms_Facebook extends BaseFacebook
 
     }
 
-    /**
-     * Get a Login URL for use with redirects.
-     *
-     * @param  string $redirectUri (Default: null)
-     * @param  array  $perms (Default: array())
-     * @return string The URL for the login flow
-     * @see BaseFacebook::getLoginUrl
-     */
-    public function getLoginUrl($redirectUri = null, array $perms = array()) {
-        // default params
-       $params = array(
-            'scope' => implode(',', $this->_permissions)
-        );
-
-        // adding uri to return
-        if ($redirectUri) {
-            $params['redirect_uri'] = $redirectUri;
-        }
-
-        return parent::getLoginUrl($params);
-    }
 
     /**
      * Get a Logout URL suitable for use with redirects.
@@ -221,7 +265,7 @@ class Cms_Facebook extends BaseFacebook
     protected function getPersistentData($key, $default = false)
     {
         if (!in_array($key, self::$_fbSupportedKeys)) {
-            self::errorLog('Unsupported key passed to getPersistentData.');
+            echo 'Unsupported key passed to getPersistentData.';
             return $default;
         }
 
@@ -249,6 +293,84 @@ class Cms_Facebook extends BaseFacebook
 
     protected function constructSessionVariableName($key)
     {
-        return implode('_', array('fb', $this->getAppId(), $key));
+        return implode('_', array('fb', $this->_appId, $key));
+    }
+    
+    public function getAction ($address, array $options = array()) {
+        
+        $access_token = $this->_session->access_token;
+        if ($access_token) {
+            $session = new FacebookSession($access_token);
+            
+            try {
+                $session->validate();
+            } catch (FacebookRequestException $ex) {
+                // Session not valid, Graph API returned an exception with the reason.
+                echo $ex->getMessage();
+            } catch (\Exception $ex) {
+                // Graph API returned info, but it may mismatch the current app or have expired.
+                echo $ex->getMessage();
+            }
+            return $request = (new FacebookRequest(
+                $session,
+                'GET',
+                $address
+            ))->execute()->getGraphObject();
+        } else {
+            
+        }
+    }
+    
+    public function postAction ($address, array $options = array()) {
+        
+        $access_token = $this->_session->access_token;
+        if ($access_token) {
+            $session = new FacebookSession($access_token);
+            
+            try {
+                $session->validate();
+            } catch (FacebookRequestException $ex) {
+                // Session not valid, Graph API returned an exception with the reason.
+                echo $ex->getMessage();
+            } catch (\Exception $ex) {
+                // Graph API returned info, but it may mismatch the current app or have expired.
+                echo $ex->getMessage();
+            }
+            
+              return $request = (new FacebookRequest(
+                $session,
+                'POST',
+                $address,
+                $options
+            ))->execute()->getGraphObject();
+        } else {
+            
+        }
+    }
+    
+    public function deleteAction($address, $options)
+    {
+        $access_token = $this->_session->access_token;
+        if ($access_token) {
+            $session = new FacebookSession($access_token);
+            
+            try {
+                $session->validate();
+            } catch (FacebookRequestException $ex) {
+                // Session not valid, Graph API returned an exception with the reason.
+                echo $ex->getMessage();
+            } catch (\Exception $ex) {
+                // Graph API returned info, but it may mismatch the current app or have expired.
+                echo $ex->getMessage();
+            }
+            return $request = (new FacebookRequest(
+                $session,
+                'DELETE',
+                $address
+            ))->execute()->getGraphObject();
+        } else {
+            
+        }
+        
     }
 }

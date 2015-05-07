@@ -141,48 +141,46 @@ class Admin_cGallery extends Cms_Module_Admin
         $fb = Cms_Facebook_Api::init(array('user_photos'));
         $modelFbGallery = new Cms_Model_Facebook_Gallery();
         $modelFbAlbums  = new Cms_Model_Facebook_Albums();
-
         foreach ($set as $pageId) {
             $albumInfo = $fb->fetchAlbums($pageId);
-            if (empty($albumInfo['data'])) {
+            if (empty($albumInfo->getProperty('data'))) {
                 continue;
             }
 
-            foreach ($albumInfo['data'] as $album) {
+            foreach ($albumInfo->getProperty('data')->asArray() as $album) {
 
-                $photosInfo = $fb->fetchAlbumPhotos($album['id'], array('limit' => 1000000));
-
-                if (empty($photosInfo['data'])) {
+                $photosInfo = $fb->fetchAlbumPhotos($album->id);
+                if (empty($photosInfo->getProperty('data'))) {
                     continue;
                 }
 
                 $modelFbAlbums->save(
-                    $album['id'],
-                    Cms_Tags::encode($album['name'])
+                    $album->id,
+                    Cms_Tags::encode($album->name)
                 );
 
-                foreach ($photosInfo['data'] as $photo) {
-
+                foreach ($photosInfo->getProperty('data')->asArray() as $photo) {
+                   
                     $result = $this->_storeFbImage(
-                        $photo['id'],
-                        $album['id'],
-                        $photo['images'][0]['source'],
-                        $album['name'],
-                        @$photo['name']
+                        $photo->id,
+                        $album->id,
+                        $photo->images[0]->source,
+                        $album->name,
+                        @$photo->name
                     );
-
+ 
                     $modelFbGallery->save(
                         $result->imageId,
-                        $photo['id'],
-                        $album['id'],
-                        $photo['from']['id'] . '_' . $photo['id']
+                        $photo->id,
+                        $album->id,
+                        $photo->from->id . '_' . $photo->id
                     );
 
                     if ($result->code > 0) {
                         $this->_messageManager->store(
                             Cms_Message_Format_Plain::success(sprintf(
                                 $lng->_('MSG_ADMIN_GALLERY_FB_IMG_SUCCESS'),
-                                $photo['id'], $album['name']
+                                $photo->id, $album->name
                             ))
                         );
                     }
@@ -201,7 +199,9 @@ class Admin_cGallery extends Cms_Module_Admin
 
     public function collectionAction()
     {
-        $fb = Cms_Facebook_Api::init(array('user_photos', 'manage_pages'));
+        $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $redirect_uri = explode('&code=', $url);
+        $fb = Cms_Facebook_Api::init(array('user_photos', 'manage_pages'), array('redirect_uri' => $redirect_uri[0]));
 
         $perPage = intval($this->_input->perpage);
         if ($perPage > 10 || $perPage == 0) {
@@ -306,7 +306,9 @@ class Admin_cGallery extends Cms_Module_Admin
     {
         $this->_layout->content = $this->_tpl
             ->render($this->getTemplate(__FUNCTION__));
-        Cms_Facebook_Api::init();
+        $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $redirect_uri = explode('&code=', $url); 
+        Cms_Facebook_Api::init(array(), array('redirect_uri' => $redirect_uri[0]));
         echo $this->_layout->render();
     }
 
@@ -314,12 +316,13 @@ class Admin_cGallery extends Cms_Module_Admin
     {
         $fbAlbumModel   = new Cms_Model_Facebook_Albums();
         $fbGalleryModel = new Cms_Model_Facebook_Gallery();
-
+        
+        $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $redirect_uri = explode('&code=', $url); 
         $fb = Cms_Facebook_Api::init(
             array('user_photos', 'manage_pages'),
-            array('fileUpload' => true)
+            array('redirect_uri' => $redirect_uri[0])
         );
-        $fbAccessToken = $fb->getAccessToken();
 
         // dialog object
         $dialog = Cms_Dialog::getInstance();
@@ -422,28 +425,20 @@ class Admin_cGallery extends Cms_Module_Admin
                         $fbAlbumId = $fbAlbumModel->fetchIdByTag(
                             Cms_Tags::encode($tag)
                         );
-                        $accounts = $fb->fetchAccounts();
                         try {
-                            $accounts = $fb->fetchAccounts();
-                            
-                                foreach($accounts['data'] as $data) {
-                                    if ($data['name'] == '10denza') {
-                                    $accessToken = $data['access_token'];
-                                }
-                            }
                             $fbImageRes = $fb->addPhotoInAlbum(
-                                $fbAlbumId,
+                                $fbAlbumId,   
                                 array(
-                                    'access_token' => $accessToken,
-                                    'source'       => '@' . $pathFull,
-                                    'from'         => Cms_Config::getInstance()->modules->gallery->facebook->pages
+                                    'source'        => new CURLFile($pathFull, 'image/png'),
+                                    'message'       => $this->_input->file_descr
                                 )
                             );
+                            
                             $fbGalleryModel->save(
                                 $imageId,
-                                $fbImageRes['id'],
+                                $fbImageRes->getProperty('id'),
                                 $fbAlbumId,
-                                $fbImageRes['post_id']
+                                $fbImageRes->getProperty('post_id')
                             );
                         } catch (Exception $e) {
                             error_log($e->getMessage() . $e->getTraceAsString());
@@ -531,15 +526,16 @@ class Admin_cGallery extends Cms_Module_Admin
 
     public function removeAction()
     {
-        $fb = Cms_Facebook_Api::init(array('user_photos', 'publish_actions', 'manage_pages'));
-        $fbAccessToken = $fb->getAccessToken();
+        $fbUploaded = false;
+        $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $redirect_uri = explode('&code=', $url);
+        $fb = Cms_Facebook_Api::init(array('user_photos', 'publish_actions', 'manage_pages'), array('redirect_uri' => $redirect_uri[0]));
 
         $id     = intval($this->_input->id);
         $dialog = Cms_Dialog::getInstance();
 
         $db = new Cms_Db_Gallery();
         $f  = $db->getById($id);
-
         if (!$f) {
             $dialog->construct(
                 'MSG_ADMIN_GALLERY_NOT_FOUND',
@@ -563,28 +559,18 @@ class Admin_cGallery extends Cms_Module_Admin
         $fbImageRow     = $fbGalleryModel->fetchByImageId($id);
 
         try {
-$accounts = $fb->fetchAccounts();
-foreach($accounts['data'] as $data) {
-if ($data['name'] == '10denza') {
-$accessToken = $data['access_token'];
-}
-}
+
+
             $fb->removeObject(
-                $fbImageRow->fbImageId,
-                array('access_token' => $accessToken)
+                $fbImageRow->fbImageId
             );
         } catch (Exception $e) {
+            if ($e->getCode() == 200) {
+                $fbUploaded = true;
+            }
         }
-
-        try {
-
-             $fb->removeObject(
-                $fbImageRow->fbPostId,
-                array('access_token' => $accessToken)
-            );
-
-        } catch (Exception $e) {
-var_dump($e->getMessage());
+        if (!empty($fbImageRow)) {
+            $fbImageRow->delete();
         }
 
         $f->delete();
@@ -597,13 +583,23 @@ var_dump($e->getMessage());
             array('LOG_ADMIN_GALLERY_REMOVED', $fname),
             __CLASS__, __FUNCTION__
         );
-
+        
         // Redirect
-        $dialog->construct(
-            'MSG_ADMIN_GALLERY_REMOVED',
-            Cms_Dialog::TYPE_SUCCESS,
-            array('redirect' => '/open/admin-gallery')
-        );
+        if ($fbUploaded) {
+            
+            $dialog->construct(
+                'MSG_ADMIN_GALLERY_CANT_REMOVE_FACEBOOK', 
+                Cms_Dialog::TYPE_SUCCESS,
+                array('redirect' => '/open/admin-gallery')
+             );
+        
+        } else {
+            $dialog->construct(
+                'MSG_ADMIN_GALLERY_REMOVED',
+                Cms_Dialog::TYPE_SUCCESS,
+                array('redirect' => '/open/admin-gallery')
+            );
+        }
     }
 
     public function editAction()
@@ -906,7 +902,8 @@ var_dump($e->getMessage());
         $result = $adapter->request();
         if (!$result->isSuccessful()) {
             $iteration++;
-            return $this->_storeFbImage($url, $tags, $descr);
+            return $this->_storeFbImage($fbPhotoId,
+        $fbAlbumId, $url, $tags, $descr);
         }
 
         // storing data
@@ -918,7 +915,7 @@ var_dump($e->getMessage());
 
         $newPath = self::getFilePath('image', $hash);
         $newPath .= '.' . pathinfo($url, PATHINFO_EXTENSION);
-        
+
         $keyCut = strpos($newPath, "?");
         if ($keyCut) {
             $newPath = substr($newPath, 0, $keyCut);

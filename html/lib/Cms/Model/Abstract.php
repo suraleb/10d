@@ -255,7 +255,7 @@ abstract class Cms_Model_Abstract
         }
 
         // we should parse the name of arg to get function
-        $func = 'set' . preg_replace('~_([a-z])~e', 'ucfirst("$1")', ucfirst($name));
+        $func = 'set' . @preg_replace('~_([a-z])~e', 'ucfirst("$1")', ucfirst($name));
         if (!is_callable(array($this, $func))) {
             throw new Cms_Model_Exception("The '{$func}' method not found");
         }

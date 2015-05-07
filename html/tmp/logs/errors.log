@@ -1,0 +1,8 @@
+[07-May-2015 01:08:42 Europe/Minsk] PHP Fatal error:  Call to a member function asArray() on a non-object in /media/sf_Projects/10denza.com/html/actions/Admin/cGallery.php on line 154
+[07-May-2015 01:08:42 Europe/Minsk] PHP Stack trace:
+[07-May-2015 01:08:42 Europe/Minsk] PHP   1. {main}() /media/sf_Projects/10denza.com/html/index.php:0
+[07-May-2015 01:08:42 Europe/Minsk] PHP   2. call_user_func:{/media/sf_Projects/10denza.com/html/index.php:69}() /media/sf_Projects/10denza.com/html/index.php:69
+[07-May-2015 01:08:42 Europe/Minsk] PHP   3. Admin_cGallery->fbsyncAction()() /media/sf_Projects/10denza.com/html/index.php:69
+[07-May-2015 01:08:42 Europe/Minsk] PHP   4. Cms_Module_Admin->__call() /media/sf_Projects/10denza.com/html/index.php:0
+[07-May-2015 01:08:42 Europe/Minsk] PHP   5. call_user_func:{/media/sf_Projects/10denza.com/html/lib/Cms/Module/Admin.php:58}() /media/sf_Projects/10denza.com/html/lib/Cms/Module/Admin.php:58
+[07-May-2015 01:08:42 Europe/Minsk] PHP   6. Admin_cGallery->fbsyncAction() /media/sf_Projects/10denza.com/html/lib/Cms/Module/Admin.php:58

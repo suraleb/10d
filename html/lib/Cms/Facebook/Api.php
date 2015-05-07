@@ -47,23 +47,7 @@ class Cms_Facebook_Api extends Cms_Facebook
                 $fb->addPermission($id);
             }
         }
-
-        try {
-            // logout if needed
-            if (!$fb->getUser()) {
-                Cms_Core::redirect($fb->getLoginUrl());
-            }
-
-            // if no perms found we should logout and login again
-            $hasPermissions = $fb->checkPermissions();
-            if (!$hasPermissions) {
-                if ($fb->getUser()) {
-                    Cms_Core::redirect($fb->getLogoutUrl());
-                }
-            }
-        } catch (Exception $e) {
-            self::log($e->getMessage(), Zend_Log::WARN);
-        }
+        
 
         return $fb;
     }
@@ -77,7 +61,7 @@ class Cms_Facebook_Api extends Cms_Facebook
      */
     public function fetchAlbums($owner = 'me', array $options = array())
     {
-        return $this->api("/{$owner}/albums", 'GET', $options);
+        return $this->getAction("/{$owner}/albums?limit=300", $options);
     }
 
     /**
@@ -87,19 +71,20 @@ class Cms_Facebook_Api extends Cms_Facebook
      * @param  array $options (Default: array)
      * @return array
      */
-    public function fetchAlbumPhotos($id, array $options = array())
+    public function fetchAlbumPhotos($albumId, array $options = array())
     {
-        return $this->api("/{$id}/photos", 'GET', $options);
+        return $this->getAction("/{$albumId}/photos?limit=300", $options);
+        
     }
 
     public function addPhotoInAlbum($albumId, array $options = array())
     {
-        return $this->api("/{$albumId}/photos", 'POST', $options);
+        return $this->postAction("/{$albumId}/photos", $options);
     }
 
     public function removeObject($objectId, $options = array())
     {
-        return $this->api("/$objectId", 'DELETE', $options);
+        return $this->deleteAction("/{$objectId}", $options);
     }
 
     /**
@@ -117,7 +102,14 @@ class Cms_Facebook_Api extends Cms_Facebook
 
 public function fetchAccounts($options = array())
     {
-        return $this->api('/me/accounts', 'GET', $options);
+        $request = new FacebookRequest(
+            $this->_fbSession,
+            'GET',
+            '/me/accounts',
+            $options    
+        );
+        $response = $request->execute();
+        return $response->getGraphObject();
     }
     
 }

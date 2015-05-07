@@ -433,6 +433,11 @@
 	<tuv xml:lang="en"><seg><![CDATA[System didn't remove the file. Please check file privileges]]></seg></tuv>
 </tu>
 
+<tu tuid='MSG_ADMIN_GALLERY_CANT_REMOVE_FACEBOOK'>
+	<tuv xml:lang="ru"><seg><![CDATA[Файл удален из системы, однако не удалось произвести его удаление со страницы facebook.]]></seg></tuv>
+	<tuv xml:lang="en"><seg><![CDATA[File was deleted from system, but it's didn't remove from facebook. ]]></seg></tuv>
+</tu>
+
 <tu tuid='MSG_ADMIN_GALLERY_ERROR_FILEMOVE'>
 	<tuv xml:lang="ru"><seg><![CDATA[Системе не удалось переместить файл после сохранения на носителе. Проверьте права на временные папки, либо обратитесь в службу поддержки.]]></seg></tuv>
 	<tuv xml:lang="en"><seg><![CDATA[the system didn't manage to move the file after the saving to disk. Check please privileges for temp folders or contact with the system administrator.]]></seg></tuv>
