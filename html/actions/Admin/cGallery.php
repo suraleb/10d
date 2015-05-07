@@ -143,14 +143,14 @@ class Admin_cGallery extends Cms_Module_Admin
         $modelFbAlbums  = new Cms_Model_Facebook_Albums();
         foreach ($set as $pageId) {
             $albumInfo = $fb->fetchAlbums($pageId);
-            if (empty($albumInfo->getProperty('data'))) {
+            if (empty($albumInfo['data'])) {
                 continue;
             }
 
-            foreach ($albumInfo->getProperty('data')->asArray() as $album) {
+            foreach ($albumInfo['data'] as $album) {
 
                 $photosInfo = $fb->fetchAlbumPhotos($album->id);
-                if (empty($photosInfo->getProperty('data'))) {
+                if (empty($photosInfo['data'])) {
                     continue;
                 }
 
@@ -159,31 +159,34 @@ class Admin_cGallery extends Cms_Module_Admin
                     Cms_Tags::encode($album->name)
                 );
 
-                foreach ($photosInfo->getProperty('data')->asArray() as $photo) {
+                foreach ($photosInfo['data'] as $photo) {
                    
-                    $result = $this->_storeFbImage(
-                        $photo->id,
-                        $album->id,
-                        $photo->images[0]->source,
-                        $album->name,
-                        @$photo->name
-                    );
+					$dbPhoto = $modelFbGallery->fetchByImageId($photo->id);
+					if (empty($dbPhoto)) {
+						$result = $this->_storeFbImage(
+							$photo->id,
+							$album->id,
+							$photo->images[0]->source,
+							$album->name,
+							@$photo->name
+						);
  
-                    $modelFbGallery->save(
-                        $result->imageId,
-                        $photo->id,
-                        $album->id,
-                        $photo->from->id . '_' . $photo->id
-                    );
+						$modelFbGallery->save(
+							$result->imageId,
+							$photo->id,
+							$album->id,
+							$photo->from->id . '_' . $photo->id
+						);
 
-                    if ($result->code > 0) {
-                        $this->_messageManager->store(
-                            Cms_Message_Format_Plain::success(sprintf(
-                                $lng->_('MSG_ADMIN_GALLERY_FB_IMG_SUCCESS'),
-                                $photo->id, $album->name
-                            ))
-                        );
-                    }
+						if ($result->code > 0) {
+							$this->_messageManager->store(
+								Cms_Message_Format_Plain::success(sprintf(
+									$lng->_('MSG_ADMIN_GALLERY_FB_IMG_SUCCESS'),
+									$photo->id, $album->name
+								))
+							);
+						}
+					}
                 }
             }
         }

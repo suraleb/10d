@@ -61,7 +61,7 @@ class Cms_Facebook_Api extends Cms_Facebook
      */
     public function fetchAlbums($owner = 'me', array $options = array())
     {
-        return $this->getAction("/{$owner}/albums?limit=300", $options);
+        return $this->getAction("/{$owner}/albums?limit=1001", $options);
     }
 
     /**
@@ -73,8 +73,7 @@ class Cms_Facebook_Api extends Cms_Facebook
      */
     public function fetchAlbumPhotos($albumId, array $options = array())
     {
-        return $this->getAction("/{$albumId}/photos?limit=300", $options);
-        
+        return $this->getAction("/{$albumId}/photos?limit=1001", $options);
     }
 
     public function addPhotoInAlbum($albumId, array $options = array())

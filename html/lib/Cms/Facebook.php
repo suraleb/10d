@@ -315,9 +315,9 @@ class Cms_Facebook
                 $session,
                 'GET',
                 $address
-            ))->execute()->getGraphObject();
+            ))->execute()->getGraphObject()->asArray();
         } else {
-            
+            return null;
         }
     }
     
